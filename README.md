@@ -1,0 +1,2 @@
+# FlameErodeXero
+A Mugen Character
