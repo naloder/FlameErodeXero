@@ -1,0 +1,727 @@
+
+;本體總處理
+[statedef 1000000]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State ]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(SelfAnimExist(-123123123))
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[state 50000]
+type = helper
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!numhelper(60000)
+trigger1 = sysvar(4) = 2
+name = "Konsen-Placehold"
+helpertype = Player
+ID = 8888
+size.height = 8888
+pausemovetime = 2147483647
+supermovetime = 2147483647
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = (numhelper+partner,numhelper+enemy(0),numhelper+enemy(1),numhelper) < 55
+trigger1 =!numhelper(60000)
+value = stateno
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = helper
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!numhelper(60000)
+name = "Konsen-last4"
+helpertype = Player
+ID = 60000
+size.height = (sysvar(4) = 1)*6666+(sysvar(4) = 2)*60000+(sysvar(4)!= [0,2])*66666
+pausemovetime = 2147483647
+supermovetime = 2147483647
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= [0,3]
+value = 37564
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = anim!= 666
+trigger1 = anim!= 170
+trigger1 =!win
+trigger1 = alive
+trigger1 = roundstate > 3
+value = 170
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 1
+trigger1 = anim!= 181
+trigger1 = win
+trigger1 = roundstate > 3
+value = 181
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = anim!= 666
+trigger1 = anim!= [181,182]
+trigger1 = win
+trigger1 = roundstate > 3
+value = 182-matchover
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= [0,2] 
+trigger1 = anim!= 189
+trigger1 = win
+trigger1 = roundstate > 3
+value = 189
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = roundstate = 0
+trigger1 = roundno > 1
+trigger1 = sysvar(4) = 1
+trigger1 = anim!= 192
+value = 192
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = roundstate = 0
+trigger1 = sysvar(4) = 1
+trigger1 = roundno = 1
+trigger1 = anim!= 193
+value = 193
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = roundstate = 0
+trigger1 = roundno > 1
+trigger1 = sysvar(4) = 2
+trigger1 = anim!= 1921
+value = 192
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!var(29)
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 194
+value = 194
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = var(29) = 2
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 1999&&anim!= 19999
+value = 1999
+ignorehitpause = 1
+
+[state -2]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = roundstate = 0
+trigger1 = sysvar(4) != [0,2]
+trigger1 = roundno = 1
+trigger1 = anim!= 199
+value = 199
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = var(29) = 848366
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 1948366
+value = 19848366
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = anim!= 666&&anim!= 7001
+trigger1 = var(53) > 10
+trigger1 = hitpausetime > 2
+value = 1100000
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 =!(var(4)&256)
+trigger1 = Alive!= 1
+value = 1000010
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 =!(var(4)&512)
+trigger1 = Palno!= 1
+value = 1000011
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&256)
+trigger1 = Alive!= -1
+trigger1 = fvar(1) = [0,4999]
+value = 1000001
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&256)
+trigger1 = (Alive!= -2147483648)
+trigger1 = fvar(1) = [5000,9999]
+value = 1000002
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&256)
+trigger1 = (Alive!= -666)
+trigger1 = fvar(1) = [10000,14999]
+value = 1000003
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&256)
+trigger1 = (Alive!= gametime)
+trigger1 = fvar(1) = [15000,24999]
+value = 1000004
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&512)
+trigger1 = (Palno!= 0)
+trigger1 = fvar(1) = [0,4999]
+value = 1000005
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&512)
+trigger1 = (Palno!= 13)
+trigger1 = fvar(1) = [5000,9999]
+value = 1000006
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&512)
+trigger1 = (Palno!= 2147483647)
+trigger1 = fvar(1) = [10000,14999]
+value = 1000007
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&512)
+trigger1 = Palno!= -666
+trigger1 = fvar(1) = [15000,19999]
+value = 1000008
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!!hitpausetime
+trigger1 = roundstate = 2&&!!(var(4)&512)
+trigger1 = (Palno!= gametime)
+trigger1 = fvar(1) = [20000,24999]
+value = 1000009
+persistent = 256
+ignorehitpause = 1
+
+
+[State ]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+value = sysfvar(1)
+persistent = 256
+ignorehitpause = 1
+
+;alive偽裝 -1
+[statedef 1000001]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3840):= -1
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;alive偽裝 -2147483648
+[statedef 1000002]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3840):= -2147483648
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;alive偽裝 -666
+[statedef 1000003]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3840):= -666
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;alive偽裝 gametime
+[statedef 1000004]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3840):= gametime
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;palno偽裝 0P
+[statedef 1000005]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= -1
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;palno偽裝 13P
+[statedef 1000006]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= 12
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;palno偽裝 2147483647P
+[statedef 1000007]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= 2147483646
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;palno偽裝 -666P
+[statedef 1000008]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= -667
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;palno偽裝 gametimeP
+[statedef 1000009]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= gametime-1
+ignorehitpause = 1
+
+[state ]
+type = selfstate
+trigger1 =!ishelper
+value = 1000000
+persistent = 256
+ignorehitpause = 1
+
+;alive偽裝 回復
+[statedef 1000010]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3840):= 1
+ignorehitpause = 1
+
+;palno偽裝 回復
+[statedef 1000011]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+5436):= 0
+ignorehitpause = 1
+
+;凍結解除&下一幀凍結賦予
+;將自己的hitpausetime刷為0以解除凍結狀態，以免在刷完值後影響正常動作
+[statedef 1100000]
+type = U
+movetype = U
+physics = U
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = null
+trigger1 =!ishelper&&!!hitpausetime
+trigger1 = var(var(470)+3816):= 128
+trigger1 = 1 || var(var(470)+3824):= 0
+trigger1 = var(var(470)+3822):= 2
+ignorehitpause = 1
+
+;影のID変更
+[Statedef 2000000]
+type = U
+movetype = U
+physics = N
+hitdefpersist = 1
+[State 1]
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 =!hitpausetime
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+[State 2]
+type = changestate
+trigger1 =!ishelper
+value = 52
+persistent = 256
+ignorehitpause = 1
+[state ];親ID調整結束
+type = changestate
+trigger1 =!!hitpausetime
+trigger1 = var(var(470)+5704):= 0
+value = 7008;探査待機
+persistent = 256
+ignorehitpause = 1
+
+;親ID調整
+[Statedef 2000001]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+[State ];1
+type = ChangeState
+triggerall = (!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[State ];
+type = ChangeState
+trigger1 =!hitpausetime
+value = prevstateno
+persistent = 256
+ignorehitpause = 1
+
+[State , 已經親變更了]
+type = ChangeState
+trigger1 = (var(7)&-2147483648)
+value = 10003
+persistent = 256
+ignorehitpause = 1
+
+[state , target地址]
+type = varset
+trigger1 =!!hitpausetime
+trigger1 = sysvar(0) > 262144
+trigger1 = 1 || var(var(470)+5700):= const(size.height)
+trigger1 = 1 || var(var(470)+5704):= target,id
+trigger1 = var(sysvar(0)+5700)!= 666666666
+sysvar(1) = var(sysvar(0)+5700)
+ignorehitpause = 1
+
+[state ];親ID調整結束
+type = changestate
+trigger1 = ishelper&&const(size.height) = [10000,10024]
+value = 10003 + 0*(var(7) := (var(7)|-2147483648))
+persistent = 256
+ignorehitpause = 1
