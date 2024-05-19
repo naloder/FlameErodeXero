@@ -1,0 +1,6506 @@
+; Common state file for M.U.G.E.N beta 2002; System variables usage
+; ----------------------
+; Var name    Type   Purpose
+; --------    ----   -------
+; sysvar(0)   Temp   Set by state 5081 (HITL_SLIDE) to 1 to prevent
+;                    showing ground hit frame in state 5110 (HIT_LIEDOWN).
+;                    Used by guarding states.
+; sysvar(1)   Temp   Used by state 40 (Jump Start) amd 45 (Air Jump Start)
+;                    to keep track of which way to jump.
+;                    Used by state 5100 and 5110 to remember downward
+;                    velocity of player just before hitting the ground.
+;                    Used in state 5080 for storing the anim # to display.
+
+; The following states have special handling within MUGEN, and should be
+; overridden with caution:
+; Jump Start (40): airjumping bookkeeping at time = 0
+; All guard states (120-155): guard handling throughout state
+; Hit_trip, shaking (5070): defence increases at time = 0
+; Hit_bounce (5100): defence increases at time = 0, player becomes
+;                    invincible if within 10 ticks of getting up
+; Hit_liedown (5110): player changes to get-up state (5120) when ready
+; Hit_getup (5120): player's defence is restored to normal at time = 0
+; Hitfall_recover (5200): player's defence is restored at time = 0
+; Hitfall_airrecover (5210): player's defence is restored at time = 0
+
+;---------------------------------------------------------------------------
+; Stand
+[Statedef 0]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+sprpriority = -1*!ishelper
+
+[State 0]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 0]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 0]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = roundstate > 1
+trigger1 = alive = 0
+trigger1 =!hitpausetime
+movetype = A
+ignorehitpause = 1
+
+[State ]
+type = MoveHitReset
+trigger1 = name = "Finaltly_Death_Claw"
+ignorehitpause = 1
+
+[State 0, 1]
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"&&(sysvar(4) = [0,1])
+trigger1 = (Anim != [0,1]) && Anim != 5
+trigger2 = Anim = 5 &&!AnimTime ;Turn anim over
+value = 0
+ignorehitpause = 1
+
+[State 0, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"&&sysvar(4) = 2
+;trigger1 = (Anim != [0,1]) && Anim != 5
+;trigger2 = Anim = 5 &&!AnimTime ;Turn anim over
+value = 1
+elem = (sysvar(3)%198)/6
+ignorehitpause = 1
+
+[State 0, 1]
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"&&(sysvar(4)!= [0,2])
+trigger1 = Anim != 2 && Anim != 5
+trigger2 = Anim = 5 &&!AnimTime ;Turn anim over
+value = 2
+ignorehitpause = 1
+
+[state ,凍結獲取]
+type = hitdef
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = roundstate > 1
+trigger1 = alive = 0
+trigger1 =!hitpausetime
+attr = ,HP
+pausetime = 10,0
+numhits = 0
+sparkno = -1
+hitsound = -1
+affectteam = F
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+value = (fvar(1)>200)*(roundstate = 2)
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 3
+value = 1
+ignorehitpause = 1
+
+
+[State ]
+type = MoveHitReset
+trigger1 = name = "Finaltly_Death_Claw"
+ignorehitpause = 1
+
+[State PosSet]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+y = 0
+ignorehitpause = 1
+
+[State 0, AfterImage]
+type = null;AfterImage
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+time = -1
+length = 20
+PalBright   = 256,0,0
+PalContrast = 256,0,0
+PalAdd      = 256,0,0
+Trans = Add
+TimeGap  = 1
+framegap = 1
+ignorehitpause = 1
+
+[State 0, 2]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 0, 3] ;Stop moving if low velocity or 4 ticks pass
+type = VelSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = abs(vel x) < 2
+trigger2 = animelemtime(1) = 4
+x = 0
+ignorehitpause = 1
+
+[State 0, 5] ;Are you dead?
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = [0,1]
+trigger1 = !alive
+value = 5050
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Stand to Crouch
+[Statedef 10]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 10]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 10]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 10]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = C
+movetype = I
+physics = C
+ignorehitpause = 1
+
+[State 10]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 10
+value = 10
+ignorehitpause = 1
+
+[State 10, 1]
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+x = .75
+ignorehitpause = 1
+
+[State 10, 2]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 11
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Crouching
+[Statedef 11]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 11]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 11]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 11]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = C
+movetype = I
+physics = C
+ignorehitpause = 1
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Anim!= 11
+value = 11
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Crouch to Stand
+[Statedef 12]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 12]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 12]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 12]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 12]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 12
+value = 12
+ignorehitpause = 1
+
+[State 12, 1]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Walk
+[Statedef 20]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 20]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 20]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 20, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = command = "holdfwd"
+x = const(velocity.walk.fwd.x)
+
+[State 20, 2]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = command = "holdback"
+x = const(velocity.walk.back.x)
+ignorehitpause = 1
+
+[State ]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = vel x > 0
+trigger1 =!ishelper
+trigger1 = anim != 20
+value = 20
+ignorehitpause = 1
+
+[State ]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = vel x < 0
+trigger1 =!ishelper
+trigger1 = anim != 21
+value = 21
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = vel x = 0
+trigger1 =!ishelper
+trigger1 = anim != 0
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Walk
+[Statedef 21]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 20]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 20]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 20, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.walk.fwd.x)
+ignorehitpause = 1
+
+[State 22, 3]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x > 0
+trigger1 = anim != 20 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 20
+ignorehitpause = 1
+
+[State 22, 4]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x < 0
+trigger1 = anim != 21 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 21
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = vel x = 0
+trigger1 =!ishelper
+trigger1 = anim != 0
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Walk
+[Statedef 22]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 20]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 20]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 20, 2]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.walk.back.x)
+ignorehitpause = 1
+
+[State 22, 3]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x > 0
+trigger1 = anim != 20 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 20
+ignorehitpause = 1
+
+[State 22, 4]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x < 0
+trigger1 = anim != 21 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 21
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = vel x = 0
+trigger1 =!ishelper
+trigger1 = anim != 0
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;-----------------------------------------------------------------------------------------------------
+;Dusk AI用前进
+[Statedef 23]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 20]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 20]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 21, 1]
+type = turn
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = p2dist x < 0
+ignorehitpause = 1
+
+[State 21, 1]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.walk.fwd.x)
+ignorehitpause = 1
+
+[State 21, 3]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x > 0
+trigger1 = anim != 20 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 20
+ignorehitpause = 1
+
+[State 21, 4]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x < 0
+trigger1 = anim != 21 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 21
+
+[State 0,]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = p2life <= 0
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;Dusk AI用后退
+[Statedef 24]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 20]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 20]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[state 20]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 22, 1]
+type = turn
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = p2dist x < 0
+ignorehitpause = 1
+
+[State 22, 1]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.walk.back.x)
+ignorehitpause = 1
+
+[State 22, 3]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x > 0
+trigger1 = anim != 20 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 20
+ignorehitpause = 1
+
+[State 22, 4]
+type = Changeanim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = vel x < 0
+trigger1 = anim != 21 && anim != 5
+trigger2 = anim = 5 &&!AnimTime
+value = 21
+ignorehitpause = 1
+
+[State 0,]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = p2life <= 0
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Jump Start
+[Statedef 40]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 40]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 40]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 40]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 40]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[state 40]
+type = changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 40
+value = 40
+ignorehitpause = 1
+
+[State snd]
+type = playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+value = s3,0
+ignorehitpause = 1
+
+[State 40, sysvar代替]
+type = projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !numprojid(404040)
+trigger1 = command = "holdfwd"
+projanim = anim
+projscale = 0,0
+projid = 404040
+projedgebound = 2000000000
+projstagebound = 2000000000
+projheightbound = -2147483647,2147483647
+pausemovetime = 2147483647
+supermovetime = 2147483647
+projremovetime = abs(animtime) + 1
+ignorehitpause = 1
+
+[State 40, sysvar代替]
+type = projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !numprojid(404041)
+trigger1 = command = "holdback"
+projanim = anim
+projscale = 0,0
+projid = 404041
+projedgebound = 2000000000
+projstagebound = 2000000000
+projheightbound = -2147483647,2147483647
+pausemovetime = 2147483647
+supermovetime = 2147483647
+projremovetime = abs(animtime) + 1
+ignorehitpause = 1
+
+[State 40, 4]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+x = ifelse((numprojid(404040) + numprojid(404041) = 0), const(velocity.jump.neu.x), ifelse(numprojid(404040), const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+ignorehitpause = 1
+
+[State 40, 5]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+trigger1 = prevstateno = 100 ;RUN_FWD
+trigger1 = numprojid(404040)
+x = const(velocity.runjump.fwd.x)
+ignorehitpause = 1
+
+[State 40, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 50
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; AirJump Start
+[Statedef 45]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 45]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno!= [1000043,1000046]
+trigger1 = prevstateno!= [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 45]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 45]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 45]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 45, 2]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Anim!= 41
+value = 41
+ignorehitpause = 1
+
+[State snd]
+type = playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+value = s3,0
+ignorehitpause = 1
+
+[State 45, sysvar代替]
+type = projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !numprojid(404040)
+trigger1 = command = "holdfwd"
+projanim = anim
+projscale = 0,0
+projid = 404040
+projedgebound = 2000000000
+projstagebound = 2000000000
+projheightbound = -2147483647,2147483647
+pausemovetime = 2147483647
+supermovetime = 2147483647
+projremovetime = abs(animtime) + 1
+ignorehitpause = 1
+
+[State 45, sysvar代替]
+type = projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !numprojid(404041)
+trigger1 = command = "holdback"
+projanim = anim
+projscale = 0,0
+projid = 404041
+projedgebound = 2000000000
+projstagebound = 2000000000
+projheightbound = -2147483647,2147483647
+pausemovetime = 2147483647
+supermovetime = 2147483647
+projremovetime = abs(animtime) + 1
+ignorehitpause = 1
+
+[State 45, 6]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 2
+x = ifelse((numprojid(404040) + numprojid(404041) = 0), const(velocity.airjump.neu.x), ifelse(numprojid(404040), const(velocity.airjump.fwd.x), const(velocity.airjump.back.x)))
+y = const(velocity.airjump.y)
+ignorehitpause = 1
+
+[State 45, 7]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) >= 2
+value = 50
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Jump Up
+[Statedef 50]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 50]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 50]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 50]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = I
+physics = A
+ignorehitpause = 1
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim = 40
+value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
+ignorehitpause = 1
+
+[State 50, 3]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel y > -2
+trigger1 = SelfAnimExist(anim + 3)
+persistent = 0
+value = Anim + 3
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Jump Down (empty state for compatibility)
+[Statedef 51]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 51]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 51]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 51]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = I
+physics = A
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Jump Land
+[Statedef 52]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 52]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 52]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 52]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 52]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 52]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 47
+value = 47
+ignorehitpause = 1
+
+[State 52, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 52, 2]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 52, 3]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+value = 1
+ignorehitpause = 1
+
+[State 52, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 3
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_FWD
+[Statedef 100]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 100]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 100]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 100]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State snd]
+type = playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 100
+value = s4,0
+ignorehitpause = 1
+
+[State 100]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 100
+value = 100
+ignorehitpause = 1
+
+[State 装饰用Explod]
+type = Explod
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = gametime%15 = 0
+anim = 7996+Random%2
+ID = 1
+pos = 0,-Random%80
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 2147483647
+supermovetime = 2147483647
+scale = 0.1,0.1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause =1
+
+[State 100, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.run.fwd.x)
+ignorehitpause = 1
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = name = "Finaltly_Death_Claw"
+flag = NoWalk
+ignorehitpause = 1
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = name = "Finaltly_Death_Claw"
+flag = NoAutoTurn
+ignorehitpause = 1
+
+[State 100, 4]
+type = ChangeState
+trigger1 =!(var(59)&1)
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = command != "holdfwd"
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_FWD
+[Statedef 104]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+sprpriority = -9
+
+[State 100]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 100]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 100]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State snd]
+type = playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 100
+value = s4,0
+ignorehitpause = 1
+
+[State 100]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 100
+value = 100
+ignorehitpause = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!!(var(59)&1)
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!(var(59)&1)
+value = 1
+ignorehitpause = 1
+persistent = 1
+
+[State 100, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+x = const(velocity.run.fwd.x)
+ignorehitpause = 1
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = playerpush
+trigger1 = name = "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = name = "Finaltly_Death_Claw"
+flag = NoWalk
+ignorehitpause = 1
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = name = "Finaltly_Death_Claw"
+flag = NoAutoTurn
+ignorehitpause = 1
+
+[State 100, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !(var(59)&1)
+trigger1 = command != "holdfwd"
+value = 0
+ignorehitpause = 1
+
+[State 100, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!!(var(59)&1)
+trigger1 = p2dist x <= 60
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_BACK
+[Statedef 105]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 105]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 105]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 105]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = I
+physics = A
+ignorehitpause = 1
+
+[State 105]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 105]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 105
+value = 105
+ignorehitpause = 1
+
+[State snd]
+type = playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+value = s4,0
+ignorehitpause = 1
+
+
+[State 105, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+x = const(velocity.run.back.x)
+y = const(velocity.run.back.y)
+ignorehitpause = 1
+
+[State 105, 2]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 2
+value = 1
+ignorehitpause = 1
+
+[State 105, 3]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 106
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_BACK2 (land)
+[Statedef 106]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 106]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 106]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 106]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 106]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 106]
+type = Changeanim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim != 106
+value = 106
+ignorehitpause = 1
+
+[State 106, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 106, 2]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 106, 3]
+type = MakeDust
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 2
+pos = -5,-2
+spacing = 1
+ignorehitpause = 1
+
+[State 106, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 7
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_UP
+[Statedef 110]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 110]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 110]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 110]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 110, 0]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 0
+ignorehitpause = 1
+
+[State 110, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 110
+ignorehitpause = 1
+
+[State 110, 2]
+type = HitBy
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = SCA, NT, ST, HT
+time = 30
+ignorehitpause = 1
+
+[State 110, 3]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+z = -7
+ignorehitpause = 1
+
+[State 110, 4]
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+z = 0.8
+ignorehitpause = 1
+
+[State 110, 5]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimTime = -8
+z = 0
+ignorehitpause = 1
+
+[State 110, 7]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 1
+ignorehitpause = 1
+
+[State 110, 8]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; RUN_DOWN
+[Statedef 115]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 115]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 115]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 115]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 115, 0]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 0
+ignorehitpause = 1
+
+[State 115, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 110
+ignorehitpause = 1
+
+[State 115, 2]
+type = HitBy
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = SCA, NT, ST, HT
+time = 30
+ignorehitpause = 1
+
+[State 115, 3]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+z = 7
+ignorehitpause = 1
+
+[State 115, 4]
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+z = 0.8
+ignorehitpause = 1
+
+[State 115, 5]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimTime = -8
+z = 0
+ignorehitpause = 1
+
+[State 115, 7]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 1
+ignorehitpause = 1
+
+[State 115, 8]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; GUARD (start)
+[Statedef 120]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 120]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger1 = prevstateno != 666666666
+trigger1 = prevstateno != [777777777,777777778]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 120]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 120, 1]
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+value = 120 + (statetype = C) + (statetype = A)*2
+ignorehitpause = 1
+
+[State 120, 2]
+type = StateTypeSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 120, 3]
+type = StateTypeSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 120, 4]
+type = StateTypeSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = A
+physics = A
+ignorehitpause = 1
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 120, 5]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!AnimTime
+value = 130 + (statetype = C) + (statetype = A)*2
+ignorehitpause = 1
+
+[State 120, Stop Guarding]
+type = ChangeState
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+ignorehitpause = 1
+
+[state 120]
+type = null
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= [0,2]
+trigger1 = var(var(355)+3060):= -666
+trigger1 = var(var(355)+3064):= 666
+ignorehitpause = 1
+
+
+;---------------------------------------------------------------------------
+; STAND GUARD (guarding)
+[Statedef 130]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 130]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 130]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 130]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 130, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!(var(59)&1)
+trigger1 =!sysvar(4)
+trigger1 = Anim != 130
+value = 130
+ignorehitpause = 1
+
+[State 130, Hi to Lo]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!(var(59)&1)
+trigger1 =!sysvar(4)
+trigger1 = command = "holddown"
+value = 131
+ignorehitpause = 1
+
+[State 130, Stop Guarding]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 =!(var(59)&1)
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+ignorehitpause = 1
+
+[state 130,Dusk ]
+type = changestate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!!(var(59)&1)
+trigger1 = !inguarddist || enemynear(var(54)),hitdefattr = sca,at
+value = 140
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; CROUCH GUARD (guarding)
+[Statedef 131]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 131]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 131]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 131]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 131, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!(var(59)&1)
+trigger1 =!sysvar(4)
+trigger1 = Anim != 131
+value = 131
+ignorehitpause = 1
+
+[State 131, Lo to Hi]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!(var(59)&1)
+trigger1 =!sysvar(4)
+trigger1 = command != "holddown"
+value = 130
+ignorehitpause = 1
+
+[State 131, Stop Guarding]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 =!(var(59)&1)
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+ignorehitpause = 1
+
+[state 130,Dusk ]
+type = changestate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!!(var(59)&1)
+trigger1 = !inguarddist || enemynear(var(54)),hitdefattr = sca,at
+value = 140
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; AIR GUARD (guarding)
+[Statedef 132]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 132]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 132]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 132]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+physics = N
+ignorehitpause = 1
+
+[State 132, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = Anim != 132
+value = 132
+ignorehitpause = 1
+
+[State 132, 2]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+y = Const(movement.yaccel)
+ignorehitpause = 1
+
+[State 132, 3]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = Pos Y >= 0 && Vel Y >= 0
+y = 0
+ignorehitpause = 1
+
+[State 132, 4]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = Pos Y >= 0 && Vel Y >= 0
+y = 0
+ignorehitpause = 1
+
+[State 132, 5]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = Pos Y >= 0 && Vel Y >= 0
+trigger1 = command = "holdback"
+trigger1 = inguarddist
+value = 130
+ignorehitpause = 1
+
+[State 132, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = Pos Y >= 0 && Vel Y >= 0
+value = 52
+ignorehitpause = 1
+
+[State 132, Stop Guarding]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; GUARD (end)
+[Statedef 140]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 140]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 140]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 140]
+type = ctrlset
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+value = 1
+ignorehitpause = 1
+
+[State 140, 1]
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+value = 140 + (statetype = C) + (statetype = A)*2
+ignorehitpause = 1
+
+[State 140, 2]
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 140, 3]
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 140, 4]
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3) && statetype = A
+physics = A
+ignorehitpause = 1
+
+[State 140, Hi to Lo]
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 140, Lo to Hi]
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+;[State 140, 5] ;Implemented within engine
+;type = ChangeState
+;trigger1 = name = "Finaltly_Death_Claw"
+;trigger1 =!AnimTime
+;value = (statetype = C)*11 + (statetype = A)*51
+;ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; SGUARDHIT (shaking)
+[Statedef 150]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 150]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 150]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 150]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 150]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 150, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 150
+value = 150
+ignorehitpause = 1
+
+[State 150, 2]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = HitShakeOver
+value = 151 + 2*(command = "holddown")
+ignorehitpause = 1
+
+[State 150, Hi to Lo]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 150, Lo to Hi]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 150, 3]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+waveform = square
+time = 3
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; SGUARDHIT2 (knocked back)
+[Statedef 151]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 151]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 151]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 151]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+movetype = H
+physics = S
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 150
+value = 150
+ignorehitpause = 1
+
+[State 151, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+x = 1
+ignorehitpause = 1
+
+[State 151, 2]
+type = VelSet
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 = sysvar(3) = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+ignorehitpause = 1
+
+[State 151, 3]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = sysvar(3) = GetHitVar(ctrltime)
+value = 1
+ignorehitpause = 1
+
+[State 151, Hi to Lo]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 151, Lo to Hi]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 151, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = HitOver
+value = 130
+ctrl = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; CGUARDHIT (shaking)
+[Statedef 152]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 152]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 152]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 152]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = C
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 152]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 152, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 151
+value = 151
+ignorehitpause = 1
+
+[State 152, 3]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = HitShakeOver
+value = 151 + 2*(command = "holddown")
+ignorehitpause = 1
+
+[State 152, Hi to Lo]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 152, Lo to Hi]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 152, 4]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+waveform = square
+time = 4
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; CGUARDHIT2 (knocked back)
+[Statedef 153]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 153]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 153]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 153]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = C
+movetype = H
+physics = C
+ignorehitpause = 1
+
+[State 153]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 151
+value = 151
+ignorehitpause = 1
+
+[State 153, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+x = 1
+ignorehitpause = 1
+
+[State 153, 2]
+type = VelSet
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(4)
+trigger1 = sysvar(3) = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+ignorehitpause = 1
+
+[State 153, 3]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = sysvar(3) = GetHitVar(ctrltime)
+value = 1
+ignorehitpause = 1
+
+[State 153, Hi to Lo]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+ignorehitpause = 1
+
+[State 153, Lo to Hi]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+ignorehitpause = 1
+
+[State 153, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = HitOver
+value = 131
+ctrl = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; AGUARDHIT (shaking)
+[Statedef 154]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 154]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 154]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 154]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 154]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 154, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+value = 152
+ignorehitpause = 1
+
+[State 154, 2]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = HitShakeOver
+value = 155 ;AGUARDHIT2
+ignorehitpause = 1
+
+[State 154, 3]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+waveform = square
+time = 4
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; AGUARDHIT2 (knocked away)
+[Statedef 155]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 155]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 155]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 155]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 155]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 152
+value = 152
+ignorehitpause = 1
+
+[State 155, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 =!sysvar(3)
+x = 1
+y = 1
+ignorehitpause = 1
+
+[State 155, 2]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+y = Const(movement.yaccel)
+ignorehitpause = 1
+
+[State 155, 3]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = sysvar(3) = GetHitVar(ctrltime)
+value = 1
+ignorehitpause = 1
+
+[State 155, 4]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = (pos y >= 0) && (vel y > 0)
+y = 0
+ignorehitpause = 1
+
+[State 155, 5]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = (pos y >= 0) && (vel y > 0)
+y = 0
+ignorehitpause = 1
+
+[State 155, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = (pos y >= 0) && (vel y > 0)
+trigger1 = command = "holdback"
+trigger1 = inguarddist
+value = 130
+ignorehitpause = 1
+
+[State 155, 7]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = (pos y >= 0) && (vel y > 0)
+value = 52
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; LOSE (Time over)
+[Statedef 170]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 170]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 170]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 170]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 170]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 170
+value = 170
+ignorehitpause = 1
+
+[State 170]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; DRAWGAME (Time over)
+[Statedef 175]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 175]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 175]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 175, 1] ; If no anim, use go to lose state.
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = !SelfAnimExist(175)
+value = 170
+ignorehitpause = 1
+
+[State 175]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 175, 2]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 175
+value = 175
+ignorehitpause = 1
+
+[State 175]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 175, 3]
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; PREINTRO
+[Statedef 190]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 190]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 190]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 190]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 190, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Roundno = 1
+trigger1 = SelfAnimExist(190)
+value = 190
+
+[State 190, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Roundno >= 2
+trigger1 = SelfAnimExist(191)
+value = 191
+
+[State 190, 2] ;Go straight to intro.
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+;trigger1 = sysvar(4)!= 3
+trigger1 = Roundno = 1
+value = 191
+ignorehitpause = 1
+
+;[State 190, 2] ;Go straight to intro.
+;type = ChangeState
+;trigger1 = name = "Finaltly_Death_Claw"
+;trigger1 =!sysvar(3)
+;trigger1 = sysvar(4) = 3
+;trigger1 = Roundno = 1
+;value = 193
+ignorehitpause = 1
+
+[State 190]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 康不到我]
+type = AssertSpecial
+trigger1 = name = "Finaltly_Death_Claw"
+flag = invisible
+ignorehitpause = 1
+
+[State 切]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = Roundno >= 2
+value = 192
+ctrl = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; INTRO (override this state to give character an intro)
+[Statedef 191]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 191]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 191]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State 191]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 191, 1]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITG_SHAKE
+[Statedef 5000]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5000]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5000]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5000]
+type = statetypeset
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5000]
+type = statetypeset
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = S
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5000]
+type = velset
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) != [3,5]
+value = ifelse((GetHitVar(groundtype) = 1),5000,5010) + GetHitVar(animtype)
+ignorehitpause = 1
+
+[State 5000, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+ignorehitpause = 1
+
+[State 5000, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+ignorehitpause = 1
+
+[State 5000, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!ishelper
+trigger1 = sysvar(3) > 0
+value = anim
+ignorehitpause = 1
+
+[State 5000, 5] ;State type gets set to aerial if getting hit up
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!ishelper
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = a
+ignorehitpause = 1
+
+[State 5000, 6]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
+value = 5001 ;HITG_SLIDE
+ignorehitpause = 1
+
+[State 5000, 7]
+type = ChangeState
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+value = 5030
+ignorehitpause = 1
+
+[State 5000, FFB Light]
+type = ForceFeedback
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = anim = 5000
+trigger2 = anim = 5010
+persistent = 0
+time = 6
+waveform = square
+ignorehitpause = 1
+
+[State 5000, FFB Medium]
+type = ForceFeedback
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = anim = 5001
+trigger2 = anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+ignorehitpause = 1
+
+[State 5000, FFB Hard]
+type = ForceFeedback
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = anim = 5012
+trigger2 = anim = 5002
+trigger3 = anim = 5030
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITG_SLIDE
+[Statedef 5001]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5001]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5001]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5001]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+movetype = H
+physics = S
+ignorehitpause = 1
+
+[State 5001]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 5001, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 1
+ignorehitpause = 1
+
+[State 5001, 2]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 5005 + GetHitVar(animtype) + (GetHitVar(groundtype)=2)*10
+ignorehitpause = 1
+
+[State 5001, 3] ;Stop sliding back
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) >= GetHitVar(slidetime)
+x = .6
+ignorehitpause = 1
+
+[State 5001, 4]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+x = 0
+ignorehitpause = 1
+
+[State 5001, 5]
+type = DefenceMulSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 1
+ignorehitpause = 1
+
+[State 5001, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITC_SHAKE
+[Statedef 5010]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5010]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5010]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5010]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = C
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5010]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = C
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5010]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5010, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) != [3,5]
+value = 5020 + GetHitVar(animtype)
+ignorehitpause = 1
+
+[State 5010, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+ignorehitpause = 1
+
+[State 5010, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+ignorehitpause = 1
+
+[State 5010, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) > 0
+value = anim
+ignorehitpause = 1
+
+[State 5010, 5] ;State type gets set to aerial if getting hit up
+type = StateTypeSet
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+trigger1 = GetHitVar(yvel) != 0 || GetHitVar(fall)
+trigger2 = Pos Y != 0
+statetype = a
+ignorehitpause = 1
+
+[State 5010, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
+value = 5011 ;HITC_SLIDE
+ignorehitpause = 1
+
+[State 5010, 7]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+value = 5030
+ignorehitpause = 1
+
+[State 5010, FFB Light]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5020
+persistent = 0
+time = 6
+waveform = square
+ignorehitpause = 1
+
+[State 5010, FFB Medium]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5021
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+ignorehitpause = 1
+
+[State 5010, FFB Hard]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5022
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITC_SLIDE
+[Statedef 5011]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5011]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5011]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5011]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = C
+movetype = H
+physics = C
+ignorehitpause = 1
+
+[State 5011]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = C
+movetype = I
+physics = C
+ignorehitpause = 1
+
+[State 5011, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 1
+ignorehitpause = 1
+
+[State 5011, 2]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 5025 + GetHitVar(animtype)
+ignorehitpause = 1
+
+[State 5011, 3] ;Stop sliding back
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) >= GetHitVar(slidetime)
+x = .6
+ignorehitpause = 1
+
+[State 5011, 4]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+x = 0
+ignorehitpause = 1
+
+[State 5011, 5]
+type = DefenceMulSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 1
+ignorehitpause = 1
+
+[State 5011, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 11
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITA_SHAKE
+[Statedef 5020]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5020]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5020]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5020]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5020]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5020]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) != [3,5]
+value = ifelse((GetHitVar(airtype) = 1),5000,5010) + GetHitVar(animtype)
+ignorehitpause = 1
+
+[State 5020, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+ignorehitpause = 1
+
+[State 5020, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+ignorehitpause = 1
+
+[State 5020, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) > 0
+value = anim
+ignorehitpause = 1
+
+[State 5020, 5]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+value = 5030
+ignorehitpause = 1
+
+[State 5020, FFB Light]
+type = ForceFeedback
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5000
+trigger2 = anim = 5010
+persistent = 0
+time = 6
+waveform = square
+ignorehitpause = 1
+
+[State 5020, FFB Medium]
+type = ForceFeedback
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5001
+trigger2 = anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+ignorehitpause = 1
+
+[State 5020, FFB Hard]
+type = ForceFeedback
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = anim = 5012
+trigger2 = anim = 5002
+trigger3 = anim = 5030
+trigger4 = anim = [5051,5059]
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITA_UP (initial going up)
+[Statedef 5030]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5030]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5030]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5030]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5030]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5030]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 5030, 1]
+type = VelAdd;Gravity
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5030, 2]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 1
+y = 1
+ignorehitpause = 1
+
+[State 5030, 3]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = !HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= 10  ;.
+value = 5040 ;HITA_RECOV
+ignorehitpause = 1
+
+[State 5030, 4]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= 10  ;.
+value = 5050 ;HITA_FALL
+ignorehitpause = 1
+
+[State 5030, 5]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 5035 ;HITA_UP (transition)
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITA_UP_T (transition)
+[Statedef 5035]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5035]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5035]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5035]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5035]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5035, 1]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = SelfAnimExist(5035)
+trigger1 = Anim != [5051,5059] ;Not if in hit up anim
+trigger1 = Anim != 5090 ;Not if hit off ground anim
+value = 5035
+ignorehitpause = 1
+
+[State 5035, 2]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5035, 3]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = !HitFall
+trigger1 = HitOver  ;Hit is over
+trigger2 =!AnimTime ;Animation over
+trigger3 = Vel Y > 0    ;Hit ground
+trigger3 = Pos Y >= 10  ;.
+trigger4 =!sysvar(3)     ;No transition anim
+trigger4 = Anim != 5035 ;.
+value = 5040 ;HITA_RECOV
+ignorehitpause = 1
+
+[State 5035, 4]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = HitFall
+trigger1 = HitOver  ;Hit is over
+trigger2 =!AnimTime ;Anim is over
+trigger3 = Vel Y > 0    ;Hit ground
+trigger3 = Pos Y >= 10  ;.
+trigger4 =!sysvar(3)     ;No transition anim
+trigger4 = Anim != 5035 ;.
+value = 5050 ;HITA_FALL
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITA_RECOV (recovering in air, not falling)
+[Statedef 5040]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5040]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5040]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5040]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5040]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5040, 1]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !Alive
+value = 5050
+ignorehitpause = 1
+
+[State 5040, 2]
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+trigger1 = Anim != 5040
+trigger2 =!sysvar(3)
+trigger2 = Anim != 5035
+value = 5040
+ignorehitpause = 1
+
+[State 5040, 3]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 1
+ignorehitpause = 1
+
+[State 5040, 4]
+type = StateTypeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+movetype = I
+ignorehitpause = 1
+
+[State 5040, 5]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5040, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52 ;JUMPLAND
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITA_FALL (knocked up, falling)
+[Statedef 5050]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5050]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5050]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5050]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5050]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5050, 1] ;Change anim when done with transition
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+trigger1 = Anim = 5035
+trigger2 =!sysvar(3)     ;If no transition anim
+trigger2 = Anim != 5035
+trigger2 = (Anim != [5051, 5059]) && (Anim != [5061, 5069])
+trigger2 = Anim != 5090 ;Not if hit off ground anim
+value = 5050
+ignorehitpause = 1
+
+[State 5050, 2] ;Coming down anim
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim = [5050,5059]
+trigger1 = Vel Y >= ifelse(anim = 5050, 1, -2)
+trigger1 = SelfAnimExist(anim+10)
+value = anim+10
+persistent = 0
+
+[State 5050, 3] ;Gravity
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5050, 4] ;Recover near ground
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+ignorehitpause = 1
+
+[State 5050, 5]; Recover in mid air
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = Vel Y > -1
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5210 ;HITFALL_AIRRECOVER
+ignorehitpause = 1
+
+[State 5050, 6]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= ifelse((anim = [5051,5059]) || (anim = [5061,5069]), 0, 25)
+value = 5100 ;HIT_BOUNCE
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_TRIP (shaking)
+[Statedef 5070]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5070]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5070]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5070]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5070]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5070]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5070, 1]
+type = ChangeAnim 
+trigger1 = name = "Finaltly_Death_Claw"
+value = 5070
+ignorehitpause = 1
+
+[State 5070, 2]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+value = 5071
+ignorehitpause = 1
+
+[State 5070, 3]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+time = 12
+waveform = sinesquare
+ampl = 140
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_TRIP2 (fall through air)
+[Statedef 5071]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5071]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5071]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5071]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5071]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5071, 1]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 1
+y = 1
+ignorehitpause = 1
+
+[State 5071, 2] ;Acceleration
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5071, 3] ;Hit ground
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 15
+type = ChangeState
+value = 5110
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITL_SHAKE
+[Statedef 5080]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5080]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5080]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5080]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5080]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5080]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5080, 1] ;Freeze
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = ifelse (GetHitVar(yvel) = 0, 5080, 5090)
+ignorehitpause = 1
+
+[State 5080, 2]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) = 0
+value = 5081 ;HITL_SLIDE
+ignorehitpause = 1
+
+[State 5080, 3]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitShakeOver
+trigger1 = GetHitVar(yvel) != 0
+value = 5030 ;HITA_UP
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HITL_SLIDE
+[Statedef 5081]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5081]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5081]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5081]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = C
+ignorehitpause = 1
+
+[State 5081]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = C
+ignorehitpause = 1
+
+[State 5081, 1] ;Don't show hit ground frame
+type = velmul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = const(movement.crouch.friction)
+ignorehitpause = 1
+
+[State 5081, 2]
+type = HitVelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 1
+ignorehitpause = 1
+
+[State 5081, 3]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+x = 0
+ignorehitpause = 1
+
+[State 5081, 4]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = HitOver
+value = 5110 ;HIT_LIEDOWN
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_BOUNCE (hit ground)
+[Statedef 5100]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5100]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5100]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5100]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5100]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5100, 1]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = GetHitVar(fall.yvel) = 0
+trigger1 = vel x > 1
+x = 1
+ignorehitpause = 1
+
+[State 5100, EnvShake]
+type = FallEnvShake
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 5100
+ignorehitpause = 1
+
+[State 5100, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = anim!= 5100
+trigger1 = (anim != [5051,5059]) && (anim != [5061,5069])
+trigger2 = !SelfAnimExist(5100 + (anim % 10))
+value = 5100
+ignorehitpause = 1
+
+[State 5100, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 5100
+trigger1 = (anim = [5051,5059]) || (anim = [5061,5069])
+trigger1 = SelfAnimExist(5100 + (anim % 10))
+value = 5100 + (anim % 10)
+ignorehitpause = 1
+
+[State 5100, 4]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 5100, 5]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 5100, 6] ;Reduce speed
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+x = 0.75
+ignorehitpause = 1
+
+[State 5100, 7]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+trigger1 = GetHitVar(fall.yvel) = 0
+value = 5110 ;HIT_LIEDOWN
+ignorehitpause = 1
+
+[State 5100, 8]
+type = GameMakeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 1
+value = 60 + (floor(Vel Y) > 5) + (floor(Vel Y) > 14)
+pos = 0,0
+under = floor(Vel Y) < 15
+ignorehitpause = 1
+
+[State 5100, 9]
+type = HitFallDamage
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(2) = 0
+ignorehitpause = 1
+
+[State 5100, 10]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 1
+value = F7,(floor(Vel Y) > 5) + (floor(Vel Y) > 14)
+ignorehitpause = 1
+
+[State 5100, 11]
+type = PosFreeze
+trigger1 = name = "Finaltly_Death_Claw"
+ignorehitpause = 1
+
+[State 5100, 12]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 5101
+ignorehitpause = 1
+
+[State 5100, 13]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+waveform = sinesquare
+ampl = 128,-3,-.2,.005
+time = 20
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_BOUNCE (bounce into air)
+[Statedef 5101]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5101]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5101]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5101]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5101]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5101, 1] ;Coming hit ground anim (normal)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+trigger1 = anim != [5101,5109]
+trigger2 = !SelfAnimExist(5160 + (anim % 10))
+value = 5160
+ignorehitpause = 1
+
+[State 5101, 2] ;Coming hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+trigger1 = anim = [5101,5109]
+trigger1 = SelfAnimExist(5160 + (anim % 10))
+value = 5160 + (anim % 10)
+ignorehitpause = 1
+
+[State 5101, 3]
+type = HitFallVel
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+ignorehitpause = 1
+
+[State 5101, 4]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+y = 20
+ignorehitpause = 1
+
+[State 5101, 5] ;Acceleration
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = .4
+ignorehitpause = 1
+
+[State 5101, 6] ;Hit ground
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 12
+value = 5110
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_LIEDOWN
+[Statedef 5110]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5110]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5110]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5110]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5110]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5110, EnvShake]
+type = FallEnvShake
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+ignorehitpause = 1
+
+[State 5110, 1] ;For hit up/up-diag type (from state 5081)
+type = ChangeAnim
+persistent = 0
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = SelfAnimExist(5110 + (anim % 10))
+trigger1 = anim = [5081,5089]
+value = 5110 + (anim % 10)
+ignorehitpause = 1
+
+[State 5110, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim != [5161,5169]
+trigger2 = !SelfAnimExist(5170 + (anim % 10))
+value = 5170
+ignorehitpause = 1
+
+[State 5110, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim = [5161,5169]
+trigger1 = SelfAnimExist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+ignorehitpause = 1
+
+[State 5110, 4]
+type = HitFallDamage
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(4)
+trigger1 = animelemtime(1) = 0
+ignorehitpause = 1
+
+[State 5110, 5]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 5110, 6]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0 && prevstateno != 5081
+value = F7,(floor(Vel Y) > 5) + (floor(Vel Y) > 14)
+ignorehitpause = 1
+
+[State 5110, Landing Sound]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+value = 230, 9+random%2
+volume = 255
+ignorehitpause = 1
+
+[State 5110, 7]
+type = GameMakeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0&& prevstateno != 5081
+value = 60+(floor(Vel Y) > 5) + (floor(Vel Y) > 14)
+pos = 0,0
+under = floor(Vel Y) < 15
+ignorehitpause = 1
+
+[State 5110, 8]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(1) = 0
+y = 0
+ignorehitpause = 1
+
+[State 5110, 9] ;For hit up type
+type = ChangeAnim
+persistent = 0
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = anim = [5171,5179]
+triggerall = SelfAnimExist(5110 + (anim % 10))
+trigger1 =!AnimTime
+trigger2 = prevstateno = 5081
+value = 5110 + (anim % 10)
+
+[State 5110, 10] ;For normal
+type = ChangeAnim
+persistent = 0
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = Anim != [5111,5119]
+trigger1 =!AnimTime
+trigger2 = prevstateno = 5081
+value = 5110
+
+[State 5110, 11] ;give up
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = alive
+trigger1 = SysVar(4)!= 0
+trigger1 = SysVar(3) > 70
+trigger1 = Anim = [5110,5119]
+value = 5120
+
+[State 5110, 11] ;If just died
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+triggerall = !alive
+trigger1 =!AnimTime
+trigger2 = prevstateno = 5081
+trigger3 = Anim = [5110,5119]
+value = 5150
+ignorehitpause = 1
+
+[State 5110, 12] ;Friction
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+x = 0.85
+ignorehitpause = 1
+
+[State 5110, 13]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = alive
+trigger1 = animelemtime(1) = 0
+time = 8
+ampl = 240
+waveform = sine
+ignorehitpause = 1
+
+[State 5110, 14]
+type = ForceFeedback
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !alive
+trigger1 = animelemtime(1) = 0
+ampl = 200, 7, -.467
+time = 30
+waveform = sine
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_GETUP
+[Statedef 5120]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5120]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5120]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5120]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5120]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5120, 1a] ;Get up anim (normal)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+trigger1 = anim != [5111,5119]
+trigger2 = !SelfAnimExist(5120 + (anim % 10))
+value = 5120
+ignorehitpause = 1
+
+[State 5120, 1b] ;Get up anim (for hit up/diag-up)
+type = ChangeAnim
+triggerall = name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+trigger1 = anim = [5111,5119]
+trigger1 = SelfAnimExist(5120 + (anim % 10))
+value = 5120 + (anim % 10)
+ignorehitpause = 1
+
+[State 5120, 2]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+ignorehitpause = 1
+
+[State 5120, 3]
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 5120, 4]
+type = HitFallSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 1
+ignorehitpause = 1
+
+[State 5120, 5] ;Can't be thrown right after getting up
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = , NT,ST,HT
+time = 12
+ignorehitpause = 1
+
+[State 5120, 6] ;Can't be hit right after getting up (short time)
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value2 = SCA
+time = 3
+ignorehitpause = 1
+
+[State 5120, 7]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 0
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_LIEDEAD
+[Statedef 5150]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+
+[State 5150]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5150]
+type = ctrlset
+trigger1 =!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5150]
+type = statetypeset
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = L
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5150]
+type = statetypeset
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = L
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5150, SprPriority]
+type = SprPriority
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+value = -3
+ignorehitpause = 1
+
+[State 5150, 1] ;Normal anim
+type = ChangeAnim
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+triggerall =!sysvar(3)
+triggerall = SelfAnimExist(5140)
+trigger1 = (anim != [5111,5119]) && (anim != [5171,5179])
+trigger2 = !SelfAnimExist(5140 + (anim % 10))
+value = 5140
+ignorehitpause = 1
+
+[State 5150, 3] ;Hit up type anim
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = (anim = [5111,5119]) || (anim = [5171,5179])
+trigger1 = SelfAnimExist(5140 + (anim % 10))
+value = 5140 + (anim % 10)
+ignorehitpause = 1
+
+[State 5150, 4] ;Match over anim
+type = ChangeAnim
+persistent = 0
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+;trigger1 =!sysvar(3)
+trigger1 = MatchOver = 1
+trigger1 = Anim = [5140,5149]
+trigger1 = SelfAnimExist(anim+10)
+value = anim+10
+ignorehitpause = 1
+
+[State 5150, 5] ;Switch to 5110 if liedead anim does not exist
+type = ChangeAnim
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = Anim != [5140,5159]
+trigger1 = Anim != [5110,5119]
+value = 5110
+ignorehitpause = 1
+
+[State 5150, 6] ;Friction
+type = VelMul
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+x = 0.85
+ignorehitpause = 1
+
+[State 5150, 7] ;Friction
+type = VelSet
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+trigger1 = Vel x < .05
+persistent = 0
+x = 0
+ignorehitpause = 1
+
+[State 5150, 8]
+type = NotHitBy
+trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 =!ishelper
+trigger1 =!matchover
+value = S230,11
+volume = 255
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 =!ishelper
+trigger1 = matchover
+value = S230,12
+volume = 255
+ignorehitpause = 1
+
+[State 5150]
+type = ReversalDef
+triggerall = numtarget
+trigger1 = ishelper(4444)
+trigger2 = ishelper(9998)
+trigger3 = ishelper(30000)
+trigger4 = ishelper(8008)+ishelper(8009)
+trigger5 = const(size.height) = [10000,10023]
+trigger6 = const(size.height) = 11000
+trigger7 = const(size.height) = 12000
+reversal.attr = ,AA
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_FALLRECOVER (still falling)
+[Statedef 5200]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5200]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5200]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5200]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = N
+ignorehitpause = 1
+
+[State 5200]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5200, 1] ;Change anim if done with transition
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Anim = 5035
+trigger1 =!AnimTime
+value = 5050
+ignorehitpause = 1
+
+[State 5200, 2]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+y = GetHitVar(yaccel)
+ignorehitpause = 1
+
+[State 5200, 3]
+type = SelfState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 10
+value = 5201
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_FALLRECOVER (on the ground)
+[Statedef 5201]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5201]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5201]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5201]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = H
+physics = A
+ignorehitpause = 1
+
+[State 5201]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+movetype = I
+ignorehitpause = 1
+
+[State 5210]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 5200
+value = 5200
+ignorehitpause = 1
+
+[State 5201, 1] ;Turn if not facing opponent
+type = Turn
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = p2dist X < -5
+ignorehitpause = 1
+
+[State 5201, 2]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = -.15
+y = -3.5
+ignorehitpause = 1
+
+[State 5201, 3]
+type = PosSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+y = 0
+ignorehitpause = 1
+
+[State 5201, 4]
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 5201, 5] ;Blink white
+type = PalFX
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+time = 3
+add = 128,128,128 ;256,256,256
+ignorehitpause = 1
+
+[State 5201, 6]
+type = GameMakeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 1
+value = 60
+pos = 0, 0
+under = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; HIT_AIRFALLRECOVER
+[Statedef 5210]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5210]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5210]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5210]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5210]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 5210]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 5210]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 5210
+value = 5210
+ignorehitpause = 1
+
+[State 5210, 1] ;Blink white
+type = PalFX
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+time = 3
+add = 128,128,128 ;256,256,256
+ignorehitpause = 1
+
+[State 5210, 1]
+type = PosFreeze
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = 4
+ignorehitpause = 1
+
+[State 5210, 2] ;Turn if not facing opponent
+type = Turn
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+trigger1 = p2dist X < -20
+ignorehitpause = 1
+
+[State 5210, 1] 
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+x = .8
+y = .8
+ignorehitpause = 1
+
+[State 5210, 1]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+y = -4.5
+ignorehitpause = 1
+
+[State 5210, 1] 
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Vel Y > 0
+y = .5
+ignorehitpause = 1
+
+[State 5210, 1]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Vel Y > -3
+y = -2
+ignorehitpause = 1
+
+[State 5210, 1]
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Vel Y > -2
+y = -1
+ignorehitpause = 1
+
+[State 5210, 2] ;Go up
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Command = "holdup"
+y = -2
+ignorehitpause = 1
+
+[State 5210, 2] ;Go down
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Command = "holddown"
+y = 1.5
+ignorehitpause = 1
+
+[State 5210, 2] ;Go fwd
+type = VelMul
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Command = "holdfwd"
+x = 1
+ignorehitpause = 1
+
+[State 5210, 2] ;Go back
+type = VelAdd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 4
+trigger1 = Command = "holdback"
+x = -1
+ignorehitpause = 1
+
+[State 5210, 3]
+type = NotHitBy
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+value = SCA
+time = 15
+ignorehitpause = 1
+
+[State 5210, 4]
+type = CtrlSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 20
+value = 1
+ignorehitpause = 1
+
+[State 5210, 5]
+type = VelAdd;Gravity
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) >= 4
+y = .35
+ignorehitpause = 1
+
+[State 5210, 5] ;Land on ground
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52 ;JUMP_LAND
+ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Continue?
+[Statedef 5500]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5500]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5500]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5500]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+ignorehitpause = 1
+
+[State 5030]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State 5500]
+type = velset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+x = 0
+y = 0
+ignorehitpause = 1
+
+[State 5500]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 5300
+value = 5300
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; Initialize (at the start of the round)
+[Statedef 5900]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State 5900]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 5900]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State 5900]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!sysvar(3)
+statetype = S
+ignorehitpause = 1
+
+[State 5900, 1] ;Clear all int variables
+type = VarRangeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = roundsexisted = 0
+value = 0
+ignorehitpause = 1
+
+[State 5900, 2] ;Clear all float variables
+type = VarRangeSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = roundsexisted = 0
+fvalue = 0
+ignorehitpause = 1
+
+[State 5900, 3] ;Intro for round 1
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = roundState = 0
+value = 191 + (roundno > 1)
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 1
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 193
+value = 193
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 =!var(29)
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 194
+value = 194
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 3
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 199
+value = 199
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = var(29) = 2
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 1999&&anim!= 19999
+value = 1999
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4) = 2
+trigger1 = var(29) = 848366
+trigger1 = roundstate = 0
+trigger1 = roundno = 1
+trigger1 = anim!= 1948366
+value = 19848366
+ignorehitpause = 1
+
+[state ]
+type = Selfstate
+trigger1 = name = "Finaltly_Death_Claw"
+triggerall = roundstate = 0
+triggerall = roundno > 1
+trigger1 = sysvar(4) = 1
+trigger1 = anim!= 192
+trigger2 = sysvar(4) = 2
+trigger2 = anim!= 1921
+value = 192
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1

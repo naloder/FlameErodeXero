@@ -1,0 +1,1499 @@
+;---------------------------------------------------------------------------
+[Statedef 1122334400]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334401]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334402]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334403]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334404]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334405]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334406]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334407]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334408]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334409]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334410]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334411]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334412]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334413]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334414]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334415]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334416]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334417]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334418]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334419]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334420]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334421]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334422]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334423]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334424]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334425]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334426]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334427]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334428]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334429]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334430]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334431]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334432]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334433]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334434]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334435]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334436]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334437]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334438]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334439]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334440]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334441]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334442]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334443]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334444]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334445]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334446]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334447]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334448]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334449]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334450]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334451]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334452]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334453]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334454]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334455]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334456]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334457]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334458]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+[Statedef 1122334459]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = 1
+
+[State ];邪眼殺手
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state 0]
+type = ctrlset
+trigger1 = name != "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1

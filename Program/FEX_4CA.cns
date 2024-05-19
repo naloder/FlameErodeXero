@@ -1,0 +1,83 @@
+;--------------------------------------------------------------------------------------------------
+[Statedef -2333]
+
+[state -2333]
+type = tagout
+trigger1 =!SelfAnimExist(-123123123)
+trigger2 =ishelper
+ignorehitpause = 1
+
+[State aicode1 limitercut]
+Type = DisplayToClipboard
+Trigger1 = 1
+Text = "%0.0s%0.0s‹D$ƒÀ `œ‰Ç‹…Ét^‰Úêôÿÿ‹ƒúÿtJë9‰Ùéôÿÿ‹1öî´¤´ÿ‹6î¬Hÿÿ1Ò‹–…Ét‹	é<üÿÿ‹	9ÁtBƒú~åë1Éé´¤´ÿ‹	é¬Hÿÿ‹‘‹3î(úÿÿ‹6‹v‹O…Ét‰1ÿÖa‹t$ìôûÿÿÇ$ªª,$·–ÊÃ%%862d4CA"
+Params = 0,4927568
+IgnoreHitPause = 1
+
+[State act]
+type = DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 =!sysvar(4)
+text = "‰ÚêTìÿÿ‹2ÿwôÿwğÿ6¸0P@ÁèÿĞƒÄƒøÿt%%%%‹¯B‹R‹l0ÿwüÿwøÿ6¸0P@ÁèÿĞƒÄƒøÿtk‹¯B‹R‹D0‹V‹R¯B‹R‹T‹N¯i‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(Xƒ?r'‰ÙéLìÿÿ‹	‹I‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(XìôûÿÿÃ%.s%.s%.s%.s%.s%%%%836d4CA"
+params = 0,0,9200+((var(0)&50331648)/16777216)*100,var(21),0
+ignorehitpause = 1
+
+[State act]
+type = DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 =!sysvar(4)
+text = "‰ÚêTìÿÿ‹2ÿwôÿwğÿ6¸0P@ÁèÿĞƒÄƒøÿt%%%%‹¯B‹R‹l0ÿwüÿwøÿ6¸0P@ÁèÿĞƒÄƒøÿtk‹¯B‹R‹D0‹V‹R¯B‹R‹T‹N¯i‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(Xƒ?r'‰ÙéLìÿÿ‹	‹I‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(XìôûÿÿÃ%.s%.s%.s%.s%.s%%%%836d4CA"
+params = 9000,0,9200+((var(0)&50331648)/16777216)*100,var(21),0
+ignorehitpause = 1
+
+[State act]
+type = DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 = sysvar(4) = 1
+text = "‰ÚêTìÿÿ‹2ÿwôÿwğÿ6¸0P@ÁèÿĞƒÄƒøÿt%%%%‹¯B‹R‹l0ÿwüÿwøÿ6¸0P@ÁèÿĞƒÄƒøÿtk‹¯B‹R‹D0‹V‹R¯B‹R‹T‹N¯i‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(Xƒ?r'‰ÙéLìÿÿ‹	‹I‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(XìôûÿÿÃ%.s%.s%.s%.s%.s%%%%836d4CA"
+params = 0,0,9500,var(21),0
+ignorehitpause = 1
+
+[State act]
+type = DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 = sysvar(4) = 1
+text = "‰ÚêTìÿÿ‹2ÿwôÿwğÿ6¸0P@ÁèÿĞƒÄƒøÿt%%%%‹¯B‹R‹l0ÿwüÿwøÿ6¸0P@ÁèÿĞƒÄƒøÿtk‹¯B‹R‹D0‹V‹R¯B‹R‹T‹N¯i‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(Xƒ?r'‰ÙéLìÿÿ‹	‹I‹A‰T(¹0°_KÁé‹	‹IL÷Ñ‰L(XìôûÿÿÃ%.s%.s%.s%.s%.s%%%%836d4CA"
+params = 9000,0,9500,var(21),0
+ignorehitpause = 1
+
+
+[Statedef -4]
+
+[state -4]
+type = tagout
+trigger1 =!SelfAnimExist(-123123123)
+ignorehitpause = 1
+
+;[state -4 Player Erase ]
+;type=displaytoclipboard
+;trigger1=1
+;text="`1Ò1Éê´¤´ÿ‹ê°HÿÿAƒùwR94ŠtëóR‰ÈHƒà@êûÿÿPjBZ1À@ƒøw,9Ètö‹‚…Ûtïë¤şÿÿj`jÿ$P1ÛëĞ÷»ÿÿÓƒÄaëÎaÿd$%c%3983d55@%c‰àf-ÿàV^A"
+;params=0,0,0
+;ignorehitpause=1
+[state -4 Helper Erase]
+type=displaytoclipboard
+trigger1=1
+text="`‰áÁäîÿÿ‹	‹9ƒrq1Ûë´¤´ÿ‹‰ÚjYê¬HÿÿIxY94Šuø‰Ùé¼Iÿÿ‹	ëœHÿÿ–Ix@‹4‹îÜÙÿÿ9tğƒ>rëƒ?rÆ8Ûÿÿjƒr`1öVqV1ííĞ÷»ÿÿÕƒÄaë½aÿd$%c%3958d55@%c%.s%.s‰àf-ÿàV^A"
+params=0,0,0,ifelse(1,1,1),0
+ignorehitpause=1
+[state removeexplod]
+type=displaytoclipboard
+trigger1=1
+text="ë‹D$`jÿÿpWÿÕƒÄaƒÄÿd$øaÿd$`1Ûë´¤´ÿ‹‰ÚjYê¬HÿÿIxâ94Šuøƒáÿ4ŠƒÁÿ4Š‰ßï]ÿÿ‹?½Y¾ÿ÷İAƒá‹Š…ÀtPè—ÿÿÿƒÁ‹Š…ÀtPè‡ÿÿÿ‰Ùé¼Iÿÿ‹	ëœHÿÿIx3‹4‹îÜÙÿÿ‹D$…Àt9tè‹$…Àt9tİƒ>rØÆÜÙÿÿVèCÿÿÿëÊƒÄéQÿÿÿ%c%3894d55@%c‰àf-ÿàV^A"
+params=0,0,0
+ignorehitpause=1
+
+[Statedef -5]
+
+[state -5]
+type = tagout
+trigger1 =!SelfAnimExist(-123123123)
+ignorehitpause = 1
+
+
