@@ -1,0 +1,84 @@
+[Info]
+name =  "0"
+
+[camera]
+startx = 0
+starty = 0
+boundleft = -95
+boundright = 95
+boundhigh = -25
+boundlow = 0
+tension = 50
+verticalfollow = .2
+floortension = 0
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0            
+p1startz = 0           
+p1facing = 1            
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 199
+autoturn = 1
+resetBG = 1
+Hires = 1   
+
+[Shadow]
+intensity = 96
+color = 0.0,0
+yscale = .3
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+fade.range = 0,0
+
+[BGdef]
+spr =2.sff
+debugbg = 0
+
+[BG 0]
+type  = normal
+spriteno = 0, 0
+layerno = 0                
+start = 0, 180
+delta = 1, 1
+trans = none
+mask  = 0
+tile  = 1, 0
+tilespacing = 0,0
+window = 0,0, 3190, 2390
+
+[BG 1]
+type  = normal
+spriteno = 0, 1
+start = 0, 420
+delta = 1, 1
+mask = 0
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+window = 0,0, 3190, 2390

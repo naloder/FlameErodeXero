@@ -194,11 +194,14 @@ ignorehitpause = 1
 
 [state ]
 type = ChangeState
-trigger1 =!ishelper&&name = "Finaltly_Death_Claw"
-trigger1 = sysvar(4) = 2
-trigger1 =!!hitpausetime
+triggerall =!ishelper&&name = "Finaltly_Death_Claw"
+triggerall = sysvar(4) = 2
+triggerall =!!hitpausetime
+triggerall = Alive!= 1
 trigger1 =!(var(4)&256)
-trigger1 = Alive!= 1
+trigger2 =!!(var(4)&2048)
+trigger2 = roundstate > 2
+trigger2 =!enemy,alive
 value = 1000010
 persistent = 256
 ignorehitpause = 1

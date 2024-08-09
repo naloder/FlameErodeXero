@@ -15,7 +15,7 @@ ignorehitpause = 1
 [state -2,等級設定]
 type = VarSet
 trigger1 =!ishelper
-Sysvar(4) = abs			(0)
+Sysvar(4) = abs			(2)
 ;0-Abuurimiento(等級：狂中上位左右)
 
 ;1-Serio(等級：準神、擊破挑戰)
@@ -1183,7 +1183,7 @@ ignorehitpause = 1
 [State ]
 type = SelfState
 trigger1 = ishelper&&const(size.height) = [10000,10024]
-value = 10000
+value = 10000+!!numtarget
 ignorehitpause = 1
 
 [State ]
@@ -1209,756 +1209,6 @@ type = SelfState
 trigger1 = ishelper&&const(size.height) > 0
 value = const(size.height)
 ignorehitpause = 1
-
-;-[分隔线]--------------------------------------------------------------------
-;潛入探查系統(使用JQKJ氏模板)
-;-[分隔线]--------------------------------------------------------------------
-
-[State -2,進入領域確保state]
-type = selfstate
-trigger1 = ishelper(8886)+ishelper(8887)
-value = 7008
-ignorehitpause = 1
-
-[State -2,進入探查監視state]
-type = selfstate
-trigger1 = ishelper(8008)+ishelper(8009)
-value = 8008
-ignorehitpause = 1
-
-[State -2,進入探查受擊state]
-type = selfstate
-trigger1 = ishelper(8010)
-value = 8010
-ignorehitpause = 1
-;非探查用helper使用常時固定以防被奪取
-
-[state -2,受到傷害時立flag]
-type = projectile
-trigger1 = ishelper(7009)&&numhelper(8009)
-trigger1 = helper(8009),sysvar(1) = id;潛入後沒有消失
-trigger1 = (helper(8009),sysvar(0)&64);潛入幀
-trigger1 = gethitvar(damage);受到傷害
-projanim = 0
-projid = 57767701
-projremove = 0
-projremovetime = 0
-projhits = 0
-offset = -9999
-projpriority = 9999
-projheightbound = -500000000,500000000
-projedgebound = 500000000
-projstagebound = 500000000
-attr = C,HT
-hitflag = 
-sparkno = -1
-numhits = 0
-damage = 0,0
-pausetime = 0,0
-getpower = 0
-guard.dist = 0
-ground.type = none
-ignorehitpause = 1
-;於Hitby探查使用
-
-;-------------------------------------------------------
-;接下來說明實際潛入後的動作
-;
-;潛入型探查是指在被敵人奪取的狀態時使用changestate潛入敵方的狀態號
-;(changestate在被奪取的狀態下使用是進入的是奪取的人的狀態號)
-;
-;1.在個別state使用hitdef,直到打中對面被奪取
-;2.確認被奪取後使用Changestate進入敵方不存在的state
-;3.在確認進入敵方state後給予凍結探查helper凍結
-;4.準備結束時立起flag並潛入
-;5.立起flag時使用探查監視helper確認探查的狀況、記錄有效state。然後繼續探查下一個狀態號
-;
-;整體流程大概就是這樣
-;def -2下的是2~4的步驟
-
-;-------------------------------------------------------
-;準備好潛入就開始吧
-
-[State -2,變量重置]
-type = varrangeset
-trigger1 = ishelper(7008)+ishelper(7009)
-value = 0
-ignorehitpause = 1
-;之後變量會和敵方同期
-;想作為flag使用就重置一次
-
-[State -2,explod消除]
-type = removeexplod
-trigger1 = ishelper(7008)+ishelper(7009)
-ignorehitpause = 1
-;敵方的state可能會有explod出現，為了保持輕量所以將其消除
-
-[State -2,不可見]
-type = assertspecial
-trigger1 = ishelper(7008)+ishelper(7009)
-flag = invisible
-flag2 = noshadow
-ignorehitpause = 1
-;可能會出現動畫所以使helper變為不可見
-
-[State -2,鏡頭不會追蹤]
-type = screenbound
-trigger1 = ishelper(7008)+ishelper(7009)
-value = 0
-ignorehitpause = 1
-
-[State -2,擴大率]
-type = angledraw
-trigger1 = ishelper(7008)+ishelper(7009)
-scale = 0,0
-ignorehitpause = 1
-;設為最小不僅可以隱藏helper，還可以防止太大的效果導致的卡頓
-
-[State -2,為了Hitby探査所以解除value2]
-type = hitby
-trigger1 = ishelper(7008)+ishelper(7009)
-value2 = SCA,AA,AP,AT
-time = -1
-ignorehitpause = 1
-;當value2無敵賦予時可能會影響value的判定，所以解除
-
-[State -2,為了Hitby探査所以無敵賦予]
-type = nothitby
-trigger1 = ishelper(7008)+ishelper(7009)
-value = SCA
-time = -1
-ignorehitpause = 1
-;為了判定潛入的狀態號中有沒有hitby而先賦予無敵
-;當存在hitby會覆蓋掉這個的效果
-
-[State -2,凍結探查value2無敵賦予]
-type = nothitby
-trigger1 = ishelper(7008)
-value2 = SCA
-time = -1
-ignorehitpause = 1
-;凍結探查沒有必要調查Hitby，所以無敵
-
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 0
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 1
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 2
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 3
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 4
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 5
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 6
-stateno = 5150
-ignorehitpause = 1
-[State -2,裝甲消除]
-type = hitoverride
-trigger1 = ishelper(7008)+ishelper(7009)
-time = -1
-attr = 
-slot = 7
-stateno = 5150
-ignorehitpause = 1
-;為了不受到潛入中state的裝甲影響而飛到其他狀態號
-;老實說沒有必要也不一定
-
-[State -2,attr重置]
-type = reversaldef
-trigger1 = ishelper(7008)+ishelper(7009)
-reversal.attr = 
-priority = 1,miss
-pausetime = 0,0
-numhits = 0
-ignorehitpause = 1
-;為了hitdef的的判定所以重置attr
-;當身的attr和hitdef是相通的，所以沒什麼問題
-
-[State -2,丟棄target]
-type = targetdrop
-trigger1 = ishelper(7008)+ishelper(7009)
-ignorehitpause = 1
-;避免target重定向出問題而mugen落
-
-[State -2,落下傷害消除]
-type = hitfalldamage
-trigger1 = ishelper(7008)+ishelper(7009)
-ignorehitpause = 1
-;為了避免誤認為lifeadd所以消除
-;想要探查hitfalldamage的話還請好好做吧
-
-[State -2,life回復]
-type = lifeset
-trigger1 = ishelper(7008)+ishelper(7009)
-value = lifemax
-ignorehitpause = 1
-;為了探查lifeset和lifeadd所以要先回滿生命
-
-[State -2,追蹤解除]
-type = bindtoroot
-trigger1 = ishelper(7008)+ishelper(7009)
-pos = 0,0
-time = 0
-ignorehitpause = 1
-;bindtoroot比posset的優先度要來的高，將其time設為0可以一併解除posset
-
-[State -2,速度歸零]
-type = velset
-trigger1 = ishelper(7008)+ishelper(7009)
-x = 0
-y = 0
-ignorehitpause = 1
-;防止飛到奇怪的地方
-
-[State -2,位置固定]
-type = posfreeze
-trigger1 = ishelper(7008)+ishelper(7009)
-value = 1
-ignorehitpause = 1
-;防止潛入後受到敵方影響
-
-[State -2,狀態回復]
-type = statetypeset
-trigger1 = ishelper(7008)+ishelper(7009)
-trigger1 = var(1):= (movetype = A)||1;前一幀為movetype = A時此幀便無法探查(movetype = A的helper會優先行動)
-statetype = S
-movetype = I
-physics = N
-ignorehitpause = 1
-;回復statetype及movetype
-;如果movetype為A，則可能會因為行動順序的誤差而打斷消除和替換潛入探查helper的行動，因此在當幀請不要潛入
-[State -2,座標固定]
-type = posset
-trigger1 = ishelper(7008)+ishelper(7009)
-x = 0
-y = 1000000
-ignorehitpause = 1
-;hitby探查是由探查監視helper使用proj攻擊探查helper而判斷的
-;若在畫面內則可能擊中其他的東西
-
-
-;-------------------------------------------------------
-;接下來變更潛入helper的影ID
-;
-;因為潛入探查helper是由探查監視helper所召喚，所以可能受到潛入state中的parentvarset的影響而造成探查監視helper機能停止
-;為了預防此現象所以進行「親變更」
-
-[State -2,影ID變更檢查]
-type = parentvarset
-trigger1 = ishelper(7008)+ishelper(7009)
-trigger1 = parent,ishelper
-var(1) = gametime+123
-ignorehitpause = 1
-;將數值賦予親的var(1)
-
-[State -2,為取得凍結而變更為攻擊動畫]
-type = changeanim
-trigger1 = (ishelper(7008)+ishelper(7009))&&hitpausetime<2
-trigger1 = parent,var(1) = gametime+123
-value = 8010;小C1動畫框
-ignorehitpause = 1
-;無攻擊動畫就無法凍結
-
-[State -2,為取得凍結而變為movetype = A]
-type = statetypeset
-trigger1 = (ishelper(7008)+ishelper(7009))&&hitpausetime<2
-trigger1 = parent,var(1) = gametime+123
-statetype = S;配合受擊helper的hitby屬性
-movetype = A
-ignorehitpause = 1
-;不是movetype = A的話hitdef打不中
-;當身凍結要依靠敵方的hitdef，所以不建議
-
-[State -2,打擊取得凍結]
-type = hitdef
-trigger1 = (ishelper(7008)+ishelper(7009))&&hitpausetime<2
-trigger1 = parent,var(1) = gametime+123
-attr = ,AA,AP;匹配受擊helper的hitby屬性
-hitflag = MAFD
-animtype = hard
-air.animtype = back
-priority = 7,hit
-damage = 0,0
-pausetime = 3,1
-sparkno = -1
-numhits = 0
-hitsound = s-1
-ground.type = low
-ground.slidetime = 0
-ground.hittime = 0
-air.hittime = 0
-guard.dist = 0
-ground.velocity = 0,0
-guard.velocity = 0
-air.velocity = 0,0
-affectteam = F;重要
-getpower = 0,0
-givepower = 0,0
-ignorehitpause = 1
-;hitdef擊中後便可獲取凍結
-;為了擊中自己的受擊helper，所以affectteam必須設定為F或B
-
-[State -2,影ID變更]
-type = selfstate
-trigger1 = (ishelper(7008)+ishelper(7009))&&hitpausetime
-trigger1 = parent,var(1) = gametime+123
-value = 2000000;影ID弄
-ignorehitpause = 1
-;凍結賦予後進入「親變更」state
-;影ID變更完成後進入探查待機
-
-
-;-------------------------------------------------------
-;接下來賦予凍結探查凍結
-;個人認為這裡就是潛入型比利用型探查要難的最大原因
-;必須在潛入敵方state後才能賦予凍結，所以必須要花一點工夫
-;
-;潛入敵方state
-;   ↓
-;賦予凍結
-;
-;依這個順序執行
-
-[State -2,為了在被奪取的狀態下獲取凍結，所以故意進入敵方應該不存在的state]
-type = changestate
-trigger1 = ishelper(7008)&&hitpausetime<21500001;還沒凍結
-trigger1 = alive = 1&&playeridexist(id);狀態正常
-trigger1 = hitfall!= gametime*2+3;被奪取中
-trigger1 = parent,var(1)!= gametime+123;影ID變更完成
-trigger1 = stateno!= 973421235;還沒潛入(重要！！一直執行的話就沒法探查了喔！)
-value = 973421235
-ignorehitpause = 1
-;凍結時被當身或攻擊時凍結就會重置
-;因此想要維持在潛入前就獲得的凍結是很難的(不是被混線targetstate奪取的話就沒法維持)
-;所以預先潛入敵方state，並在潛入狀態時賦予凍結，就可以同時維持被敵方奪取的狀態以及凍結了
-;
-;進入敵方應該不存在的state的用意是
-;為了防止進入消除helper的state而造成無法獲得凍結探查helper的情況
-
-;
-;不存在的state會將hitdefpersist設為0
-;簡單來說，就是在放出hitdef後才轉換state的話，hitdef會失效
-;所以必須先進入敵方應該不存在的state後才使用hitdef
-[State -2,變更為攻擊動畫]
-type = changeanim
-trigger1 = ishelper(7008)&&hitpausetime<21500001
-trigger1 = alive = 1&&playeridexist(id)
-trigger1 = hitfall!= gametime*2+3
-trigger1 = parent,var(1)!= gametime+123
-value = 8010
-ignorehitpause = 1
-
-[State -2,變更狀態]
-type = statetypeset
-trigger1 = ishelper(7008)&&hitpausetime<21500001
-trigger1 = alive = 1&&playeridexist(id)
-trigger1 = hitfall!= gametime*2+3
-trigger1 = parent,var(1)!= gametime+123
-statetype = S;配合受擊helper的hitby屬性
-movetype = A
-ignorehitpause = 1
-;不是movetype = A的話hitdef打不中
-;當身凍結要依靠敵方的hitdef，所以不建議
-
-[state -2,凍結]
-type = hitdef
-trigger1 = ishelper(7008)&&hitpausetime<21500001
-trigger1 = alive = 1&&playeridexist(id)
-trigger1 = hitfall!= gametime*2+3
-trigger1 = parent,var(1)!= gametime+123
-attr = ,AA,AP;配合受擊helper的hitby屬性
-hitflag = MAFD
-animtype = hard
-air.animtype = back
-priority = 7,hit
-damage = 0,0
-pausetime = 21590001,1
-sparkno = -1
-numhits = 0
-hitsound = s-1
-ground.type = low
-ground.slidetime = 0
-ground.hittime = 0
-air.hittime = 0
-guard.dist = 0
-ground.velocity = 0,0
-guard.velocity = 0
-air.velocity = 0,0
-affectteam = F;重要
-getpower = 0,0
-givepower = 0,0
-ignorehitpause = 1
-;hitdef擊中後便可獲取凍結
-;為了擊中自己的受擊helper，所以affectteam必須設定為F或B
-
-[State -2,配合受擊helper的座標]
-type = posset
-trigger1 = ishelper(7008)&&hitpausetime<21500001
-trigger1 = alive = 1&&playeridexist(id)
-trigger1 = hitfall!= gametime*2+3
-trigger1 = parent,var(1)!= gametime+123
-trigger2 = (ishelper(7008)+ishelper(7009))&&hitpausetime<2
-trigger2 = parent,var(1) = gametime+123
-x = root,pos X
-y = root,pos Y
-ignorehitpause = 1
-;若使用的不是模板的受擊helper而是自己本身就有的受擊helper(混線受擊之類的)的話，還請調整座標
-
-
-;-------------------------------------------------------
-;在設置潛入flag前先檢查狀態
-
-[State -2,消除helper]
-type = selfstate
-triggerall = ishelper
-trigger1 = ishelper(7008)
-trigger1 = alive!= 1
-trigger2 = ishelper(7009)
-trigger2 = alive!= 1||hitpausetime>30
-trigger3 = ishelper(7008)+ishelper(7009)
-trigger3 = (root,var(1)&32)
-value = 2147483647;消除state
-ignorehitpause = 1
-;當alive受到操弄或非凍結探查被賦予很大的凍結時消除helper來重置狀態
-;也可以使用512溢出修改回去，不過我認為消除helper來重置比較簡單
-
-;-------------------------------------------------------
-;潛入準備完成了
-;設置flag並開始潛入
-
-[State -2,情況很奇怪所以停止探查]
-type = projectile
-triggerall = ishelper
-trigger1 = ishelper(7008)&&root,numprojid(7008)&&!root,numprojid(17008);明明還沒有探查卻出現了flag
-trigger2 = ishelper(7009)&&root,numprojid(7009)&&!root,numprojid(17008)
-projanim = 0
-projid = 17008+ishelper(7009)
-projremove = 0
-projremovetime = 0
-projhits = 0
-offset = -9999
-projpriority = 9999
-projheightbound = -500000000,500000000
-projedgebound = 500000000
-projstagebound = 500000000
-attr = C,HT
-hitflag = 
-sparkno = -1
-numhits = 0
-damage = 0,0
-pausetime = 0,0
-getpower = 0
-guard.dist = 0
-ground.type = none
-ignorehitpause = 1
-;探查flag已經出現了代表很有可能發生了問題
-;所以在這種情況時停止探查
-
-[State -2,立起探查執行flag]
-type = projectile
-triggerall = ishelper(7008)+ishelper(7009)&&hitfall!= gametime*2+3&&!gethitvar(damage)&&movetype = I&&!var(1)
-triggerall = alive = 1&&playeridexist(id)&&(ishelper(7008)&&hitpausetime>21000001||ishelper(7009)&&!hitpausetime)
-triggerall = parent,var(1)!= gametime+123                                       ;影ID變更完成
-triggerall = numhelper(8008)&&numhelper(8009)                          ;探查監視helper存在
-;凍結探查
-trigger1 = ishelper(7008)
-trigger1 = helper(8008),sysvar(1) = id                                       ;監視正常運作
-trigger1 = !root,numprojid(17008)                                           ;沒有出現停止flag
-trigger1 = !(helper(8008),sysvar(0)&1)                                     ;沒有從監視helper來的停止訊號
-trigger1 = (helper(8008),sysvar(0)&2)                                      ;出現探查開始flag
-trigger1 = helper(8008),sysvar(2)>0                                        ;state號指定完成
-trigger1 = helper(8008),var(4) = hitpausetime                                ;hitpausetime保存完成
-;非凍結探查
-trigger2 = ishelper(7009)
-trigger2 = helper(8009),sysvar(1) = id                                       ;監視正常運作
-trigger2 = !root,numprojid(17009)                                           ;沒有出現停止flag
-trigger2 = !(helper(8009),sysvar(0)&1)                                     ;沒有從監視helper來的停止訊號
-trigger2 = (helper(8009),sysvar(0)&2)                                      ;探査開始フラグが立っている
-trigger2 = helper(8009),sysvar(2)>0                                        ;state號指定完成
-projanim = 0
-projid = 7008+ishelper(7009)
-projremove = 0
-projremovetime = 0
-projhits = 0
-offset = -9999
-projpriority = 9999
-projheightbound = -500000000,500000000
-projedgebound = 500000000
-projstagebound = 500000000
-attr = C,HT
-hitflag = 
-sparkno = -1
-numhits = 0
-damage = 0,0
-pausetime = 0,0
-getpower = 0
-guard.dist = 0
-ground.type = none
-ignorehitpause = 1
-;潛入前請先立起這個flag再進行潛入
-;反過來說，也不要立起flag卻不潛入
-;探查state號是基於這個flag而推進，若是偏離了探查時間的話就無法正常進行探查
-
-[State -2,凍結探查轉為無框動畫]
-type = changeanim
-trigger1 = ishelper(7008)
-trigger1 = root,numprojid(7008)&&!root,numprojid(17008)
-value = 8888;無框動畫
-ignorehitpause = 1
-;為了使凍結不被影響，所以使用沒有C1C2框的動畫
-
-[State -2,非凍結探查轉為受擊動畫]
-type = changeanim
-trigger1 = ishelper(7009)
-trigger1 = root,numprojid(7009)&&!root,numprojid(17009)
-value = 8011;小小的C2框
-ignorehitpause = 1
-;這裡為了hitby探查所以使用有C2框的動畫
-
-
-;-------------------------------------------------------
-;變量和敵方本體保持同期
-;精度會有所提高(具體來說就是可以取得スカデビG的hitby state了)
-[State -2,變量同期(sysvar(0))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysvar(0) = enemy,sysvar(0)
-ignorehitpause = 1
-[State -2,變量同期(sysvar(1))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysvar(1) = enemy,sysvar(1)
-ignorehitpause = 1
-[State -2,變量同期(sysvar(2))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysvar(2) = enemy,sysvar(2)
-ignorehitpause = 1
-[State -2,變量同期(sysvar(3))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysvar(3) = enemy,sysvar(3)
-ignorehitpause = 1
-[State -2,變量同期(sysvar(4))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysvar(4) = enemy,sysvar(4)
-ignorehitpause = 1
-[State -2,變量同期(sysfvar(0))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysfvar(0) = enemy,sysfvar(0)
-ignorehitpause = 1
-[State -2,變量同期(sysfvar(1))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysfvar(1) = enemy,sysfvar(1)
-ignorehitpause = 1
-[State -2,變量同期(sysfvar(2))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysfvar(2) = enemy,sysfvar(2)
-ignorehitpause = 1
-[State -2,變量同期(sysfvar(3))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysfvar(3) = enemy,sysfvar(3)
-ignorehitpause = 1
-[State -2,變量同期(sysfvar(4))]
-type = varset
-trigger1 = ishelper(7008)+ishelper(7009)
-sysfvar(4) = enemy,sysfvar(4)
-ignorehitpause = 1
-[State -2,變量同期(通常變量)]
-type = null
-trigger1 = ishelper(7008)+ishelper(7009)
-trigger1 = 1||var(0):= enemy,var(0)
-trigger1 = 1||var(1):= enemy,var(1)
-trigger1 = 1||var(2):= enemy,var(2)
-trigger1 = 1||var(3):= enemy,var(3)
-trigger1 = 1||var(4):= enemy,var(4)
-trigger1 = 1||var(5):= enemy,var(5)
-trigger1 = 1||var(6):= enemy,var(6)
-trigger1 = 1||var(7):= enemy,var(7)
-trigger1 = 1||var(8):= enemy,var(8)
-trigger1 = 1||var(9):= enemy,var(9)
-trigger1 = 1||var(10):= enemy,var(10)
-trigger1 = 1||var(11):= enemy,var(11)
-trigger1 = 1||var(12):= enemy,var(12)
-trigger1 = 1||var(13):= enemy,var(13)
-trigger1 = 1||var(14):= enemy,var(14)
-trigger1 = 1||var(15):= enemy,var(15)
-trigger1 = 1||var(16):= enemy,var(16)
-trigger1 = 1||var(17):= enemy,var(17)
-trigger1 = 1||var(18):= enemy,var(18)
-trigger1 = 1||var(19):= enemy,var(19)
-trigger1 = 1||var(20):= enemy,var(20)
-trigger1 = 1||var(21):= enemy,var(21)
-trigger1 = 1||var(22):= enemy,var(22)
-trigger1 = 1||var(23):= enemy,var(23)
-trigger1 = 1||var(24):= enemy,var(24)
-trigger1 = 1||var(25):= enemy,var(25)
-trigger1 = 1||var(26):= enemy,var(26)
-trigger1 = 1||var(27):= enemy,var(27)
-trigger1 = 1||var(28):= enemy,var(28)
-trigger1 = 1||var(29):= enemy,var(29)
-trigger1 = 1||var(30):= enemy,var(30)
-trigger1 = 1||var(31):= enemy,var(31)
-trigger1 = 1||var(32):= enemy,var(32)
-trigger1 = 1||var(33):= enemy,var(33)
-trigger1 = 1||var(34):= enemy,var(34)
-trigger1 = 1||var(35):= enemy,var(35)
-trigger1 = 1||var(36):= enemy,var(36)
-trigger1 = 1||var(37):= enemy,var(37)
-trigger1 = 1||var(38):= enemy,var(38)
-trigger1 = 1||var(39):= enemy,var(39)
-trigger1 = 1||var(40):= enemy,var(40)
-trigger1 = 1||var(41):= enemy,var(41)
-trigger1 = 1||var(42):= enemy,var(42)
-trigger1 = 1||var(43):= enemy,var(43)
-trigger1 = 1||var(44):= enemy,var(44)
-trigger1 = 1||var(45):= enemy,var(45)
-trigger1 = 1||var(46):= enemy,var(46)
-trigger1 = 1||var(47):= enemy,var(47)
-trigger1 = 1||var(48):= enemy,var(48)
-trigger1 = 1||var(49):= enemy,var(49)
-trigger1 = 1||var(50):= enemy,var(50)
-trigger1 = 1||var(51):= enemy,var(51)
-trigger1 = 1||var(52):= enemy,var(52)
-trigger1 = 1||var(53):= enemy,var(53)
-trigger1 = 1||var(54):= enemy,var(54)
-trigger1 = 1||var(55):= enemy,var(55)
-trigger1 = 1||var(56):= enemy,var(56)
-trigger1 = 1||var(57):= enemy,var(57)
-trigger1 = 1||var(58):= enemy,var(58)
-trigger1 = 1||var(59):= enemy,var(59)
-trigger1 = 1||fvar(0):= enemy,fvar(0)
-trigger1 = 1||fvar(1):= enemy,fvar(1)
-trigger1 = 1||fvar(2):= enemy,fvar(2)
-trigger1 = 1||fvar(3):= enemy,fvar(3)
-trigger1 = 1||fvar(4):= enemy,fvar(4)
-trigger1 = 1||fvar(5):= enemy,fvar(5)
-trigger1 = 1||fvar(6):= enemy,fvar(6)
-trigger1 = 1||fvar(7):= enemy,fvar(7)
-trigger1 = 1||fvar(8):= enemy,fvar(8)
-trigger1 = 1||fvar(9):= enemy,fvar(9)
-trigger1 = 1||fvar(10):= enemy,fvar(10)
-trigger1 = 1||fvar(11):= enemy,fvar(11)
-trigger1 = 1||fvar(12):= enemy,fvar(12)
-trigger1 = 1||fvar(13):= enemy,fvar(13)
-trigger1 = 1||fvar(14):= enemy,fvar(14)
-trigger1 = 1||fvar(15):= enemy,fvar(15)
-trigger1 = 1||fvar(16):= enemy,fvar(16)
-trigger1 = 1||fvar(17):= enemy,fvar(17)
-trigger1 = 1||fvar(18):= enemy,fvar(18)
-trigger1 = 1||fvar(19):= enemy,fvar(19)
-trigger1 = 1||fvar(20):= enemy,fvar(20)
-trigger1 = 1||fvar(21):= enemy,fvar(21)
-trigger1 = 1||fvar(22):= enemy,fvar(22)
-trigger1 = 1||fvar(23):= enemy,fvar(23)
-trigger1 = 1||fvar(24):= enemy,fvar(24)
-trigger1 = 1||fvar(25):= enemy,fvar(25)
-trigger1 = 1||fvar(26):= enemy,fvar(26)
-trigger1 = 1||fvar(27):= enemy,fvar(27)
-trigger1 = 1||fvar(28):= enemy,fvar(28)
-trigger1 = 1||fvar(29):= enemy,fvar(29)
-trigger1 = 1||fvar(30):= enemy,fvar(30)
-trigger1 = 1||fvar(31):= enemy,fvar(31)
-trigger1 = 1||fvar(32):= enemy,fvar(32)
-trigger1 = 1||fvar(33):= enemy,fvar(33)
-trigger1 = 1||fvar(34):= enemy,fvar(34)
-trigger1 = 1||fvar(35):= enemy,fvar(35)
-trigger1 = 1||fvar(36):= enemy,fvar(36)
-trigger1 = 1||fvar(37):= enemy,fvar(37)
-trigger1 = 1||fvar(38):= enemy,fvar(38)
-trigger1 = 1||fvar(39):= enemy,fvar(39)
-ignorehitpause = 1
-
-;-------------------------------------------------------
-;潛入
-
-[state -2,凍結探查]
-type = changestate
-trigger1 = ishelper(7008)&&numhelper(8008)
-trigger1 = root,numprojid(7008)&&!root,numprojid(17008);flag正常出現
-trigger1 = roundstate < 3
-value = helper(8008),sysvar(2);潛入探查監視helper指定的state
-ignorehitpause = 1
-
-[state -2,非凍結探查]
-type = changestate
-trigger1 = ishelper(7009)&&numhelper(8009)
-trigger1 = root,numprojid(7009)&&!root,numprojid(17009)
-trigger1 = roundstate < 3
-value = helper(8009),sysvar(2)
-ignorehitpause = 1
-
-;-------------------------------------------------------
-;無法潛入時處理
-;被奪取時進入敵方不存在的state來維持被奪取狀態
-;沒有被奪取時進入探查待機state來使用hitdef和hitby以方便被敵方奪取
-
-[state -2,維持被奪取狀態]
-type = changestate
-trigger1 = ishelper(7008)+ishelper(7009)
-trigger1 = hitfall!= gametime*2+3;被投了
-trigger1 = stateno!= 973421235;還沒潛入(無此條件的話凍結探查就無法凍結)
-value = 973421235
-ignorehitpause = 1
-;在被奪取狀態時使用Selfstate就會回到自己的狀態號，會從被奪取的地方重新開始探查
-;因此可以在待機中使用changestats繼續進入敵方state來快速重啟探查
-
-[state -2,未被奪取時進入探查待機]
-type = selfstate
-triggerall = ishelper(7008)+ishelper(7009)
-trigger1 = hitfall = gametime*2+3;沒有被投
-trigger2 = roundstate > 2
-value = 7008
-ignorehitpause = 1
-;在此處有為了被敵方奪取而使用的hitdef和hitby
 
 ;-------------------------------------------------------
 ;專用對策(var(28))&特殊對應(var(29))
@@ -3386,64 +2636,142 @@ ignorehitpause = 1
 [state ];C1間者ID記錄
 type = null
 triggerall =!ishelper
-triggerall = numhelper(12000)
-trigger1 = helper(12000),fvar(4);當記錄到的時候
-trigger1 = fvar(8):= helper(12000),fvar(4);將ID記錄到本體的fvar(8)
+trigger1 = (helper(10000),sysvar(4)&24) = 8
+trigger1 = fvar(8):= helper(10000),var(2)
+trigger2 = (helper(10001),sysvar(4)&24) = 8
+trigger2 = fvar(8):= helper(10001),var(2)
+trigger3 = (helper(10002),sysvar(4)&24) = 8
+trigger3 = fvar(8):= helper(10002),var(2)
+trigger4 = (helper(10003),sysvar(4)&24) = 8
+trigger4 = fvar(8):= helper(10003),var(2)
+trigger5 = (helper(10004),sysvar(4)&24) = 8
+trigger5 = fvar(8):= helper(10004),var(2)
+trigger6 = (helper(10005),sysvar(4)&24) = 8
+trigger6 = fvar(8):= helper(10005),var(2)
+trigger7 = (helper(10006),sysvar(4)&24) = 8
+trigger7 = fvar(8):= helper(10006),var(2)
+trigger8 = (helper(10007),sysvar(4)&24) = 8
+trigger8 = fvar(8):= helper(10007),var(2)
+trigger9 = (helper(10008),sysvar(4)&24) = 8
+trigger9 = fvar(8):= helper(10008),var(2)
+trigger10 = (helper(10009),sysvar(4)&24) = 8
+trigger10 = fvar(8):= helper(10009),var(2)
+trigger11 = (helper(10010),sysvar(4)&24) = 8
+trigger11 = fvar(8):= helper(10010),var(2)
+trigger12 = (helper(10011),sysvar(4)&24) = 8
+trigger12 = fvar(8):= helper(10011),var(2)
+trigger13 = (helper(10012),sysvar(4)&24) = 8
+trigger13 = fvar(8):= helper(10012),var(2)
+trigger14 = (helper(10013),sysvar(4)&24) = 8
+trigger14 = fvar(8):= helper(10013),var(2)
+trigger15 = (helper(10014),sysvar(4)&24) = 8
+trigger15 = fvar(8):= helper(10014),var(2)
+trigger16 = (helper(10015),sysvar(4)&24) = 8
+trigger16 = fvar(8):= helper(10015),var(2)
+trigger17 = (helper(10016),sysvar(4)&24) = 8
+trigger17 = fvar(8):= helper(10016),var(2)
+trigger18 = (helper(10017),sysvar(4)&24) = 8
+trigger18 = fvar(8):= helper(10017),var(2)
+trigger19 = (helper(10018),sysvar(4)&24) = 8
+trigger19 = fvar(8):= helper(10018),var(2)
+trigger20 = (helper(10019),sysvar(4)&24) = 8
+trigger20 = fvar(8):= helper(10019),var(2)
+trigger21 = (helper(10020),sysvar(4)&24) = 8
+trigger21 = fvar(8):= helper(10020),var(2)
 ignorehitpause = 1
 
 [state ];C2間者ID記錄
 type = null
 triggerall =!ishelper
-triggerall = numhelper(12000)
-trigger1 = helper(12000),fvar(5);當記錄到的時候
-trigger1 = fvar(9):= helper(12000),fvar(5);將ID記錄到本體的fvar(9)
+trigger1 = (helper(10000),sysvar(4)&24) = 16
+trigger1 = fvar(9):= helper(10000),var(2)
+trigger2 = (helper(10001),sysvar(4)&24) = 16
+trigger2 = fvar(9):= helper(10001),var(2)
+trigger3 = (helper(10002),sysvar(4)&24) = 16
+trigger3 = fvar(9):= helper(10002),var(2)
+trigger4 = (helper(10003),sysvar(4)&24) = 16
+trigger4 = fvar(9):= helper(10003),var(2)
+trigger5 = (helper(10004),sysvar(4)&24) = 16
+trigger5 = fvar(9):= helper(10004),var(2)
+trigger6 = (helper(10005),sysvar(4)&24) = 16
+trigger6 = fvar(9):= helper(10005),var(2)
+trigger7 = (helper(10006),sysvar(4)&24) = 16
+trigger7 = fvar(9):= helper(10006),var(2)
+trigger8 = (helper(10007),sysvar(4)&24) = 16
+trigger8 = fvar(9):= helper(10007),var(2)
+trigger9 = (helper(10008),sysvar(4)&24) = 16
+trigger9 = fvar(9):= helper(10008),var(2)
+trigger10 = (helper(10009),sysvar(4)&24) = 16
+trigger10 = fvar(9):= helper(10009),var(2)
+trigger11 = (helper(10010),sysvar(4)&24) = 16
+trigger11 = fvar(9):= helper(10010),var(2)
+trigger12 = (helper(10011),sysvar(4)&24) = 16
+trigger12 = fvar(9):= helper(10011),var(2)
+trigger13 = (helper(10012),sysvar(4)&24) = 16
+trigger13 = fvar(9):= helper(10012),var(2)
+trigger14 = (helper(10013),sysvar(4)&24) = 16
+trigger14 = fvar(9):= helper(10013),var(2)
+trigger15 = (helper(10014),sysvar(4)&24) = 16
+trigger15 = fvar(9):= helper(10014),var(2)
+trigger16 = (helper(10015),sysvar(4)&24) = 16
+trigger16 = fvar(9):= helper(10015),var(2)
+trigger17 = (helper(10016),sysvar(4)&24) = 16
+trigger17 = fvar(9):= helper(10016),var(2)
+trigger18 = (helper(10017),sysvar(4)&24) = 16
+trigger18 = fvar(9):= helper(10017),var(2)
+trigger19 = (helper(10018),sysvar(4)&24) = 16
+trigger19 = fvar(9):= helper(10018),var(2)
+trigger20 = (helper(10019),sysvar(4)&24) = 16
+trigger20 = fvar(9):= helper(10019),var(2)
+trigger21 = (helper(10020),sysvar(4)&24) = 16
+trigger21 = fvar(9):= helper(10020),var(2)
 ignorehitpause = 1
 
 [state ];敵本體間者ID記錄
 type = null
 triggerall =!ishelper
-trigger1 = helper(10000),var(6)
-trigger1 = fvar(10):= helper(10000),var(6)
-trigger2 = helper(10001),var(6)
-trigger2 = fvar(10):= helper(10001),var(6)
-trigger3 = helper(10002),var(6)
-trigger3 = fvar(10):= helper(10002),var(6)
-trigger4 = helper(10003),var(6)
-trigger4 = fvar(10):= helper(10003),var(6)
-trigger5 = helper(10004),var(6)
-trigger5 = fvar(10):= helper(10004),var(6)
-trigger6 = helper(10005),var(6)
-trigger6 = fvar(10):= helper(10005),var(6)
-trigger7 = helper(10006),var(6)
-trigger7 = fvar(10):= helper(10006),var(6)
-trigger8 = helper(10007),var(6)
-trigger8 = fvar(10):= helper(10007),var(6)
-trigger9 = helper(10008),var(6)
-trigger9 = fvar(10):= helper(10008),var(6)
-trigger10 = helper(10009),var(6)
-trigger10 = fvar(10):= helper(10009),var(6)
-trigger11 = helper(10010),var(6)
-trigger11 = fvar(10):= helper(10010),var(6)
-trigger12 = helper(10011),var(6)
-trigger12 = fvar(10):= helper(10011),var(6)
-trigger13 = helper(10012),var(6)
-trigger13 = fvar(10):= helper(10012),var(6)
-trigger14 = helper(10013),var(6)
-trigger14 = fvar(10):= helper(10013),var(6)
-trigger15 = helper(10014),var(6)
-trigger15 = fvar(10):= helper(10014),var(6)
-trigger16 = helper(10015),var(6)
-trigger16 = fvar(10):= helper(10015),var(6)
-trigger17 = helper(10016),var(6)
-trigger17 = fvar(10):= helper(10016),var(6)
-trigger18 = helper(10017),var(6)
-trigger18 = fvar(10):= helper(10017),var(6)
-trigger19 = helper(10018),var(6)
-trigger19 = fvar(10):= helper(10018),var(6)
-trigger20 = helper(10019),var(6)
-trigger20 = fvar(10):= helper(10019),var(6)
-trigger21 = helper(10020),var(6)
-trigger21 = fvar(10):= helper(10020),var(6)
+trigger1 = (helper(10000),sysvar(4)&24) = 24
+trigger1 = fvar(10):= helper(10000),var(2)
+trigger2 = (helper(10001),sysvar(4)&24) = 24
+trigger2 = fvar(10):= helper(10001),var(2)
+trigger3 = (helper(10002),sysvar(4)&24) = 24
+trigger3 = fvar(10):= helper(10002),var(2)
+trigger4 = (helper(10003),sysvar(4)&24) = 24
+trigger4 = fvar(10):= helper(10003),var(2)
+trigger5 = (helper(10004),sysvar(4)&24) = 24
+trigger5 = fvar(10):= helper(10004),var(2)
+trigger6 = (helper(10005),sysvar(4)&24) = 24
+trigger6 = fvar(10):= helper(10005),var(2)
+trigger7 = (helper(10006),sysvar(4)&24) = 24
+trigger7 = fvar(10):= helper(10006),var(2)
+trigger8 = (helper(10007),sysvar(4)&24) = 24
+trigger8 = fvar(10):= helper(10007),var(2)
+trigger9 = (helper(10008),sysvar(4)&24) = 24
+trigger9 = fvar(10):= helper(10008),var(2)
+trigger10 = (helper(10009),sysvar(4)&24) = 24
+trigger10 = fvar(10):= helper(10009),var(2)
+trigger11 = (helper(10010),sysvar(4)&24) = 24
+trigger11 = fvar(10):= helper(10010),var(2)
+trigger12 = (helper(10011),sysvar(4)&24) = 24
+trigger12 = fvar(10):= helper(10011),var(2)
+trigger13 = (helper(10012),sysvar(4)&24) = 24
+trigger13 = fvar(10):= helper(10012),var(2)
+trigger14 = (helper(10013),sysvar(4)&24) = 24
+trigger14 = fvar(10):= helper(10013),var(2)
+trigger15 = (helper(10014),sysvar(4)&24) = 24
+trigger15 = fvar(10):= helper(10014),var(2)
+trigger16 = (helper(10015),sysvar(4)&24) = 24
+trigger16 = fvar(10):= helper(10015),var(2)
+trigger17 = (helper(10016),sysvar(4)&24) = 24
+trigger17 = fvar(10):= helper(10016),var(2)
+trigger18 = (helper(10017),sysvar(4)&24) = 24
+trigger18 = fvar(10):= helper(10017),var(2)
+trigger19 = (helper(10018),sysvar(4)&24) = 24
+trigger19 = fvar(10):= helper(10018),var(2)
+trigger20 = (helper(10019),sysvar(4)&24) = 24
+trigger20 = fvar(10):= helper(10019),var(2)
+trigger21 = (helper(10020),sysvar(4)&24) = 24
+trigger21 = fvar(10):= helper(10020),var(2)
 ignorehitpause = 1
 
 [state ,C1間者ID記錄flag]
@@ -3522,7 +2850,8 @@ ignorehitpause = 1
 type = varset
 trigger1 =!ishelper
 trigger1 = sysvar(4) = 2
-trigger1 =!(var(4)&256)
+trigger1 =!(var(4)&2048)
+trigger1 = fvar(1) < 30000
 var(4) = (var(4)|256)
 ignorehitpause = 1
 
@@ -3531,6 +2860,7 @@ type = varset
 trigger1 =!ishelper
 trigger1 = sysvar(4) = 2
 trigger1 =!(var(4)&512)
+trigger1 = fvar(1) < 30000
 var(4) = (var(4)|512)
 ignorehitpause = 1
 
@@ -3538,11 +2868,11 @@ ignorehitpause = 1
 type = varset
 trigger1 =!ishelper
 trigger1 = sysvar(4) = 2
-triggerall = playerIDexist(ceil(fvar(5)))
-triggerall = playerIDexist((playerID(ceil(fvar(5))),fvar(4)))
-triggerall = playerID((playerID(ceil(fvar(5))),fvar(4))),sysvar(1)&1
+trigger1 = playerIDexist(ceil(fvar(5)))
+trigger1 = playerIDexist((playerID(ceil(fvar(5))),fvar(4)))
+trigger1 = playerID((playerID(ceil(fvar(5))),fvar(4))),sysvar(1)&1
 trigger1 = roundstate > 1
-trigger1 = fvar(1) > 48000
+trigger1 = fvar(1) > 45000
 var(4) = (var(4)|2048)
 ignorehitpause = 1
 
@@ -3737,15 +3067,6 @@ trigger5 = hitpausetime
 trigger6 =!time
 trigger7 =!numhelper(60000)
 value = 1000000
-ignorehitpause = 1
-
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = enemynear,movetype = H
-trigger1 = movetype != H
-trigger1 = NumTarget > 0 
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 5
 ignorehitpause = 1
 
 ;--------------------------------------------------------------------------------------------------

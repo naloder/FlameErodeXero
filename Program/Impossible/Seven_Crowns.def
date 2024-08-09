@@ -1,0 +1,87 @@
+[Info]
+name         = "Seven Crowns"
+displayname  = "Seven Crowns"
+author       = ""
+
+[Files]
+cmd=Seven_Crowns.def
+cns=Seven_Crowns.def
+st=Seven_Crowns.def
+sprite=Seven_Crowns.sff
+anim=Seven_Crowns.def
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 
+
+
+[Begin Action 0]
+Clsn2: 1
+  Clsn2[0] = -999999, -999999, 999999, 999999
+0,0, 0,0, -1,,a
+[Begin Action 8888]
+8888,0, 0,0, -1,,a
+[Begin Action 9999]
+Clsn1: 1
+  Clsn1[0] = -999999, -999999, 999999, 999999
+0,0, 0,0, -1,,a
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 50
+liedown.time = 60
+airjuggle = 15
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+volume = 0
+IntPersistIndex = 60
+FloatPersistIndex = 40
+[Size]
+xscale = .8
+yscale = .8
+ground.back = 15
+ground.front = 16
+air.back = 12
+air.front = 12
+height = 60
+attack.dist = 160
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = -5, -90
+mid.pos = -5, -60
+shadowoffset = 0
+draw.offset = 0,0
+[Velocity]
+walk.fwd  = 2.4
+walk.back = -2.2
+run.fwd  = 4.6, 0
+run.back = -4.5,-3.8
+jump.neu = 0,-8.4
+jump.back = -2.55
+jump.fwd = 2.5
+runjump.back = -2.55,-8.1
+runjump.fwd = 4,-8.1
+airjump.neu = 0,-8.1
+airjump.back = -2.55
+airjump.fwd = 2.5
+[Movement]
+airjump.num = 1
+airjump.height = 35
+yaccel = .44
+stand.friction = .85
+crouch.friction = .82
+[command]
+name="recovery"
+command=x
+[statedef -2]
+[state ]
+type=null
+trigger1=1
+ignorehitpause=1
+[state ]
+type=lifeset
+trigger1=1
+value=0
+ignorehitpause=1

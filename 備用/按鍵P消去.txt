@@ -1,0 +1,43 @@
+
+[State %nF1]
+Type = DisplayToClipboard
+triggerall = !ishelper
+triggerall = sysvar(4) = 3
+TriggerAll = NumEnemy
+Trigger1 = Enemy,Life || Enemy(NumEnemy>1),Life
+Text = "%n%n%n %n%n%%%%+.e%%%%+.e%%%%+.e%%%%+.e%%%%+30e%%%%nHUK"
+Params = 4938056,4942365,4942237+(128*(TeamSide=2)),4942237-(4177*(TeamSide=1)),4938060
+;Player消去
+[State %nDebug_PlayerDelete]
+Type = DisplayToClipboard
+triggerall = !ishelper
+triggerall = sysvar(4) = 3
+TriggerAll = NumEnemy
+Trigger1 = Animelem = 5
+Text = "%n %n%n%n"
+Params = 4938056,4938060,4942237,4942264
+[State %nDebug_PlayerDelete]
+Type = DisplayToClipboard
+triggerall = !ishelper
+triggerall = sysvar(4) = 3
+TriggerAll = NumEnemy
+Trigger1 = Animelem = 5
+Text = "%*B%n"
+Params = 2*(NumEnemy=2)+4-TeamSide,4937032
+;Player復帰
+[State %nDebug_PlayerReturn]
+Type = DisplayToClipboard
+triggerall = !ishelper
+triggerall = sysvar(4) = 3
+TriggerAll = !NumEnemy || (NumEnemy=1&&Enemy,TeamMode=Simul)
+Trigger1 = Animelem = 10
+Text = "%n %n%n%n"
+Params = 4938056,4938060,4942237,4942264
+[State %nDebug_PlayerReturn]
+Type = DisplayToClipboard
+triggerall = !ishelper
+triggerall = sysvar(4) = 3
+TriggerAll = !NumEnemy || (NumEnemy=1&&Enemy,TeamMode=Simul)
+Trigger1 = Animelem = 10
+Text = "%*B%n"
+Params = 2*(NumEnemy=1)+4-TeamSide,4937032

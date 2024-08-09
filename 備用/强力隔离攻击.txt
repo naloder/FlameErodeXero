@@ -1,0 +1,693 @@
+
+;强力隔离攻击
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=96,1,4927344 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=156,1,4927345 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=161,1,4927346 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=76,1,4927347 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=91,1,4927348 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=75,1,4927349 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927350 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=139,1,4927351 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=83,1,4927352 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=12,1,4927353 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=185,1,4927354 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927355 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927356 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927357 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927358 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=65,1,4927359 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=139,1,4927360 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=180,1,4927361 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=136,1,4927362 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=80,1,4927363 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=183,1,4927364 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927365 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927366 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=129,1,4927367 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=254,1,4927368 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=104,1,4927369 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=64,1,4927370 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=75,1,4927371 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927372 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=114,1,4927373 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=5,1,4927374 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=57,1,4927375 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=86,1,4927376 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=12,1,4927377 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=117,1,4927378 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=23,1,4927379 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=131,1,4927380 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=249,1,4927381 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=60,1,4927382 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=114,1,4927383 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=230,1,4927384 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=157,1,4927385 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=97,1,4927386 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=199,1,4927387 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=132,1,4927388 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=36,1,4927389 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=24,1,4927390 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=4,1,4927391 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927392 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927393 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=243,1,4927394 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=19,1,4927395 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=71,1,4927396 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927397 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=233,1,4927398 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=54,1,4927399 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=2,1,4927400 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=246,1,4927401 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=255,1,4927402 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=199,1,4927403 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=134,1,4927404 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=92,1,4927405 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=1,1,4927406 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927407 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927408 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=17,1,4927409 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=17,1,4927410 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=17,1,4927411 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=17,1,4927412 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=199,1,4927413 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=134,1,4927414 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=220,1,4927415 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=1,1,4927416 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927417 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927418 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927419 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927420 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927421 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927422 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=199,1,4927423 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=134,1,4927424 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=224,1,4927425 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=1,1,4927426 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927427 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927428 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927429 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927430 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927431 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927432 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=199,1,4927433 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=134,1,4927434 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=36,1,4927435 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=14,1,4927436 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927437 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927438 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927439 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927440 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927441 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927442 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=198,1,4927443 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=128,1,4927444 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=122,1,4927445 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=187,1,4927446 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927447 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927448 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927449 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=137,1,4927450 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=144,1,4927451 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=52,1,4927452 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=188,1,4927453 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927454 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+Text = "%*.d%n%d" 
+params=0,0,4927455 
+IgnoreHitPause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=235,1,4927456 
+ignorehitpause = 1 
+[state ] 
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%*d%n%d" 
+params=178,1,4927457 
+ignorehitpause = 1 
+
+[state ]
+type=displaytoclipboard 
+trigger1 = sysvar(4) = 3
+text="%1021c%c%c%cp/K"
+params=108,10,10,10
+ignorehitpause = 1

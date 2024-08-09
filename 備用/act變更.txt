@@ -1,0 +1,976 @@
+
+;Act变更
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931658
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=179,0,4931659
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=172,0,4931660
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=19,0,4931661
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931664
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=119,0,4931665
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=244,0,4931666
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931667
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=119,0,4931668
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=240,0,4931669
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931670
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=54,0,4931671
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=184,0,4931672
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=80,0,4931673
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=143,0,4931674
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=64,0,4931675
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931677
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=208,0,4931678
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=131,0,4931679
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=196,0,4931680
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=12,0,4931681
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=131,0,4931682
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=248,0,4931683
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931684
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=116,0,4931685
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=34,0,4931686
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931687
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=22,0,4931688
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=15,0,4931689
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=175,0,4931690
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=66,0,4931691
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=4,0,4931692
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931693
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=82,0,4931694
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=20,0,4931695
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931696
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=108,0,4931697
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=2,0,4931698
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=48,0,4931699
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931700
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=119,0,4931701
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=252,0,4931702
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931703
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=119,0,4931704
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=248,0,4931705
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931706
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=54,0,4931707
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=184,0,4931708
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=80,0,4931709
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=143,0,4931710
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=64,0,4931711
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931713
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=208,0,4931714
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=131,0,4931715
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=196,0,4931716
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=12,0,4931717
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=131,0,4931718
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=248,0,4931719
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=255,0,4931720
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=116,0,4931721
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=99,0,4931722
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931723
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=22,0,4931724
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=15,0,4931725
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=175,0,4931726
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=66,0,4931727
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=4,0,4931728
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931729
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=82,0,4931730
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=20,0,4931731
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931732
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=68,0,4931733
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=2,0,4931734
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=48,0,4931735
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931736
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=86,0,4931737
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=12,0,4931738
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931739
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=82,0,4931740
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931741
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=15,0,4931742
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=175,0,4931743
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=66,0,4931744
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=4,0,4931745
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931746
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=82,0,4931747
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=20,0,4931748
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931749
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=84,0,4931750
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=16,0,4931751
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931752
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931753
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=78,0,4931754
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931755
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=15,0,4931756
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=175,0,4931757
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=105,0,4931758
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=4,0,4931759
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931760
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=65,0,4931761
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=20,0,4931762
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=137,0,4931763
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=84,0,4931764
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=40,0,4931765
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931766
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931767
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=13,0,4931768
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=176,0,4931769
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=95,0,4931770
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=75,0,4931771
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931773
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=73,0,4931774
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=76,0,4931775
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=247,0,4931776
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=209,0,4931777
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=137,0,4931778
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=76,0,4931779
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=40,0,4931780
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=88,0,4931781
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=131,0,4931782
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=63,0,4931783
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=1,0,4931784
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=114,0,4931785
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=31,0,4931786
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931787
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931788
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=180,0,4931789
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=19,0,4931790
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931793
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=73,0,4931794
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931795
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931796
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=65,0,4931797
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=20,0,4931798
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=137,0,4931799
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=84,0,4931800
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=40,0,4931801
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=8,0,4931802
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931803
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=13,0,4931804
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=176,0,4931805
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=95,0,4931806
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=75,0,4931807
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=139,0,4931809
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=73,0,4931810
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=76,0,4931811
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=247,0,4931812
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=209,0,4931813
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=137,0,4931814
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=76,0,4931815
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=40,0,4931816
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=88,0,4931817
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=129,0,4931818
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=196,0,4931819
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=24,0,4931820
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=4,0,4931821
+ignorehitpause=1
+[State ]
+type=DisplayToClipboard
+Trigger1 = !IsHelper
+text="%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%.s%%-%d.*s%%n%.s%.s"
+params=195,0,4931824
+ignorehitpause=1
+
+[State ]
+type=DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 =!sysvar(4)
+text="%.s%.s%.s%.s%.s%%%%1024dJ@K"
+params=0,0,9200+((var(0)&50331648)/16777216)*100,var(21),0
+ignorehitpause=1
+
+[State ]
+type=DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 =!sysvar(4)
+text="%.s%.s%.s%.s%.s%%%%1024dJ@K"
+params=9000,0,9200+((var(0)&50331648)/16777216)*100,var(21),0
+ignorehitpause=1
+
+[State ]
+type=DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 = sysvar(4) = 1
+text="%.s%.s%.s%.s%.s%%%%1024dJ@K"
+params=0,0,9500,var(21),0
+ignorehitpause=1
+
+[State ]
+type=DisplayToClipboard
+Trigger1 =!IsHelper
+Trigger1 = sysvar(4) = 1
+text="%.s%.s%.s%.s%.s%%%%1024dJ@K"
+params=9000,0,9500,var(21),0
+ignorehitpause=1

@@ -957,7 +957,6 @@ Type = SelfState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 Trigger1 = Vel Y>0&&Pos Y>=0
 Value = 5100
-ctrl = 0
 
 ;被八稚女击中的对面
 [Statedef 3005]
@@ -2021,14 +2020,12 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
 value = 15001
-ctrl = 0
 
 [State 5000, 7]
 type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 value = 15030
-ctrl = 0
 
 ;=================================================================
 ;Dusk 站立受击硬直
@@ -2125,7 +2122,6 @@ type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = time>=300
 value = 15100
-ctrl = 0
 
 [State 5001, 6]
 type = selfState
@@ -2242,14 +2238,12 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
 value = 15011 ;HITC_SLIDE
-ctrl = 0
 
 [State 5010, 7]
 type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 value = 15030
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 下蹲受击硬直
@@ -2449,7 +2443,6 @@ type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 value = 15030
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 空中受击硬直
@@ -2538,7 +2531,6 @@ trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= 10  ;.
 value = 15040 ;HITA_RECOV
-ctrl = 0
 
 [State 5030, 4]
 type = ChangeState
@@ -2548,22 +2540,18 @@ trigger1 = HitOver
 trigger2 = Vel Y > 0    ;Hit ground
 trigger2 = Pos Y >= 10  ;.
 value = 15050 ;HITA_FALL
-ctrl = 0
 
 [State 5030, 5]
 type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = AnimTime = 0
-value = 15050 ;HITA_UP (transition)
-ctrl = 0
+value = 15035 ;HITA_UP (transition)
 
 [State 5000, 7]
 type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = time>=300
 value = 15100
-ctrl = 0
-
 ;---------------------------------------------------------------------------
 ;Dusk 空中受击过度
 [Statedef 15035]
@@ -2649,7 +2637,6 @@ trigger3 = Pos Y >= 10  ;.
 trigger4 =!Time     ;No transition anim
 trigger4 = Anim != 5035 ;.
 value = 15040 ;HITA_RECOV
-ctrl = 0
 
 [State 5035, 4]
 type = ChangeState
@@ -2662,14 +2649,12 @@ trigger3 = Pos Y >= 10  ;.
 trigger4 =!Time     ;No transition anim
 trigger4 = Anim != 5035 ;.
 value = 15050 ;HITA_FALL
-ctrl = 0
 
 [State 5000, 7]
 type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = time>=300
 value = 15100
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 空中受击恢复
@@ -2868,7 +2853,6 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= ifelse((anim = [5051,5059]) || (anim = [5061,5069]), 0, 25)
 value = 15100 ;HIT_BOUNCE
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 受击绊倒
@@ -2947,7 +2931,6 @@ type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 value = 15071
-ctrl = 0
 
 
 ;---------------------------------------------------------------------------
@@ -3028,7 +3011,6 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= 15
 value = 15110
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 躺地受击
@@ -3130,7 +3112,6 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 trigger1 = GetHitVar(yvel) = 0
 value = 15081 ;HITL_SLIDE
-ctrl = 0
 
 [State 5080, 5]
 type = ChangeState
@@ -3138,7 +3119,6 @@ trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitShakeOver
 trigger1 = GetHitVar(yvel) != 0
 value = 15030 ;HITA_UP
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 躺地受击硬直
@@ -3223,7 +3203,6 @@ type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = HitOver
 value = 15110 ;HIT_LIEDOWN
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 躺地受击着地
@@ -3405,7 +3384,6 @@ type = ChangeState
 trigger1 = enemy(enemy,name!= "Finaltly_Death_Claw"),sysvar(4)!= 2
 trigger1 = AnimTime = 0
 value = 15101
-ctrl = 0
 
 ;---------------------------------------------------------------------------
 ;Dusk 躺地受击弹起

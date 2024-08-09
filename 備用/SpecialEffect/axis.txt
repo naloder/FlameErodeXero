@@ -1,0 +1,2 @@
+X axis: 160
+Y axis: 150

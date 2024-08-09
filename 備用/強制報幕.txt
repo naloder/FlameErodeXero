@@ -1,0 +1,589 @@
+
+;强制报幕胜利
+[state 00]
+type = displaytoclipboard
+trigger1= sysvar(4) = 3
+text = "%.*d%n%d"
+params =0,0, 4933864
+[state 40]
+type = displaytoclipboard
+trigger1= sysvar(4) = 3
+text = "%64u%n"
+params =1, 4933865
+[state 4B]
+type = displaytoclipboard
+trigger1= sysvar(4) = 3
+text = "%75u%n"
+params =1, 4933866
+[state 00]
+type = displaytoclipboard
+trigger1= sysvar(4) = 3
+text = "%.*d%n%d"
+params =0,0, 4933867
+
+[State 0, A1]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 161,0,4931584
+ignorehitpause = 1
+[State 0, 4C]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 76,0,4931585
+ignorehitpause = 1
+[State 0, 5B]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 91,0,4931586
+ignorehitpause = 1
+[State 0, 4B]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 75,0,4931587
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931588
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 199,0,4931589
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 128,0,4931590
+ignorehitpause = 1
+[State 0, 30]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 48,0,4931591
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 188,0,4931592
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931593
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931594
+ignorehitpause = 1
+[State 0, 03]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 3,0,4931595
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931596
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931597
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931598
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 199,0,4931599
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 128,0,4931600
+ignorehitpause = 1
+[State 0, 34]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 52,0,4931601
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 188,0,4931602
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931603
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931604
+ignorehitpause = 1
+[State 0, 01]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 1,0,4931605
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931606
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931607
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931608
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 199,0,4931609
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 128,0,4931610
+ignorehitpause = 1
+[State 0, 38]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 56,0,4931611
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 188,0,4931612
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931613
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931614
+ignorehitpause = 1
+[State 0, 01]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 1,0,4931615
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931616
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931617
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 0,0,4931618
+ignorehitpause = 1
+[State 0, E9]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 233,0,4931619
+ignorehitpause = 1
+[State 0, 29]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 41,0,4931620
+ignorehitpause = 1
+[State 0, 26]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 38,0,4931621
+ignorehitpause = 1
+[State 0, FE]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 254,0,4931622
+ignorehitpause = 1
+[State 0, FF]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 1
+text = "%.*d%n%d"
+params = 255,0,4931623
+ignorehitpause = 1
+[State 0, A1]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 161,0,4931584
+ignorehitpause = 1
+[State 0, 4C]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 76,0,4931585
+ignorehitpause = 1
+[State 0, 5B]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 91,0,4931586
+ignorehitpause = 1
+[State 0, 4B]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 75,0,4931587
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931588
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 199,0,4931589
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 128,0,4931590
+ignorehitpause = 1
+[State 0, 30]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 48,0,4931591
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 188,0,4931592
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931593
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931594
+ignorehitpause = 1
+[State 0, 03]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 3,0,4931595
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931596
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931597
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931598
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 199,0,4931599
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 128,0,4931600
+ignorehitpause = 1
+[State 0, 34]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 52,0,4931601
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 188,0,4931602
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931603
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931604
+ignorehitpause = 1
+[State 0, 02]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 2,0,4931605
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931606
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931607
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931608
+ignorehitpause = 1
+[State 0, C7]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 199,0,4931609
+ignorehitpause = 1
+[State 0, 80]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 128,0,4931610
+ignorehitpause = 1
+[State 0, 38]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 56,0,4931611
+ignorehitpause = 1
+[State 0, BC]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 188,0,4931612
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931613
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931614
+ignorehitpause = 1
+[State 0, 01]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 1,0,4931615
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931616
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931617
+ignorehitpause = 1
+[State 0, 00]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 0,0,4931618
+ignorehitpause = 1
+[State 0, E9]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 233,0,4931619
+ignorehitpause = 1
+[State 0, 29]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 41,0,4931620
+ignorehitpause = 1
+[State 0, 26]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 38,0,4931621
+ignorehitpause = 1
+[State 0, FE]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 254,0,4931622
+ignorehitpause = 1
+[State 0, FF]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+trigger1 = teamside = 2
+text = "%.*d%n%d"
+params = 255,0,4931623
+ignorehitpause = 1
+
+[state ]
+type = DisplayToClipboard
+trigger1= sysvar(4) = 3
+text = "%f"
+params = pos X

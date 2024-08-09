@@ -962,6 +962,8 @@ trigger1 = name = "Finaltly_Death_Claw"
 flag = intro
 ignorehitpause = 1
 
+
+
 [state 191,演出]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
@@ -1033,6 +1035,25 @@ trigger1 = Anim= 190
 trigger1 = AnimElemTime(1) = 20
 value = S8787,0
 ignorehitpause = 1
+
+[State ]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = Anim = 191
+trigger1 = animelemtime(2) = 0
+anim = 6095
+ID = 6095
+bindtime = -1
+removetime = -2
+postype = Back
+pos = 0,0
+sprpriority = 2147483647
+ontop = 1
+OwnPal = 1
+scale = 1,1
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
 
 [state 191,演出]
 type = Explod
@@ -1127,7 +1148,7 @@ type = ModifyExplod
 triggerall = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemtime(1)>0&&AnimElemtime(2)<0
 ID = 19000
-scale = 20-(animelemtime(1)*0.12),20-(animelemtime(1)*0.12)
+scale = 20-(animelemtime(1)*0.11),20-(animelemtime(1)*0.11)
 ignorehitpause =1
 
 
@@ -1153,7 +1174,7 @@ type = ModifyExplod
 triggerall = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemtime(1)>0&&AnimElemtime(2)<0
 ID = 1913
-scale = 1-(animelemtime(1)*0.007),1-(animelemtime(1)*0.007)
+scale = 1-(animelemtime(1)*0.005),1-(animelemtime(1)*0.005)
 ignorehitpause =1
 
 [State 191,音响]
@@ -1793,8 +1814,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 shadow = 0,0,0
 ownpal = 0
@@ -1977,8 +1997,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 shadow = 0,0,0
 ownpal = 0
@@ -2390,8 +2409,7 @@ facing = 1
 vfacing = 1
 bindtime = -1
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -2
 ownpal = 1
 supermovetime = 2147483647
@@ -3154,8 +3172,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 shadow = 0,0,0
 ownpal = 0
@@ -3180,8 +3197,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 shadow = 0,0,0
 ownpal = 0
@@ -3372,8 +3388,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .3,.3
-scale = GameWidth/1066,GameHeight/800
+scale = .3,.3
 sprpriority = 9999999
 ontop = 1
 shadow = 0,0,0
@@ -3399,8 +3414,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 ignorehitpause = 1
 pausemovetime = 2147483647
@@ -3413,8 +3427,7 @@ trigger1 = AnimElemTime(5) = 1736
 Anim = 20320
 Pos = 0,0
 PosType = Left
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+Scale = 1,1
 BindTime = -1
 OnTop = 1
 OwnPal = 1
@@ -3430,8 +3443,7 @@ trigger1 = AnimElemTime(5) = 1736
 Anim = 20321
 Pos = 0,0
 PosType = Left
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+Scale = 1,1
 BindTime = -1
 OnTop = 1
 OwnPal = 1
@@ -3673,55 +3685,48 @@ trigger1 = movehit = 1
 value = 200,1
 volume = -200
 
-[State 演出]
-type = Explod
+[State 特效]
+type = helper
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-anim = 201
-ID = 201
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-sprpriority = 11
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
+trigger1 = animelemtime(2)=0
+helpertype = Player
+ID = 299
+size.height = 299
+size.shadowoffset = 1
+name = "SE"
+postype= p1
+pos = 30,-60
+keyctrl = 0
+ignorehitpause = 1
+SuperMoveTime = (!!sysvar(4))*2147483647
+PauseMoveTime = (!!sysvar(4))*2147483647
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(2)=0
+ProjID = 201
+projanim = 201
+projscale = .75,1
+projremove = 1
+projremovetime = 30
+offset = 75,0
+postype = p1         ;p2,front,back,left,right
+projshadow = 0,0,0
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause =1
 
-[State 演出]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-anim = 202
-ID = 202
-pos = 0,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-sprpriority = 10
-ontop = 0
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause =1
 
 [State hitdef]
 type = hitdef	;该State的类型。类型：攻击
@@ -4541,57 +4546,47 @@ value = 15,11
 ignorehitpause = 1
 
 
-
-[State 演出]
-type = Explod
+[State 特效]
+type = helper
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = Animelem = 1
-anim = 231
-ID = 231
-pos = -30,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-sprpriority = 11
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
+trigger1 = animelemtime(2)=0
+helpertype = Player
+ID = 299
+size.height = 299
+size.shadowoffset = 3
+name = "SE"
+postype= p1
+pos = 30,-60
+keyctrl = 0
+ignorehitpause = 1
+SuperMoveTime = (!!sysvar(4))*2147483647
+PauseMoveTime = (!!sysvar(4))*2147483647
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(2)=0
+ProjID = 231
+projanim = 231
+projscale = 1,.7
+projremove = 1
+projremovetime = 40
+offset = 75,20
+postype = p1         ;p2,front,back,left,right
+projshadow = 0,0,0
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause =1
-
-[State 演出]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-anim = 232
-ID = 232
-pos = -30,0
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 10
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-sprpriority = 10
-ontop = 0
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause =1
-
 [State snd]
 type = playsnd
 trigger1 = name = "Finaltly_Death_Claw"
@@ -4902,7 +4897,7 @@ attr = S,NA	;自己的攻击定义。x为S-站立,C-下蹲或A-空中。xx的第
 hitflag = MAFDP	;决定对手在哪些状态下可被命中。可选：H-上段,L-下段,A-空中,M-中段(M=HL),F-在目标被打到空中时可追打,D-在目标被打倒后可追打。
 guardflag = MA	;决定对手怎么才能防御此攻击。H-上段,L下段,A-空中或M-中段（M=HL）。
 affectteam = E	;决定是否击中友军（滑稽），B-全部,E-敌方,F-我方。默认E。
-animtype = diagup	;对手受击后的状态。light为轻,medium为中,hard为重,back是击倒,up是垂直飞起,diagup是斜后飞起。默认light。
+animtype = Hard	;对手受击后的状态。light为轻,medium为中,hard为重,back是击倒,up是垂直飞起,diagup是斜后飞起。默认light。
 air.animtype = medium	;同上，只是在对手跳在空中时起作用。
 fall.animtype = medium	;同上，只是在对手被打往后飞时起作用。
 priority = 1,hit	;攻击的优先度与同优先级互杀的反应。优先度为1-7，默认为4，而反应有hit,miss,dodge。hit对hit互打,对miss被打,其余都不被打。
@@ -4914,7 +4909,7 @@ guard.sparkno = -1	;同上，只是被防御时出现的火花号。
 sparkxy = 0,0	;火花的出现位置（x,y）。x负数深入对手,正数远离对手。y负数在上,正数在下。默认为0,0。
 hitsound = S16,3	;打击音效（组，索引）。要播放自己的音效在组前加s。默认为0,0。
 guardsound = S200,2	;同上，只是攻击被防御的音效。
-ground.type = low	;对手站地上时攻击类型。high为打头,low为打腹部,trip为扫腿,none无影响。如果animtype是back，high和low不起作用。默认为high。
+ground.type = High	;对手站地上时攻击类型。high为打头,low为打腹部,trip为扫腿,none无影响。如果animtype是back，high和low不起作用。默认为high。
 air.type = low	;同上，不过是对手在空中时起作用。省略为ground.type。
 ground.slidetime = 20	;对手向后滑的时间，单位为ticks。在地面上生效。默认为0。
 guard.slidetime = 4	;同上，不过在被防御时起效。默认为ground.slidetime。
@@ -4922,7 +4917,7 @@ ground.hittime = 25	;对手处在被击中状态的时间,单位为ticks。在�
 guard.hittime = 4	;同上，不过在被防御时起效。默认为ground.hittime。
 air.hittime = 20		;同上，不过在对手被击飞时起效。fall为1时无效，默认为20.
 yaccel = 1	;给对手的竖直方向的加速度，默认为0。
-ground.velocity = -20,-20	;对手在地面被击中时给对手的初速度。默认为0,0。
+ground.velocity = -12,-9	;对手在地面被击中时给对手的初速度。默认为0,0。
 guard.velocity = 4	;同上，不过在被防御时起效。
 air.velocity = -1,-5	;同上，不过在对手在空中时起效。
 down.velocity = -4,-10	;同上，不过在对手倒地时起效。默认同上。
@@ -5261,17 +5256,19 @@ value = 290
 ignorehitpause = 1
 
 [State ]
-type = AfterImage
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(1) = 0 
-time = 10
-trans = add1
-timegap = 3
-framegap = 1
-length = 8
-palbright = 5,0,0
-palcontrast = 250,120,120
-paladd = 100,-50,-50
+Type   = AfterImage
+Trigger1 = animelem=1
+Time = -1
+Trans = sub
+Length = 140
+TimeGap = 1
+FrameGap = 1
+PalBright  = 150 , 150 , 150
+PalContrast  = 150 , 150 , 155
+PalAdd = 0 , 0 , 0
+PalMul = .70,.70,.70
+ignorehitpause = 1
+
 
 [State PosAdd]
 Type = PosAdd
@@ -5410,17 +5407,18 @@ value = S290,0
 ignorehitpause = 1
 
 [State ]
-type = AfterImage
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(1) = 0 
-time = 10
-trans = add1
-timegap = 3
-framegap = 1
-length = 8
-palbright = 5,0,0
-palcontrast = 250,120,120
-paladd = 100,-50,-50
+Type   = AfterImage
+Trigger1 = animelem=1
+Time = -1
+Trans = sub
+Length = 140
+TimeGap = 1
+FrameGap = 1
+PalBright  = 150 , 150 , 150
+PalContrast  = 150 , 150 , 155
+PalAdd = 0 , 0 , 0
+PalMul = .70,.70,.70
+ignorehitpause = 1
 
 [State PosAdd]
 Type = PosAdd
@@ -5566,6 +5564,61 @@ trigger1 = animelem = 3
 value = S220,14
 ignorehitpause = 1
 
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(3)=0
+ProjID = 301
+projanim = 301
+projscale = 1,1
+projremove = 1
+projremovetime = 30
+offset = 75,0
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(3)=0
+ProjID = 301
+projanim = 12000
+projscale = 1,1
+projremove = 1
+projremovetime = 27
+offset = 50,-70
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
+
 
 
 [State hitdef]
@@ -5636,22 +5689,6 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 persistent = 0
 
-[State ep]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelem = 3
-id = 100
-anim = 12000
-postype = p1
-pos = 50,-70
-scale = 1,1
-sprpriority = 5
-ownpal = 1
-bindtime = -1
-ignorehitpause = 1
-pausemovetime = 2147483647
-supermovetime = 2147483647
-persistent = 0
 
 
 [State 火花]
@@ -6524,8 +6561,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -99999999
 ontop = 0
 shadow = 0,0,0
@@ -7464,6 +7500,49 @@ pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 persistent = 0
 
+[State 速度线]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemtime(7)>0&&AnimElemtime(8)<0
+trigger1 = gametime%1 = 0
+anim = 7998
+ID = 1
+pos = -50,-Random%80
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 2+(Random%10*0.1),0.01
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause = 1
+
+[State 残影]
+type = Afterimage
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelem = 1
+time = 30
+trans = sub
+timegap = 1
+framegap = 1
+length = 10
+palbright = 6,6,6
+palcontrast = 225,225,225
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1
+ignorehitpause = 0
+
+
 [State hitdef]
 type = hitdef	;该State的类型。类型：攻击
 trigger1 = name = "Finaltly_Death_Claw"
@@ -7857,29 +7936,7 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElem = 1
 anim = 11106
 ID = 11106
-pos = 0,-80
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 0.38,0.38
-ownpal = 1
-sprpriority = 9
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 演出]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-anim = 111066
-ID = 111066
-pos = 0,-80
+pos = 40,-80
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -7923,7 +7980,7 @@ ignorehitpause = 1
 
 [State 抓抓抓]
 type = ChangeState
-value = 1100
+value = 1400
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = Sysvar(2) != [4,5]
 trigger1 = animelemtime(4)>0
@@ -8389,6 +8446,35 @@ trigger1 = AnimElemtime(4) >= 0
 statetype = A
 ignorehitpause = 1
 
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(2)=0
+ProjID = 7770
+projanim = 7770
+projscale = .5,.5
+projremove = 1
+projremovetime = 36
+offset = 55,-50
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
+
+
 [State hitdef]
 type = hitdef	;该State的类型。类型：攻击
 trigger1 = name = "Finaltly_Death_Claw"
@@ -8460,51 +8546,7 @@ pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 persistent = 0
 
-[State 演出]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 2
-anim = 12011
-ID = 12011
-pos = 20,-50
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 0.5,0.5
-ownpal = 1
-sprpriority = 5
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
 
-
-[State 演出]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 2
-anim = 12012
-ID = 12012
-pos = 20,-50
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 0.7,0.7
-ownpal = 1
-sprpriority = 5
-trans = sub
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
 
 [State ]
 type = MoveHitReset
@@ -8809,8 +8851,7 @@ facing = 1
 vfacing = 1
 bindtime = -1
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/64,GameHeight/48
+scale = 5,5
 sprpriority = -1
 ownpal = 1
 ontop = -1
@@ -9105,7 +9146,7 @@ supermovetime = (!!sysvar(4)) *2147483647
 persistent = 0
 
 
-[State 装饰用Explod]
+[State 速度线]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemtime(7)>0&&AnimElemtime(8)<0
@@ -9121,7 +9162,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-scale = 2+(Random%10*0.1),0.1
+scale = 2+(Random%10*0.1),0.01
 sprpriority = 0
 ontop = 0
 shadow = 0,0,0
@@ -9193,14 +9234,29 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemtime(7) = 0
 x = 100
 ignorehitpause = 1
+[State 0, VelSet]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemtime(4) = 0
+x = 40
+y = 0
+ignorehitpause = 1
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = 1
+x = .8
+ignorehitpause = 1
+
+
 
 [State 演出]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 8
-anim = 1401
-ID = 1401
-pos = 30,-40
+trigger1 = AnimElem = 7
+anim = 10000
+ID = 10000
+pos = 0,-40
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -9209,12 +9265,35 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-scale = 0.5,0.5
+scale = 1,1
 ownpal = 1
 sprpriority = 98
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause = 1
+
+[State 演出]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 7
+anim = 10001
+ID = 10000
+pos = 0,-40
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 1,1
+ownpal = 1
+sprpriority = 98
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause = 1
+
 
 [State ]
 type = MoveHitReset
@@ -11618,30 +11697,6 @@ trigger1 = anim!= 3100
 value = 3100
 ignorehitpause = 1
 
-[State 瞬移]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(5) = 0
-anim = 7068
-ID = 7068
-pos = 0,-50
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-scale = 1,1
-trans = add
-sprpriority = 9999999
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
 
 [State Explod]
 type = Explod
@@ -11661,51 +11716,75 @@ pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause = 1
 
-[State snd]
-type = playsnd
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 5
-value = S290,0
-ignorehitpause =1
-
-[State 800, 1]
-type = HitDef
-trigger1 = name = "Finaltly_Death_Claw"
-Trigger1 = movehit = 0
-attr = , NT          
-hitflag = MAFD          
-priority = 1, Miss    
-sparkno = -1          
-p1sprpriority = 1     
-p1facing = -1
-p2facing = 1          
-p1stateno = 3101      
-p2stateno = 3102       
-guard.dist = 0        ;这样对方不能转到防御state
-fall = 1              ;强制对方落地
-
-[State ]
+[State 黑屏]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = movehit = 1
-anim = 20211
-pos = 0,-44
-postype = p2
+trigger1 = animelemtime(1) = 0
+anim = 3104
+ID = 3104
+pos = 0,0
+postype = Left  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+scale = 1,1
+sprpriority = 9999999
+shadow = 0,0,0
 ownpal = 0
-bindtime = 1
-removeongethit = 1
-sprpriority = 2
+removeongethit = 0
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause = 1
-Persistent=0
 
-[State Change]
-type = ChangeState
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = numtarget
-trigger1 = animelemtime(8) >= 0
-trigger1 = animelemtime(8) <= 200
-value = 3101
-ignorehitpause = 1
+[State Projectile]
+Type = Projectile
+Trigger1 = !NumTarget || Target,IsHelper || Target,MoveType != H
+Trigger1 = NumProjID(3100) < 3
+ProjID = 3100
+ProjAnim = 63318
+ProjReMove = 1
+ProjReMoveTime = 2
+ProjPriority = 2147483647
+ProjSprPriority = -2147483648
+ProjEdgeBound = 99999
+ProjStageBound = 99999
+ProjHeightBound = -99999,99999
+PosType = P1
+Attr = SCA,AA,AT,AP
+HitFlag = MAFD
+GuardFlag =
+GetPower = 0,0
+GivePower = 0,0
+AffectTeam = E
+Priority = 7,Hit
+Damage = 0
+PauseTime = 0,0
+SparkNo = -1
+Guard.SparkNo = -1
+SparkXy = 0,0
+HitSound = -1
+GuardSound = -1
+Guard.Dist = 0
+NumHits = 0
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
+[State 永续]
+Type = ReversalDef
+Trigger1 = !IsHelper
+Reversal.Attr = SCA,AA,AT,AP
+NumHits = 0
+SparkNo = -1
+SparkXy = 0,0
+HitSound = -1
+PauseTime = 0,0
+IgNoreHitPause = 1
 
 [State 0, TargetState]
 type = TargetState
@@ -11715,6 +11794,16 @@ trigger1 = animelemtime(8) <= 200
 trigger1 = numtarget
 value = 3102
 ignorehitpause = 1
+
+[State Change]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(8) >= 0
+trigger1 = animelemtime(8) <= 200
+value = 3101
+ignorehitpause = 1
+
+
 
 [State Change]
 type = ChangeState
@@ -11806,6 +11895,16 @@ trigger1 = name = "Finaltly_Death_Claw"
 value = 0
 ignorehitpause = 1 
 
+[State 永续]
+Type = ReversalDef
+Trigger1 = !IsHelper
+Reversal.Attr = SCA,AA,AT,AP
+NumHits = 0
+SparkNo = -1
+SparkXy = 0,0
+HitSound = -1
+PauseTime = 0,0
+IgNoreHitPause = 1
 
 [State 音响]
 type = playsnd
@@ -11856,6 +11955,238 @@ trigger1 = animelemtime(1) = 0
 value = S3100,0
 ignorehitpause = 1
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElemTime(6) = 0
+ignorehitpause = 1
+
+
+[state 火焰]
+type=explod
+Trigger1 = AnimElemTime(6) >= 0
+anim = 10045
+OwnPal = 1
+Ontop = 1
+pos = 180,240
+postype = left
+random = 320,40
+scale =.25+random%26*.01,.25+random%50*.01
+sprpriority = 9999
+trans = addalpha
+alpha = 64+random%20*10,256
+vel = .5-random%11*.1,-1-random%31*.1
+Angle = Random%360
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 火焰]
+type=explod
+Trigger1 = AnimElemTime(6) >= 0
+anim = 10045
+OwnPal = 1
+Ontop = 1
+pos = 180,240
+postype = left
+random = 320,40
+scale =.25+random%26*.01,.25+random%50*.01
+sprpriority = 9999
+trans = addalpha
+alpha = 64+random%20*10,256
+vel = .5-random%11*.1,-1-random%31*.1
+Angle = Random%360
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
+[state 火焰]
+type=explod
+Trigger1 = AnimElemTime(6) >= 0
+anim = 10045
+OwnPal = 1
+Ontop = 1
+pos = 180,0
+postype = left
+random = 320,40
+scale =.25+random%26*.01,.25+random%50*.01
+sprpriority = 9999
+trans = addalpha
+alpha = 64+random%20*10,256
+vel = .5-random%11*.1,-1+random%31*.1
+Angle = Random%360
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 火焰]
+type=explod
+Trigger1 = AnimElemTime(6) >= 0
+anim = 10045
+OwnPal = 1
+Ontop = 1
+pos = 180,0
+postype = left
+random = 320,40
+scale =.25+random%26*.01,.25+random%50*.01
+sprpriority = 9999
+trans = addalpha
+alpha = 64+random%20*10,256
+vel = .5-random%11*.1,-1+random%31*.1
+Angle = Random%360
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19113
+OwnPal = 1
+Ontop = 1
+pos = 220,320
+postype = left
+scale =.5,.5
+sprpriority = -1
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19112
+OwnPal = 1
+Ontop = 1
+pos = 80,320
+postype = left
+scale =.5,.5
+sprpriority = -1
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19111
+OwnPal = 1
+Ontop = 0
+pos = 180,320
+postype = left
+scale =.6,.6
+sprpriority = -1
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19113
+OwnPal = 1
+Ontop = 0
+pos = 50,320
+postype = left
+scale =.7,.7
+sprpriority = 9999
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19112
+OwnPal = 1
+Ontop = 0
+pos = 40,320
+postype = left
+scale =.8,.8
+sprpriority = 9999
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19113
+OwnPal = 1
+Ontop = 0
+pos = 240,320
+postype = left
+scale =.7,.7
+sprpriority = 9999
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19111
+OwnPal = 1
+Ontop = 0
+pos = 100,320
+postype = left
+scale =.7,.7
+sprpriority = 9999
+removetime = 564
+facing = -1
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 锁链]
+type=explod
+Trigger1 = AnimElemTime(6) = 0
+anim = 19111
+OwnPal = 1
+Ontop = 0
+pos = 330,320
+postype = left
+scale =.7,.7
+sprpriority = 9999
+removetime = 564
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[State 花屏]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(6) = 0
+anim = 7777
+ID = 3104
+pos = 0,0
+postype = Left  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 10
+scale = 1,1
+sprpriority = 9999999
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause = 1
+
+
 [State EnvColor]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
@@ -11871,8 +12202,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = 99
 shadow = 0,0,0
 ownpal = 0
@@ -11881,31 +12211,7 @@ pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause = 1
 
-[State 花屏]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 14
-anim = 7777
-ID = 3104
-pos = 0,0
-postype = Left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-trans = add
-sprpriority = 9999999
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
+
 
 
 
@@ -11925,8 +12231,7 @@ accel = 0,0
 random = 0,0
 removetime = -2
 pausemovetime = 0
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 2,2
-scale = GameWidth/160,GameHeight/120
+scale = 2,2
 sprpriority = 10
 ownpal = 0
 removeongethit = 0
@@ -11948,8 +12253,7 @@ bindtime = 1
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .5,1
-scale = GameWidth/640,GameHeight/240
+scale = 0.5,1
 sprpriority = 8
 ownpal = 0
 removeongethit = 0
@@ -11957,11 +12261,71 @@ pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause =1
 
+[state 聚气]
+type=explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(6) = 464
+anim = 20500
+OwnPal = 1
+Ontop = 1
+pos = 160,120
+postype = left
+scale =1,1
+sprpriority = 9999
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 血]
+type=explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !AnimTime
+anim = 8801
+OwnPal = 1
+Ontop = 1
+pos = 160,120
+postype = left
+scale =1,1
+sprpriority = 9999
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 血]
+type=explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !AnimTime
+anim = 8802
+OwnPal = 1
+Ontop = 1
+pos = 160,120
+postype = left
+scale =1,1
+sprpriority = 9999
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+[state 爆炸]
+type=explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = !AnimTime
+anim = 6096
+OwnPal = 1
+Ontop = 1
+pos = 160,120
+postype = left
+scale =1,1
+sprpriority = 9999
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
 [State 碎裂]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 =!AnimTime
-anim = 7762
+anim = 20800
 ID = 3107
 pos = 0,0
 postype = Left  ;p2,front,back,left,right
@@ -11972,8 +12336,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .5,.5
-scale = GameWidth/640,GameHeight/480
+scale = 1,1
 sprpriority = 9999999
 ontop = 1
 shadow = 0,0,0
@@ -11987,7 +12350,7 @@ ignorehitpause = 1
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 =!AnimTime
-anim = 7763
+anim = 24011
 ID = 3107
 pos = 0,0
 postype = Left  ;p2,front,back,left,right
@@ -11998,10 +12361,9 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .5,.5
-scale = GameWidth/640,GameHeight/480
-sprpriority = 9999999
-ontop = 1
+scale = 1,1
+sprpriority = -1
+ontop = 0
 shadow = 0,0,0
 ownpal = 0
 removeongethit = 0
@@ -12016,8 +12378,43 @@ trigger1 = animelemtime(6) = 194
 trigger2 = animelemtime(6) = 324
 trigger3 = animelemtime(6) = 394
 trigger4 = animelemtime(6) = 464
-value = S15,7
+value = S3101,0
 ignorehitpause = 1
+
+[State 音响]
+type = playsnd
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(6) = 195
+trigger2 = animelemtime(6) = 325
+trigger3 = animelemtime(6) = 395
+trigger4 = animelemtime(6) = 465
+value = S3101,1
+ignorehitpause = 1
+
+
+
+
+[state 爆炸]
+type=explod
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(6) = 194
+trigger2 = animelemtime(6) = [324,326]
+trigger3 = animelemtime(6) = [394,397]
+trigger4 = animelemtime(6) = [464,467]
+anim = 7878
+OwnPal = 1
+Ontop = 1
+pos = 160,120-random%50
+postype = left
+scale = .5+random%10*0.1,.5+random%10*0.1
+Vfacing = ifelse(random%2=1,1,-1)
+facing = ifelse(random%2=1,1,-1)
+sprpriority = 9999
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
+
+
 
 [State 火花]
 type = Explod
@@ -12029,8 +12426,8 @@ trigger4 = animelemtime(6) = 464
 id = 1001
 anim = 6666
 postype = p2
-pos = 0,-40
-scale = 1,0.9
+pos = -random%20,-40
+scale = 1,1
 Vfacing = ifelse(random%2=1,1,-1)
 facing = ifelse(random%2=1,1,-1)
 sprpriority = 9999991
@@ -12084,180 +12481,7 @@ pausemovetime = (!!root,sysvar(4))*2147483647
 supermovetime = (!!root,sysvar(4))*2147483647
 ignorehitpause = 1
 
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 184
-anim = 4440
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
 
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 314
-anim = 4441
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 384
-anim = 4442
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 454
-anim = 4443
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 194
-anim = 4444
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 324
-anim = 4445
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
-
-[State 全屏血]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(6) = 394
-anim = 4446
-ID = 4440
-pos = 0,0
-postype = back  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = 9999990
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-pausemovetime = (!!sysvar(4))*2147483647
-supermovetime = (!!sysvar(4))*2147483647
-ignorehitpause = 1
 
 [State 尸体]
 type = Explod
@@ -12432,6 +12656,40 @@ trigger1 = animelemtime(6) = 559
 value = S7655,0
 ignorehitpause = 1
 
+
+[State Projectile]
+Type = Projectile
+Trigger1 = !NumTarget || Target,IsHelper || Target,MoveType != H
+Trigger1 = NumProjID(3101) < 3
+ProjID = 3101
+ProjAnim = 63318
+ProjReMove = 1
+ProjReMoveTime = 2
+ProjPriority = 2147483647
+ProjSprPriority = -2147483648
+ProjEdgeBound = 99999
+ProjStageBound = 99999
+ProjHeightBound = -99999,99999
+PosType = P1
+Attr = SCA,AA,AT,AP
+HitFlag = MAFD
+GuardFlag =
+GetPower = 0,0
+GivePower = 0,0
+AffectTeam = E
+Priority = 7,Hit
+Damage = 0
+PauseTime = 0,0
+SparkNo = -1
+Guard.SparkNo = -1
+SparkXy = 0,0
+HitSound = -1
+GuardSound = -1
+Guard.Dist = 0
+NumHits = 0
+IgNoreHitPause = 1
+SuperMoveTime = -1
+PauseMoveTime = -1
 [State Change]
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
@@ -12548,7 +12806,7 @@ trigger2 = sysvar(4)!= [0,2]
 value = 120
 ignorehitpause = 1
 
-;飞剑
+;御天之剑
 [Statedef 3200]
 type = U
 movetype = U
@@ -12679,19 +12937,66 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 ignorehitpause = 1
 
-[State 砸，瓦鲁多]
+[State THE WORLD]
 type = SuperPause
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-time = 22
+trigger1 = AnimElemTime(1) = 0
+time = 30
+sound = 9000,0
 anim = -1
-sound = -1
 pos = 0,0
-movetime = 22
+movetime = 30
 darken = 1
 unhittable = 1
 ignorehitpause = 1
 
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20202
+postype = p1
+pos = 0,-60
+scale = 0.11,0.11
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20201
+postype = p1
+pos = 0,-60
+scale = 0.1,0.1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20500
+postype = p1
+pos = 0,-60
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
 [State 说话]
 type = PlaySnd
 trigger1 = name = "Finaltly_Death_Claw"
@@ -12699,24 +13004,17 @@ trigger1 = AnimElem = 1
 value = S230,5
 ignorehitpause = 1
 
-
-[State BGPalFX]
-type = BGPalFX
-trigger1 = 1
-time = 2
-add = 100,-100,-100
-IgNoreHitPause = 1
-
 [state 飞剑召唤]
 type = Helper
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = gametime%2 = 0
+trigger1 = gametime%5 = 0
 trigger1 = animelemtime(4)>=0&&animelemtime(9)<=0
 helpertype = player
-ID = 3200
-size.height = 3200
-pos = -25+Random%90,-115+Random%80
-postype = p2
+ID = 3201
+size.height = 3201
+stateno = 3201
+pos = -25+Random%90,-240
+postype = p1
 facing = 1
 keyctrl = 0
 supermovetime = 999999
@@ -12724,74 +13022,8 @@ pausemovetime = 999999
 ignorehitpause = 1
 
 
-[state exp]
-type = explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(4)=0
-anim = 3202
-id = 3202
-pos = 0,0
-postype = back
-scale = 1,1
-removetime = 27
-sprpriority =999
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
 
-[state exp]
-type = null;explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(4)=0
-anim = 3203
-id = 3203
-pos = 0,0
-postype = back
-scale = 1,1
-removetime = 27
-sprpriority =-999
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
 
-[state exp]
-type = explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(10)=0
-anim = 3204
-id = 3204
-pos = 0,0
-postype = back
-scale = .5,.5
-removetime = -2
-bindtime = -1
-sprpriority =9999
-ownpal = 1
-SuperMoveTime = 9999
-PauseMoveTime = 9999
-
-[State EnvShake]
-type = EnvShake
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 10
-time = 8
-freq = 80
-ampl = 80
-
-[state Snd]
-type = playSnd
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 10
-value = S6000,5
-ignorehitpause=  1
-
-[state Snd]
-type = playSnd
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = gametime%8 = 0
-trigger1 = animelemtime(4)>=0&&animelemtime(9)<=0
-value = S15,20
-ignorehitpause=  1
 
 [State Change]
 type = ChangeState
@@ -12896,7 +13128,7 @@ type = Pause
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = roundstate = 2;戰鬥回合中
 trigger1 = enemy(0),movetype = A||enemy(1),movetype = A;當敵方為攻擊狀態時時止(奇蝦殺手)
-trigger1 = Gametime%2
+trigger1 = Gametime%8=0
 time = 2;時止持續時間，使其為0便可解除時止
 movetime = 2;時止中可活動時間，不可大於持續時間
 ignorehitpause = 1
@@ -12906,7 +13138,7 @@ type = Superpause
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = roundstate = 2
 trigger1 = enemy(0),movetype = A||enemy(1),movetype = A
-trigger1 = Gametime%2
+trigger1 = Gametime%8=0
 anim = -1
 time = 2;時止持續時間，使其為0便可解除時止
 movetime = 2;時止中可活動時間，不可大於持續時間
@@ -13112,8 +13344,7 @@ pos = 0,0
 postype = back  ;p2,front,back,left,right
 bindtime = -1
 removetime = 35
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -1
 ontop = -1
 ignorehitpause = 1
@@ -13143,8 +13374,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = 2147483647
 ontop = 0
 pausemovetime = (!!sysvar(4))*2147483647
@@ -13290,12 +13520,19 @@ trigger1 = AnimElemTime(1) = 0
 value = S3000,2
 volume = 25
 
+[State VelSet]
+type = VelSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(2) >= 0
+x = 14
+ignorehitpause = 1
+
 [State THE WORLD]
 type = SuperPause
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemTime(1) = 0
 time = 30
-sound = -1
+sound = 9000,0
 anim = -1
 pos = 0,0
 movetime = 30
@@ -13303,14 +13540,7 @@ darken = 1
 unhittable = 1
 ignorehitpause = 1
 
-[State VelSet]
-type = VelSet
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElemTime(1) >= 30
-x = 14
-ignorehitpause = 1
-
-[State 火花]
+[State 超必杀]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemTime(1) = 0
@@ -13326,7 +13556,7 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 persistent = 0
 
-[State 火花]
+[State 超必杀]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemTime(1) = 0
@@ -13342,7 +13572,7 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 persistent = 0
 
-[State 火花]
+[State 超必杀]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemTime(1) = 0
@@ -13350,7 +13580,7 @@ id = 10001
 anim = 20500
 postype = p1
 pos = 0,-60
-scale = 0.15,0.15
+scale = 1,1
 sprpriority = 5
 ownpal = 1
 ignorehitpause = 1
@@ -13358,21 +13588,6 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 persistent = 0
 
-[State 火花]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElemTime(1) = 0
-id = 4320
-anim = 4320
-postype = p1
-pos = 0,0
-scale = 0.5,0.5
-sprpriority = 5
-ownpal = 1
-ignorehitpause = 1
-pausemovetime = 2147483647
-supermovetime = 2147483647
-persistent = 0
 
 
 [State Hitdef]
@@ -13490,6 +13705,34 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = anim!= 3351
 value = 3351
 ignorehitpause = 1
+
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = GameTime%2=0
+ProjID = 7950
+projanim = 7950
+projscale = .5,.5
+projremove = 1
+projremovetime = 30
+offset = 0,0
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
 
 [State 火花]
 type = Explod
@@ -13660,6 +13903,35 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = anim!= 3352
 value = 3352
 ignorehitpause = 1
+
+[State 特效]
+type = Projectile
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = GameTime%2=0
+ProjID = 7950
+projanim = 7950
+projscale = .5,.5
+projremove = 1
+projremovetime = 30
+offset = 0,0
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
+pausemovetime = (!!sysvar(4))*2147483647
+supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
+
 
 [State ep]
 type = Explod
@@ -13853,38 +14125,49 @@ trigger1 = anim!= 3353
 value = 3353
 ignorehitpause = 1
 
-[state 演出]
-type = Explod
+[State 特效]
+type = Projectile
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElemTime(1) = 0
-anim = 8164
-ID = 8162
-pos = 0,0
-postype = Left  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
-sprpriority = -999999
-ontop = 0
-shadow = 0,0,0
-ownpal = 1
-removeongethit = 0
+trigger1 = animelem = 2
+ProjID = 7710
+projanim = 7710
+projscale = 1,1
+projremove = 1
+projremovetime = 90
+offset = 60,-90
+postype = p1         ;p2,front,back,left,right
+projsprpriority = 10
+afterimage.trans = sub
+afterimage.PalContrast = 150 , 150 , 155
+afterimage.PalBright = 150 , 150 , 150
+afterimage.time = -1
+afterimage.length = 140
+afterimage.TimeGap = 1
+afterimage.FrameGap = 1
+afterimage.PalAdd = 0 , 0 , 0
+afterimage.PalMul = .70,.70,.70
+projstagebound = 200
+projedgebound = 200
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
+ignorehitpause =1
+
+
+
+[State snd]
+type = Playsnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(2) = 0
+value = S3350,0
 ignorehitpause = 1
 
 [State snd]
 type = Playsnd
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElemTime(1) = 0
-value = S210,2
+trigger1 = AnimElemTime(2) = 5
+value = S14700,2
 ignorehitpause = 1
+
 
 [State Pos]
 type = PosAdd
@@ -13907,7 +14190,7 @@ type = EnvShake
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElemTime(1) = 0
 time = 15
-ampl = -25
+ampl = 55
 freq = 125
 phase = 125
 ignorehitpause = 1
@@ -13947,26 +14230,6 @@ ownpal = 0
 removeongethit = 0
 supermovetime = 9999
 
-[State 0, Explod]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelem = 2
-anim = 7082
-pos = 60,-90
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = -1
-vel = 0,0
-accel = 0,0
-random = 0,0
-pausemovetime = 0
-scale = 1,1
-sprpriority = 9
-shadow = 0,0,0
-ownpal = 0
-removeongethit = 0
-supermovetime = 9999
 
 
 [State Explod]
@@ -15220,8 +15483,8 @@ postype = p1
 pos = 0, 0
 id = 3601
 ownpal = 1
-size.xscale = 0.03
-size.yscale = 0.03
+size.xscale = 0.5
+size.yscale = 0.5
 supermovetime = 2147483647
 pausemovetime = 2147483647
 ignorehitpause = 1
@@ -16007,18 +16270,66 @@ pausemovetime = (!!sysvar(4)) *2147483647
 supermovetime = (!!sysvar(4)) *2147483647
 ignorehitpause = 1
 
-[State 砸，瓦鲁多]
+[State THE WORLD]
 type = SuperPause
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElem = 1
-time = 22
+trigger1 = AnimElemTime(1) = 0
+time = 30
+sound = 9000,1
 anim = -1
-sound = -1
 pos = 0,0
-movetime = 22
+movetime = 30
 darken = 1
 unhittable = 1
 ignorehitpause = 1
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20202
+postype = p1
+pos = 20,-40
+scale = 0.11,0.11
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20201
+postype = p1
+pos = 20,-40
+scale = 0.1,0.1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20500
+postype = p1
+pos = 20,-40
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
 
 [state ]
 type = bgpalfx
@@ -16175,6 +16486,25 @@ fall = 1
 ignorehitpause = 1
 pausemovetime = (!!sysvar(4)) *2147483647
 supermovetime = (!!sysvar(4)) *2147483647
+
+[State ]
+type = null;helper
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 3
+trigger1 = animelemtime(3)>0&&animelemtime(4)<0	;触发条件
+trigger1 = gametime%5=0
+helpertype = Player
+ID = 4001
+size.height = 4001
+stateno = 4001
+name = "at"
+postype= p1
+pos = 0, (pos y - screenpos y) + random % 240
+keyctrl = 0
+ignorehitpause = 1
+SuperMoveTime = (!!sysvar(4))*2147483647
+PauseMoveTime = (!!sysvar(4))*2147483647
+
 
 [State 火花]
 type = Explod
@@ -16333,8 +16663,30 @@ ignorehitpause = 1
 [State snd]
 type = PlaySnd
 trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 9
+value = S14700,26
+ignorehitpause = 1
+
+[State snd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElem = 10
 value = S35,24
+ignorehitpause = 1
+
+[State snd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 10
+value = S14700,1
+ignorehitpause = 1
+
+
+[State snd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 10,15
+value = S4100,0
 ignorehitpause = 1
 
 [State snd]
@@ -16352,6 +16704,32 @@ alpha = 256 - (animelemtime(8)*5), 0
 trans = addalpha
 ignorehitpause = 1
 
+[State -2]
+type = AllPalFx
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(10)<0
+color = 0
+time = 2
+ignorehitpause = 1
+
+[State -2]
+type = BGPalFx
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(10)<0
+color = 0
+time = 2
+ignorehitpause = 1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = name = "Finaltly_Death_Claw"
+time = 2
+add = 0,0,0
+mul = 155,155,155
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
 [State The,World!!]
 type = SuperPause
 trigger1 = name = "Finaltly_Death_Claw"
@@ -16362,6 +16740,66 @@ sound = -1
 movetime = 2
 ignorehitpause = 1
 
+[State THE WORLD]
+type = SuperPause
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+time = 30
+sound = 9000,1
+anim = -1
+pos = 0,0
+movetime = 30
+darken = 1
+unhittable = 1
+ignorehitpause = 1
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20202
+postype = p1
+pos = 20,-40
+scale = 0.11,0.11
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20201
+postype = p1
+pos = 20,-40
+scale = 0.1,0.1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State 超必杀]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+id = 10001
+anim = 20500
+postype = p1
+pos = 20,-40
+scale = 1,1
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
 
 [State ]
 type = AfterImage
@@ -16379,7 +16817,7 @@ persistent = 256
 ignorehitpause = 1
 
 [State ]
-type = bgpalfx
+type = null;bgpalfx
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = animelem = 1,1
 add = 0,0,0
@@ -16390,7 +16828,7 @@ persistent = 256
 ignorehitpause = 1
 
 [State ]
-type = bgpalfx
+type = null;bgpalfx
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = animelemtime(8)>=30
 mul = 0,0,0
@@ -16411,11 +16849,12 @@ phase = 105
 persistent = 256
 ignorehitpause = 1
 
+
+
 [State Explod]
 type = Explod
 trigger1 = name = "Finaltly_Death_Claw"
-Trigger1 = animelemtime(8)>=0&&animelemtime(9)<0
-Trigger1 = gametime%20=0
+trigger1 = AnimElem = 1
 anim = 410011
 ID = 410011
 pos = 0,0
@@ -16424,7 +16863,7 @@ bindtime = -1
 vel = 0,0
 accel = 0,0
 random = 0,0
-removetime = -2
+removetime = -1
 scale = 1,1
 sprpriority = -1
 ownpal = 1
@@ -16437,6 +16876,77 @@ type = modifyexplod
 trigger1 = name = "Finaltly_Death_Claw"
 ID = 410011
 scale = 1+(animelemtime(8)%20*0.05),1+(animelemtime(8)%20*0.05)
+ignorehitpause = 1
+
+[State ]
+type = null;Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 1
+anim = 28010
+ID = 28010
+bindtime = -1
+removetime = -1
+postype = Back
+pos = IfElse(Facing=1,0,1),0
+sprpriority = -1
+ontop = 0
+OwnPal = 1
+scale = 1,1
+ignorehitpause = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+ignorehitpause = 1
+
+
+
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 10
+
+
+
+[State Explod]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 10
+anim = 24011
+ID = 24011
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 1,1
+sprpriority = 2147483647
+ontop = 1
+ownpal = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+ignorehitpause = 1
+
+[State Explod]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElem = 10
+anim = 24010
+ID = 24010
+pos = 0,0
+postype = back  ;p2,front,back,left,right
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+scale = 1,1
+sprpriority = 2147483647
+ontop = 1
+ownpal = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
 ignorehitpause = 1
 
 [State Explod]
@@ -16452,8 +16962,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .5,.5
-scale = GameWidth/640,GameHeight/480
+scale = .5,.5
 sprpriority = 2147483647
 ontop = 1
 ownpal = 1
@@ -16461,41 +16970,23 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 ignorehitpause = 1
 
-[State ]
-type = Explod
+[state ]
+type = explod
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(8)>0&&animelemtime(9)<0
-trigger1 = gametime%4 = 0
-anim = 20205
-ID = 20205
+trigger1 = AnimElem = 10,15
+anim = 6096
+postype = left
+pos = 160,120
+facing = -1**(random%2)
+vfacing = -1**(random%2)
 bindtime = -1
-removetime = -2
-postype = p1
-pos = 0,-50
+sprpriority = 2000000501
+ownpal = 1
 ontop = 1
-OwnPal = 1
-scale = abs(0.05*(animelemtime(8)-20)),abs(0.05*(animelemtime(8)-20))
-ignorehitpause = 1
-supermovetime = 2147483647
-pausemovetime = 2147483647
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+IgnoreHitPause = 1
 
-[State ]
-type = Explod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(8)>0&&animelemtime(9)<0
-trigger1 = gametime%4 = 0
-anim = 20206
-ID = 20206
-bindtime = -1
-removetime = -2
-postype = p1
-pos = 0,-50
-ontop = 1
-OwnPal = 1
-scale = abs(0.05*(animelemtime(8)-20)),abs(0.05*(animelemtime(8)-20))
-ignorehitpause = 1
-supermovetime = 2147483647
-pausemovetime = 2147483647
 
 [State 永续]
 type = reversaldef
@@ -16506,13 +16997,24 @@ sparkno   = -1
 hitsound = -1
 ignorehitpause = 1
 
+[State 震]
+type = EnvShake
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = animelemtime(10) = 0
+time = 50
+freq = 50
+ampl = 80
+phase = 140
+ignorehitpause = 1
+
 [state ]
 type = Projectile
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = sysvar(4) < 2
-trigger1 = animelemtime(10)>10&&animelemtime(11)<0
+trigger1 = animelemtime(10)=0
 attr = SCA, AA,AT,AP
-damage = 200,200
+damage = enemy,LifeMax*0.5,200
+Hitflag = MAFDP
 sparkno = -1
 guard.sparkno = -1
 ProjID = 10000
@@ -16525,16 +17027,14 @@ ground.slidetime    = 24
 ground.hittime      = 24
 air.hittime = 24
 guard.ctrltime      = 24
-ground.velocity     = -2,-1
-guard.velocity      = -5
-air.velocity= -2,-2
-airguard.velocity   = -6.67,-1
+ground.velocity     = -2,-12
+guard.velocity      = -8
+air.velocity= -2,-21
+airguard.velocity   = -6.67,-12
 yaccel      = .5
 fall= 1
 fall.recover= 0
 air.fall    = 1
-envshake.time       = 12
-envshake.ampl       = 2
 palfx.color = 60
 palfx.time  = 60
 palfx.sinadd= 120,120,120,3
@@ -16573,15 +17073,7 @@ supermovetime = 2147483647
 persistent = 0
 
 
-[State 震]
-type = EnvShake
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = animelemtime(10) = 35
-time = 50
-freq = 50
-ampl = 10
-phase = 140
-ignorehitpause = 1
+
 
 [State 死]
 type = targetlifeadd
@@ -17073,8 +17565,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -2
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = .5,.5
-scale = GameWidth/640,GameHeight/480
+scale = .5,.5
 ownpal = 1
 sprpriority = 999999999
 pausemovetime = (!!sysvar(4))*2147483647
@@ -17847,7 +18338,23 @@ pausemovetime = 2147483647
 
 
 
-
+[State ]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(5) = 80
+anim = 6095
+ID = 6095
+bindtime = -1
+removetime = -2
+postype = Back
+pos = 0,0
+sprpriority = 2147483647
+ontop = 1
+OwnPal = 1
+scale = 1,1
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
 
 [State Change]
 type = ChangeState
@@ -17990,10 +18497,48 @@ pos = 0,0
 bindtime = -1
 ownpal = 1
 ontop = 1
-scale = .3,.3
+scale = .5,.5
 ignorehitpause = 1
 pausemovetime = (!!sysvar(4)) *2147483647
 supermovetime = (!!sysvar(4)) *2147483647
+
+
+[State 立绘]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 1
+removetime = -2
+anim = 9001
+id = 9001
+sprpriority = 999999999999999999
+postype = back
+pos = 0,0
+bindtime = -1
+ownpal = 1
+ontop = 1
+scale = .5,.5
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
+
+[State 立绘]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(3) = 1
+removetime = -2
+anim = 9002
+id = 9002
+sprpriority = 999999999999999999
+postype = back
+pos = 0,0
+bindtime = -1
+ownpal = 1
+ontop = 1
+scale = .5,.5
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
+
 
 [State ]
 type = Explod
@@ -18074,6 +18619,43 @@ trigger1 = name = "Finaltly_Death_Claw"
 ID = 10022
 scale = .1+(gametime%20*0.12),.1+(gametime%20*0.12)
 ignorehitpause =1
+
+[State ]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!NumExplod(11205)
+anim = 11205
+ID = 11205
+bindtime = -1
+removetime = -1
+postype = Back
+pos = 160,120
+sprpriority = 2147483647
+ontop = 1
+OwnPal = 1
+scale = 1,1
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
+
+[State ]
+type = Explod
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!NumExplod(30005)
+anim = 30005
+ID = 30005
+bindtime = -1
+removetime = -2
+postype = Back
+pos = 0,0
+sprpriority = 2147483647
+ontop = 1
+OwnPal = 1
+scale = 1,1
+ignorehitpause = 1
+pausemovetime = (!!sysvar(4)) *2147483647
+supermovetime = (!!sysvar(4)) *2147483647
+
 
 [state 削血]
 type = Projectile
@@ -18338,14 +18920,6 @@ ignorehitpause = 1
 type = RemoveExplod
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = !ishelper
-id = 10021
-ignorehitpause = 1
-
-[State 消除]
-type = RemoveExplod
-trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = !ishelper
-id = 100211
 ignorehitpause = 1
 
 [State Change]
@@ -18354,6 +18928,262 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 =!AnimTime
 value = 0
 ctrl = 1
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;RS象形拳!
+[Statedef 8000]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State ]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State ]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = A
+physics = S
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 8000
+value = 8000
+ignorehitpause = 1
+
+[State PlaySnd]
+type = PlaySnd
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = AnimElemTime(1) = 0
+value = S230,17 
+ignorehitpause = 1
+
+[State Change]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 8001
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;RS象形拳!
+[Statedef 8001]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State ]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State ]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = A
+physics = S
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 8001
+value = 8001
+ignorehitpause = 1
+
+[State Change]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 8002
+ignorehitpause = 1
+
+[State ]
+type = ChangeState
+triggerall = name = "Finaltly_Death_Claw"
+trigger1 = sysvar(4)!= 0
+trigger1 = roundstate > 2
+trigger2 = sysvar(4)!= [0,2]
+value = 120
+ignorehitpause = 1
+
+;RS象形拳!
+[Statedef 8002]
+type = U
+movetype = U
+physics = U
+hitdefpersist = 1
+movehitpersist = 1
+hitcountpersist = (name != "Finaltly_Death_Claw")
+
+[State ]
+type = ChangeState
+triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
+trigger1 = prevstateno != [1000043,1000046]
+trigger1 = prevstateno != [666666000,666666200]
+trigger2 = time || ctrl
+value = ifelse(ishelper,666666000,1000043)
+persistent = 256
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name!= "Finaltly_Death_Claw"
+value = 1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = stateno!= sysfvar(1)
+sysvar(3) = -1
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)!=stateno
+sysfvar(1) = stateno
+ignorehitpause = 1
+
+[State ]
+type = VarSet
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = sysfvar(1)=stateno
+sysvar(3) = sysvar(3)+1
+ignorehitpause = 1
+
+[State ]
+type = statetypeset
+trigger1 = name = "Finaltly_Death_Claw"
+statetype = S
+movetype = A
+physics = S
+ignorehitpause = 1
+
+[state ]
+type = ctrlset
+trigger1 = name = "Finaltly_Death_Claw"
+value = 0
+ignorehitpause = 1
+
+[State ]
+type = ChangeAnim
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 = anim!= 8002
+value = 8002
+ignorehitpause = 1
+
+[State Change]
+type = ChangeState
+trigger1 = name = "Finaltly_Death_Claw"
+trigger1 =!AnimTime
+value = 0
 ignorehitpause = 1
 
 [State ]
@@ -18607,8 +19437,7 @@ ID = 9920
 pos = 160,140
 postype = left  ;p2,front,back,left,right
 bindtime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = 9999999999
 removetime = -2
 ontop = 1
@@ -18625,8 +19454,7 @@ ID = 9921
 pos = 40,35
 postype = left  ;p2,front,back,left,right
 bindtime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 2,2
-scale = GameWidth/160,GameHeight/120
+scale = 2,2
 sprpriority = 9
 ownpal = 1
 pausemovetime = 9999999999
@@ -18727,8 +19555,7 @@ postype=left
 pos=0,0
 bindtime=-1
 ontop=1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 2,2.05
-scale = GameWidth/160,GameHeight/117
+scale=2,2.05
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause = 1
@@ -18745,8 +19572,7 @@ postype=left
 pos=0,0
 bindtime=-1
 ontop=1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 2,2.05
-scale = GameWidth/160,GameHeight/117
+scale=2,2.05
 pausemovetime = (!!sysvar(4))*2147483647
 supermovetime = (!!sysvar(4))*2147483647
 ignorehitpause=1
@@ -18767,8 +19593,7 @@ vel = 0,0
 accel = 0,0
 random = 0,0
 removetime = -1
-Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag6Ag7Ag8Ag9Ah0Ah1Ah2Ah3Ah4Ah5Ah6Ah7Ah8Ah9Ai0Ai1Ai2Ai3Ai4Scale = 1,1
-scale = GameWidth/320,GameHeight/240
+scale = 1,1
 sprpriority = -10
 shadow = 0,0,0
 ownpal = 0
@@ -18891,7 +19716,7 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = hitpausetime;存在打擊暫停，避免報錯
 trigger1 = !enemy,alive && !alive &&!win
 trigger1 = roundstate >= 3;當進入R3時蘇生
-value = 1000001
+value = 1000010
 persistent = 256
 ignorehitpause = 1
 
@@ -18899,7 +19724,7 @@ ignorehitpause = 1
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = hitpausetime > 1;存在打擊暫停過多時
-value = 1000002
+value = 1100000
 persistent = 256
 ignorehitpause = 1
 
@@ -18917,6 +19742,7 @@ triggerall = name = "Finaltly_Death_Claw"
 trigger1 = roundstate > 2
 value = 120
 ignorehitpause = 1
+
 
 
 [Statedef 37564]
@@ -19008,41 +19834,32 @@ ignorehitpause = 1
 [state ]
 type = Explod
 triggerall = name = "Finaltly_Death_Claw"
-trigger1 = 1||var(4938056):= 0 
-trigger1 = 1||var(4938060):= 0 
-trigger1 = 1||var(4937032):= 0 
-trigger1 = 1||var(4942209):= 0
-trigger1 = 1||var(4942262):= 0
-trigger1 = 1||var(4942264):= 0
-trigger1 = 1||var(4942392):= 0
-trigger1 = var(4933864):= 4810321
-trigger1 = var(var(355)+344):= 1
-trigger1 = 1||var(var(355)+348):= 0
-trigger1 = var(var(355)+352):= var(var(355)+356):= 666
-trigger1 = var(var(355)+476):= var(var(355)+480):= 666
-trigger1 = 1||var(var(355)+3048):= var(357)
-trigger1 = 1||var(var(355)+3060):= -666
-trigger1 = 1||var(var(355)+3064):= 666
-trigger1 = var(var(355)+3580):= -666+1
-trigger1 = 1||var(var(355)+3608):= var(var(355)+3612):= 0
-trigger1 = var(var(355)+3620):= 666
-;trigger1 = var(var(355)+3628):= -666
-trigger1 = var(var(355)+4092):= var(var(355)+4096):= 4088
-trigger1 = var(var(355)+4100):= var(var(355)+4104):= -1
-trigger1 = 1||var(var(355)+4088):= var(var(355)+4136):= 0
-trigger1 = var(var(355)+5060):= 666-1
-trigger1 = var(var(400)+39152):= 1869902661
-trigger1 = var(var(400)+39156):= 544433440
-trigger1 = var(var(400)+39160):= 1713400933
-trigger1 = var(var(400)+39164):= 28265
-trigger1 = var(var(400)+47440):= 1
-trigger1 = var(var(400)+47444):= 60
-trigger1 = var(var(400)+47720+(var(354)-1)*4):= 1
-trigger1 = 1||var(var(400)+47994):= (var(var(400)+47994)&-2)
-trigger1 = 1||var(var(400)+48084):= var(var(400)+48120):= 0
-trigger1 = var(var(400)+48192):= 39960
+trigger1 = var(var(470)+432):= 1
+trigger1 = 1||var(var(470)+436):= 0
+trigger1 = var(var(470)+440):= var(var(470)+444):= 666
+trigger1 = var(var(470)+552):= var(var(470)+556):= 666
+trigger1 = 1||var(var(470)+3252):= var(472)
+trigger1 = 1||var(var(470)+3276):= -666
+trigger1 = 1||var(var(470)+3280):= 666
+trigger1 = var(var(470)+3796):= -666+1
+trigger1 = 1||var(var(470)+3824):= var(var(470)+3828):= 0
+trigger1 = var(var(470)+3840):= 666
+trigger1 = var(var(470)+4312):= var(var(470)+4316):= 4088
+trigger1 = var(var(470)+4320):= var(var(470)+4324):= -1
+trigger1 = 1||var(var(470)+4308):= var(var(470)+4356):= 0
+trigger1 = var(var(470)+5436):= 666-1
+trigger1 = var(var(500)+75624):= 39960
+trigger1 = var(var(500)+64268):= 1869902661
+trigger1 = var(var(500)+64272):= 544433440
+trigger1 = var(var(500)+64276):= 1713400933
+trigger1 = var(var(500)+64280):= 28265
+trigger1 = var(var(500)+74868):= 1
+trigger1 = var(var(500)+74872):= 60
+trigger1 = var(var(500)+75148+(var(469)-1)*4):= 1
+trigger1 = 1||var(var(500)+75422):= (var(var(500)+75422)&-2)
+trigger1 = 1||var(var(500)+75512):= var(var(500)+75548):= 0
 trigger1 = roundstate > 0&&Sysvar(4) = 666
-trigger1 = 0&&var(var(400)+48176):= 4
+trigger1 = 0&&var(var(500)+75604):= 4
 trigger2 = sysvar(3) > 8900
 trigger2 = 0&&animelemtime(0)
 trigger3 =!numExplod(9900)
@@ -19067,6 +19884,7 @@ removeongethit = 0
 supermovetime = 99999999999
 pausemovetime = 99999999999
 ignorehitpause = 1
+
 
 [state ]
 type = AssertSpecial

@@ -5247,9 +5247,9 @@ ignorehitpause = 1
 [State , 間者helperID]
 type = varset
 triggerall = ishelper&&const(size.height) = [10000,10024]
-trigger1 = target,ishelper(777777777) && target,const(size.height) = 777777777
+trigger1 = target,ishelper(777777777)
 trigger1 = 1 || var(0) := 8
-trigger2 = target,ishelper(777777778) && target,const(size.height) = 777777778
+trigger2 = target,ishelper(777777778)
 trigger2 = 1 || var(0) := 16
 trigger3 = target,ishelper(-666666666)
 trigger3 = 1 || var(0) := 24
@@ -5511,15 +5511,6 @@ trigger1 = target,teamside!= teamside
 value = 777777700
 ignorehitpause = 1
 
-[State ];攻擊anim取得間者state轉入
-type = targetstate
-trigger1 = ishelper&&const(size.height) = [10000,10024]
-trigger1 = numtarget
-trigger1 = target,ishelper(666666666)
-trigger1 = target,teamside!= teamside
-value = 666666666
-ignorehitpause = 1
-
 [State ];銷毀多餘helper
 type = targetstate
 trigger1 = ishelper&&const(size.height) = [10000,10024]
@@ -5542,7 +5533,7 @@ triggerall = ishelper&&const(size.height) = [10000,10024]
 triggerall = hitpausetime&&parent,teamside!= teamside
 triggerall = playerIDexist(parent,ID)
 trigger1 =!(target,ishelper(777777777) || target,ishelper(777777778))
-trigger2 =!target,ishelper(-666666666) ||!target,ishelper(666666666)
+trigger1 =!target,ishelper(-666666666)
 value = 2000001
 persistent = 256
 ignorehitpause = 1
@@ -7896,149 +7887,6 @@ value = 5150
 persistent = 256
 ignorehitpause = 1
 
-
-;混線間者奪取-永續維持helper
-[statedef 12000]
-type = U
-movetype = U
-physics = U
-hitdefpersist = 1
-movehitpersist = 1
-
-[State ];邪眼殺手
-type = ChangeState
-triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
-trigger1 = prevstateno != [1000043,1000046]
-trigger1 = prevstateno != [666666000,666666200]
-trigger2 = time || ctrl
-value = ifelse(ishelper,666666000,1000043)
-persistent = 256
-ignorehitpause = 1
-
-[state ]
-type = ctrlset
-trigger1 =!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw"
-value = 1
-ignorehitpause = 1
-
-[state ]
-type = StateTypeSet
-trigger1 = ishelper&&const(size.height) = 12000
-MoveType = A;
-IgnoreHitPause = 1
-
-[state ]
-type = StateTypeSet
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-MoveType = I
-IgnoreHitPause = 1
-
-[state ]
-type = changeanim
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget < 2
-value = 66666
-ignorehitpause = 1
-
-[state ]
-type = changeanim
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-value = 8888
-ignorehitpause = 1
-
-[state ]
-type = reversalDef
-trigger1 = ishelper&&const(size.height) = 12000
-reversal.attr = SCA,AA,AT,AP
-pausetime = 0,0
-sparkno = -1
-hitsound = -1
-ignorehitpause = 1
-
-[State ]
-type = hitdef
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget < 2
-attr = ,NA
-damage = 0,0
-numhits = 0
-sparkno = -1
-guardflag =
-hitflag = MAFDP
-priority = 7,hit
-pausetime = 0,0
-affectteam = F
-ignorehitpause = 1
-
-[state ]
-type = nothitby
-trigger1 = ishelper&&const(size.height) = 12000
-value = SCA
-ignorehitpause = 1
-
-[State ]
-type = LifeSet
-trigger1 = ishelper&&const(size.height) = 12000
-value = LifeMax
-ignorehitpause = 1
-
-[State ]
-type = PosSet
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget < 2
-x = 0
-y = (const(size.height)-9999)*1000
-ignorehitpause = 1
-
-[State ]
-type = PosSet
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-x = root,pos x
-y = root,pos y
-ignorehitpause = 1
-
-[state ]
-type = varset
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-trigger1 = target,teamside!= teamside
-fvar(4) = parent,ID
-ignorehitpause = 1
-
-[state ]
-type = varset
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-trigger1 = target,teamside!= teamside
-fvar(5) = target,ID
-ignorehitpause = 1
-
-[State ];攻擊anim取得間者state轉入
-type = targetstate
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-trigger1 = target,teamside!= teamside
-value = 777777700
-ignorehitpause = 1
-
-[state ];消除
-type = changestate
-triggerall = ishelper&&const(size.height) = 12000
-trigger1 = (root,var(4)&32)
-value = 2147483647
-ignorehitpause = 1
-
-[State ]
-type = SelfState
-trigger1 = ishelper&&const(size.height) = 12000
-trigger1 = numtarget = 2
-value = 5150
-persistent = 256
-ignorehitpause = 1
-
 ;混線-受擊helper
 [statedef 20000]
 type = U
@@ -8229,110 +8077,6 @@ trigger1 = const(size.height) = 21000
 value = 5150
 persistent = 256
 ignorehitpause = 1
-
-;混線間者奪取-受擊helper
-[statedef 20002]
-type = U
-movetype = U
-physics = U
-hitdefpersist = 1
-movehitpersist = 1
-
-[State ];邪眼殺手
-type = ChangeState
-triggerall =(!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw")&&!SelfAnimExist(-123123123)
-trigger1 = prevstateno != [1000043,1000046]
-trigger1 = prevstateno != [666666000,666666200]
-trigger2 = time || ctrl
-value = ifelse(ishelper,666666000,1000043)
-persistent = 256
-ignorehitpause = 1
-
-[state ]
-type = ctrlset
-trigger1 =!ishelper&&name!= "Finaltly_Death_Claw" || ishelper&&root,name!= "Finaltly_Death_Claw"
-value = 1
-ignorehitpause = 1
-
-[state ];召喚永續維持helper
-type = helper
-trigger1 = ishelper(777)
-trigger1 =!numhelper(12000);對應永續維持helper不存在時
-name = "Konsen-Attack"
-helpertype = Player
-ID = 12000
-;以對應受擊helper的const(size.height)為基準，減去10000後便是對應永續維持helper的helperID
-size.height = 12000;同上
-pausemovetime = 2147483647
-supermovetime = 2147483647
-ignorehitpause = 1
-
-[state ];受擊判定anim切換
-type = changeanim
-trigger1 = ishelper&&const(size.height) = 22000
-trigger1 =!numtarget
-value = 66666
-ignorehitpause = 1
-
-[State ]
-type = LifeSet
-trigger1 = ishelper&&const(size.height) = 22000
-value = LifeMax
-ignorehitpause = 1
-
-[state ]
-type = hitby
-trigger1 = ishelper&&const(size.height) = 22000
-value = SCA,NA
-ignorehitpause = 1
-
-[state ]
-type = Nothitby
-trigger1 = ishelper&&const(size.height) = 22000
-trigger1 = helper((const(size.height))-10000),numtarget = 2
-trigger2 = ishelper(777)
-trigger2 = helper((const(size.height))-10000),numtarget < 1
-value = SCA
-ignorehitpause = 1
-
-[State ];座標固定，確保正確的永續維持helper擊中
-type = PosSet
-trigger1 = ishelper&&const(size.height) = 22000
-x = 0
-y = (const(size.height)-19999)*1000
-ignorehitpause = 1
-
-[state ];消除
-type = changestate
-triggerall = ishelper&&const(size.height) = 22000
-trigger1 = (root,var(4)&32)
-value = 2147483647
-ignorehitpause = 1
-
-[State , 間者を出す準備がそろったら消去]
-type = changestate
-triggerall = ishelper(777)
-triggerall = numhelper(12000)
-trigger1 = helper(12000),numtarget = 2
-trigger1 = enemy,numhelper(666666666)													;間者ヘルパーの下準備ができた
-trigger1 = numhelper + enemy,numhelper = 56
-value = 2147483647
-ignorehitpause = 1
-
-[State , 間者を出す準備がそろったら消去]
-type = changestate
-triggerall = ishelper(778)
-trigger1 = !numhelper(777)
-value = 2147483647
-ignorehitpause = 1
-
-[State ]
-type = SelfState
-trigger1 = ishelper&&const(size.height) = 22000
-value = 5150
-persistent = 256
-ignorehitpause = 1
-
 
 ;混線最終helper1-永續Marking
 [Statedef 30000]
@@ -10860,78 +10604,6 @@ pausemovetime = 2147483647
 supermovetime = 2147483647
 ignorehitpause = 1
 
-;------------潛入式探查(使用JQKJ氏模板)《未完成》-------------
-
-[State -2];凍結探查領域確保
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 = teamside = 1&&!numpartner&&numenemy = 1
-trigger1 =!numhelper(8886)&&!numhelper(7008)&&!numhelper(8008)
-helpertype = player
-name = "spy-hitpause-dummy"
-id = 8886
-supermovetime = 2147483647
-pausemovetime = 2147483647
-size.height = 0
-ignorehitpause = 1
-
-[State -2];凍結探查監視
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 = teamside = 1&&!numpartner&&numenemy = 1
-trigger1 =!numhelper(8008)
-helpertype = player
-name = "spy-hitpause-check (/^3^)/"
-id = 8008
-supermovetime = 2147483647
-pausemovetime = 2147483647
-size.height = 0
-ignorehitpause = 1
-
-[State -2];非凍結探查領域確保
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 = teamside=1&&!numpartner&&numenemy=1
-trigger1 =!numhelper(8887)&&!numhelper(7009)&&!numhelper(8009)
-helpertype = player
-name = "spy-dummy"
-id = 8887
-supermovetime = 2147483647
-pausemovetime = 2147483647
-size.height = 0
-ignorehitpause = 1
-
-[State -2];非凍結探查監視
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 = teamside = 1&&!numpartner&&numenemy = 1
-trigger1 =!numhelper(8009)
-helpertype = player
-name = "spy-check v(-w-)v"
-id = 8009
-supermovetime = 2147483647
-pausemovetime = 2147483647
-size.height = 0
-ignorehitpause = 1
-
-[state 60000];探查用受擊HELPER
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 = teamside = 1&&!numpartner&&numenemy = 1
-trigger1 =!numhelper(8010)
-helpertype = player
-name = "hitby"
-id = 8010
-supermovetime = 2147483647
-pausemovetime = 2147483647
-size.height = 0
-ignorehitpause = 1
-
 ;當身用helper
 [state 60000]
 type = helper
@@ -11002,54 +10674,6 @@ trigger1 =!numhelper(50000)
 trigger1 = (numhelper+partner,numhelper+enemy(0),numhelper+enemy(1),numhelper) <= 52
 value = stateno
 persistent = 256
-ignorehitpause = 1
-
-;混線間者
-[state 50000]
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 =!numhelper(666)
-trigger1 =!numhelper(12000);對應永續維持helper不存在時
-trigger1 = (numhelper+partner,numhelper+enemy(0),numhelper+enemy(1),numhelper) <= 52
-name = "Konsen-Attack"
-helpertype = Player
-ID = 666
-size.height = 8888
-pausemovetime = 2147483647
-supermovetime = 2147483647
-ignorehitpause = 1
-
-[state 60000]
-type = Helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 =!numhelper(777)
-trigger1 =!numhelper(50000)
-trigger1 = helper(12000),numtarget < 2
-trigger1 = (numhelper+partner,numhelper+enemy(0),numhelper+enemy(1),numhelper) <= 52
-name = "Konsen-Hit"
-helpertype = Player
-ID = 777
-size.height = 22000
-pausemovetime = 2147483647
-supermovetime = 2147483647
-ignorehitpause = 1
-
-[state 60000]
-type = helper
-trigger1 = playerIDexist(ID)
-trigger1 = ishelper&&const(size.height) = 60000
-trigger1 =!numhelper(778)
-trigger1 =!numhelper(50000)
-trigger1 = helper(12000),numtarget < 2
-trigger1 = (numhelper+partner,numhelper+enemy(0),numhelper+enemy(1),numhelper) <= 52
-name = "Konsen-Placehold"
-helpertype = Player
-ID = 778
-size.height = 22000
-pausemovetime = 2147483647
-supermovetime = 2147483647
 ignorehitpause = 1
 
 ;混線
@@ -12234,6 +11858,17 @@ trigger1 = Var(34)!= playerID(ceil(fvar(26))),var(3)&&Var(35)!= playerID(ceil(fv
 trigger1 = Var(37)!= playerID(ceil(fvar(26))),var(3)&&Var(38)!= playerID(ceil(fvar(26))),var(3)&&Var(39)!= playerID(ceil(fvar(26))),var(3)
 var(25+!!Var(25)+!!Var(26)+!!Var(27)+!!Var(28)+!!Var(29)+!!Var(30)+!!Var(31)+!!Var(32)+!!Var(33)+!!Var(34)+!!Var(35)+!!Var(36)+!!Var(37)+!!Var(38)) = playerID(ceil(fvar(26))),var(3)
 ignorehitpause = 1
+[State ]
+type = VarSet
+triggerall = ishelper&&const(size.height) = 60000&&playerIDexist(ceil(fvar(27)))
+triggerall = playerID(ceil(fvar(27))),var(3) > 0 &&!(playerID(ceil(fvar(27))),sysvar(4)&536)
+trigger1 = Var(25)!= playerID(ceil(fvar(26))),var(3)&&Var(26)!= playerID(ceil(fvar(26))),var(3)&&Var(27)!= playerID(ceil(fvar(26))),var(3)
+trigger1 = Var(28)!= playerID(ceil(fvar(26))),var(3)&&Var(29)!= playerID(ceil(fvar(26))),var(3)&&Var(30)!= playerID(ceil(fvar(26))),var(3)
+Trigger1 = Var(31)!= playerID(ceil(fvar(26))),var(3)&&Var(32)!= playerID(ceil(fvar(26))),var(3)&&Var(33)!= playerID(ceil(fvar(26))),var(3)
+trigger1 = Var(34)!= playerID(ceil(fvar(26))),var(3)&&Var(35)!= playerID(ceil(fvar(26))),var(3)&&Var(36)!= playerID(ceil(fvar(26))),var(3)
+trigger1 = Var(37)!= playerID(ceil(fvar(26))),var(3)&&Var(38)!= playerID(ceil(fvar(26))),var(3)&&Var(39)!= playerID(ceil(fvar(26))),var(3)
+var(25+!!Var(25)+!!Var(26)+!!Var(27)+!!Var(28)+!!Var(29)+!!Var(30)+!!Var(31)+!!Var(32)+!!Var(33)+!!Var(34)+!!Var(35)+!!Var(36)+!!Var(37)+!!Var(38)) = playerID(ceil(fvar(26))),var(3)
+ignorehitpause = 1
 
 [state 60000,state數量記錄]
 type = null
@@ -12243,6 +11878,7 @@ trigger1 = 1 || var(40):= (var(40)|16*(!!var(10)+!!var(11)+!!var(12)+!!var(13)+!
 trigger1 = 1 || var(40):= (var(40)|128*(!!Var(15)+!!Var(16)+!!Var(17)+!!Var(18)+!!Var(19)+!!Var(20)+!!Var(21)+!!Var(22)+!!Var(23)+!!Var(24)))
 trigger1 = var(40):= (var(40)|2048*(!!Var(25)+!!Var(26)+!!Var(27)+!!Var(28)+!!Var(29)+!!Var(30)+!!Var(31)+!!Var(32)+!!Var(33)+!!Var(34)+!!Var(35)+!!Var(36)+!!Var(37)+!!Var(38)+!!Var(39)))
 ignorehitpause = 1
+
 
 [state 60000, 混線]
 type = null
@@ -12287,22 +11923,8 @@ trigger19  = fvar(25) != helper(10018),ID
 trigger19  = 0 && fvar(25) := helper(10018),ID
 trigger20  = fvar(26) != helper(10019),ID
 trigger20  = 0 && fvar(26) := helper(10019),ID
-ignorehitpause = 1
-
-[state 60000,C1間者ID記錄]
-type = null
-triggerall = ishelper&&const(size.height) = 60000
-triggerall = numhelper(12000)
-trigger1 = helper(12000),fvar(4)
-trigger1 = fvar(27):= helper(12000),fvar(4)
-ignorehitpause = 1
-
-[state 60000,C2間者ID記錄]
-type = null
-triggerall = ishelper&&const(size.height) = 60000
-triggerall = numhelper(12000)
-trigger1 = helper(12000),fvar(5)
-trigger1 = fvar(28):= helper(12000),fvar(5)
+trigger20  = fvar(27) != helper(10020),ID
+trigger20  = 0 && fvar(27) := helper(10020),ID
 ignorehitpause = 1
 
 [state 60000,敵本體間者ID記錄]

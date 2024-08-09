@@ -5162,14 +5162,6 @@ trigger1 = anim!= 289
 value = 289
 ignorehitpause = 1
 
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 3
-ignorehitpause = 1
-persistent = 1
-
 [State Change]
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
@@ -5314,14 +5306,6 @@ trigger1 = AnimElem = 4
 value = S290,0
 ignorehitpause = 1
 
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 3
-ignorehitpause = 1
-persistent = 1
-
 [State Change]
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
@@ -5465,14 +5449,6 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = AnimElem = 1
 value = S230,1
 ignorehitpause = 1
-
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 3
-ignorehitpause = 1
-persistent = 1
 
 [State Change]
 type = ChangeState
@@ -9250,13 +9226,13 @@ envshake.time = 15
 envshake.ampl = 5
 envshake.freq = 120
 envshake.phase = 120
-p2stateno = 15020
+p2stateno = 15000
 
 [State PosAdd]
 type = PosAdd
 trigger1 = name = "Finaltly_Death_Claw"
-trigger1 = AnimElemtime(5) = 0
-x = ((enemynear,pos X)-pos X)*facing - 80
+trigger1 = AnimElemtime(7) = 0
+x = 100
 ignorehitpause = 1
 [State 0, VelSet]
 type = VelSet
@@ -18181,14 +18157,6 @@ value = (lifemax-life)*0.2
 absolute = 1
 ignorehitpause = 1
 
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = 1
-value = SCA
-time = 3
-ignorehitpause = 1
-persistent = 1
-
 [State change]
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
@@ -19748,7 +19716,7 @@ trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = hitpausetime;存在打擊暫停，避免報錯
 trigger1 = !enemy,alive && !alive &&!win
 trigger1 = roundstate >= 3;當進入R3時蘇生
-value = 1000001
+value = 1000010
 persistent = 256
 ignorehitpause = 1
 
@@ -19756,7 +19724,7 @@ ignorehitpause = 1
 type = ChangeState
 trigger1 = name = "Finaltly_Death_Claw"
 trigger1 = hitpausetime > 1;存在打擊暫停過多時
-value = 1000002
+value = 1100000
 persistent = 256
 ignorehitpause = 1
 
@@ -19866,14 +19834,6 @@ ignorehitpause = 1
 [state ]
 type = Explod
 triggerall = name = "Finaltly_Death_Claw"
-trigger1 = 1||var(4938056):= 0 
-trigger1 = 1||var(4938060):= 0 
-trigger1 = 1||var(4937032):= 0 
-trigger1 = 1||var(4942209):= 0
-trigger1 = 1||var(4942262):= 0
-trigger1 = 1||var(4942264):= 0
-trigger1 = 1||var(4942392):= 0
-trigger1 = var(4933864):= 4810321
 trigger1 = var(var(355)+344):= 1
 trigger1 = 1||var(var(355)+348):= 0
 trigger1 = var(var(355)+352):= var(var(355)+356):= 666

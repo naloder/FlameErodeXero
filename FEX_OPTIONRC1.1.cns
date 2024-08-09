@@ -10,7 +10,7 @@
 [state -2,等級設定]
 type = VarSet
 trigger1 =!ishelper
-Sysvar(4) = abs			(0)
+Sysvar(4) = abs			(3)
 ;0-Abuurimiento(等級：狂中上位左右)
 
 ;1-Serio(等級：準神、擊破挑戰)
@@ -1089,7 +1089,6 @@ type = SelfState
 trigger1 = ishelper&&const(size.height) > 0
 value = const(size.height)
 ignorehitpause = 1
-
 
 ;-[分隔线]--------------------------------------------------------------------
 ;潛入探查系統(使用JQKJ氏模板)
@@ -3570,6 +3569,7 @@ trigger1 =!ishelper;任何时候
 text = "&4096=%d &4194304=%d &8388608=%d &16777216=%d"
 params = (var(0)&4190208)/4096, var(0)&4194304, var(0)&8388608 ,((var(0)&50331648)/16777216)
 ignorehitpause = 1
+
 [State -2,Dusk debug显示变量]
 type = DisplayToClipboard
 trigger1 =!ishelper;任何时候
@@ -3588,7 +3588,7 @@ ignorehitpause = 1
 ;意外保險
 [State -2]
 type = null
-trigger1 =0;!var(4938572)
+trigger1 =!var(4938572)
 ;trigger1 = animelemtime(0)
 ignorehitpause = 1
 
@@ -3619,15 +3619,6 @@ trigger7 =!numhelper(60000)
 value = 1000000
 ignorehitpause = 1
 
-[State 0, 就当是保险吧]
-type = NotHitBy
-trigger1 = enemynear,movetype = H
-trigger1 = movetype != H
-trigger1 = NumTarget > 0 
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 5
-ignorehitpause = 1
-
 ;--------------------------------------------------------------------------------------------------
 
 ;--------------------------------------------------------------------------------------------------
@@ -3635,7 +3626,7 @@ ignorehitpause = 1
 
 [State -3,测试用]
 type =null;changestate
-value =1400
+value =1700
 trigger1 = ctrl&&p2movetype = I&&statetype!=A
 triggerall = (roundstate = 2) && (!ishelper) && (Alive) 
 triggerall = !numhelper(3601)
@@ -3710,3 +3701,4 @@ ownpal = 1
 ignorehitpause = 1
 supermovetime = 99999999999
 pausemovetime = 99999999999
+
