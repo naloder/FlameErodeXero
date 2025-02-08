@@ -3,7 +3,7 @@ name = "Finaltly_Death_Claw"
 displayname = "Helel ben Shalem" 
 versiondate = 04,14,2002    ;適用mugen版本
 mugenversion = 09,5,2022   ;角色更新日期
-author = "Nebula_Collapses+Kyjoke+Makudonarudo"         ;作者名
+author = "Nebula_Collapses+Kyjoke+Makudonarudo+Cen"         ;作者名
 
 
 ; Files for the player
@@ -22,7 +22,8 @@ st2     = Program/FEX_Null.cns ;512溢出刷值
 st3     = Program/FEX_Enemy.cns ;敵方用state
 st4     = Program/commonDevil.cns ;Common states
 st5     = Program/FEX_4CA.cns ;隔离
-st6     = Program/FEX_LV3.st
+st6     = Binary/DynamicPortrait.st
+st7     = Program/FEX_LV3.st
 stcommon = Program/FEX_DevilsEye.cns ;全領域邪眼空狀態(此處為最後加載，請不要移動位置)
 pal1    = Pallet/Koakuma.act
 

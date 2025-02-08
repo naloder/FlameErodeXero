@@ -234,7 +234,7 @@ triggerall =!IsHelper
 triggerall = statetype != A
 triggerall = Sysvar(4) = 2
 triggerall =!numprojID(666)
-triggerall = (var(1)&2048)
+triggerall = (var(4)&2048)
 trigger1 = ctrl
 ignorehitpause = 1
 

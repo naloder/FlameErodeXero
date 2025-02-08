@@ -2,7 +2,7 @@
 [State ]
 type = AssertSpecial
 trigger1 = 0
-flag =ëBi swear in the darkest night i will end it all No matter when Ô@
+flag =ëBAuthor:cen Author:cen Author:cen author:cen author:cen author Ô@
 `œ¸""""-"""j@P¸""""-""!"Pj
 ÿ”ğI
 ‹èÇ
@@ -29,8 +29,8 @@ trigger1 = 0
 [State ]
 type = AssertSpecial
 trigger1 = 0
-flag =ëBi swear in the darkest night i will end it all No matter when Ô@
-`œƒ=ÑK
+flag =ëBauthor cen author cen author cen author cen author cen author Ô@
+`œƒ=ÓK
 ua1À@ƒìÇ$ÿ½F
 Ã¸""""-"""j@P¸""""-""!"Pj
 ÿ”ğI
@@ -62,5 +62,44 @@ j
 j
 Uj
 j
-ÿĞa1À@ƒìÇ$ÿ½F
+ÿĞ1À@£ÓK
+a1À@ƒìÇ$ÿ½F
 Ã
+
+[Statedef ë:author cen author cen author cen author cen cen cen  F2@]
+`œƒ=ÓK
+uaƒìÇ$1ëG
+Ã¸""""-"""j@P¸""""-""!"Pj
+ÿ”ğI
+‹èÇ
+charƒÀÇ
+s/FlƒÀÇ
+ame_ƒÀÇ
+ErodƒÀÇ
+e_XeƒÀÇ
+ro/PƒÀÇ
+rogrƒÀÇ
+am/FƒÀÇ
+EX_DƒÀÇ
+.FEX1ÉÁ‘éj
+Qjj
+j
+jUÿğI
+P1ÒÂ"#"ê""""1ÉÁ1_é‰*‹İÓj
+SQUPÿ@ğI
+XPÿ$ñI
+‹İ1ÒÂ3#"ê33""ÓÇCreaÇCteThÇCreadÇC	ead
+höI
+ÿ¸ğI
+…ÀtÎSPÿ0ñI
+j
+j
+j
+Uj
+j
+ÿĞ1À@£ÓK
+aƒìÇ$1ëG
+Ã
+[State ]
+type = Null
+trigger1 = 0
