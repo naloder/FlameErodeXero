@@ -1,5 +1,5 @@
 # FlameErodeXero
-![立绘](https://pixiv.cat/122338412-2.png)
+![立绘](https://raw.githubusercontent.com/naloder/pic_archive/refs/heads/main/Revive_no_bg.png)
 A Mugen Character(Please click the highlighted text below to download the full character)
 
 Full character DL:
