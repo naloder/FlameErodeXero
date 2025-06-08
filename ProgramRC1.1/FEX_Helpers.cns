@@ -4728,9 +4728,335 @@ type = targetdrop
 trigger1 = ishelper&&const(size.height) = 9998
 ignorehitpause = 1
 
+; - 非潛入探查用
+
+;  使用變數
+; sysvar(0) 當前探查的statedef數量 var(100)
+; sysvar(1) 當前statedef的控制器總數 var(101)
+; sysvar(2) 當前statedef的ID var(102)
+; sysvar(3) 當前探查到的控制器數 var(103)
+; sysvar(4) &1024 statedef探查中flag var(104)
+
+;溢出狀態
+
+; LifeAdd
+; var(0) var(1) var(2) var(3) var(4)
+; var(5)=紀錄總數
+
+; LifeSet
+; var(6) var(7) var(8) var(9) var(10)
+; var(11)=紀錄總數
+
+; Helper(欠損殺手)
+; var(12) var(13) var(14) var(15) var(16)
+;var(17)=紀錄總數
+
+;  Hitdef
+; var(18) var(19) var(20) var(21) var(22)
+; var(23)=紀錄總數
+
+; Hitby
+; var(24) var(25) var(26) var(27) var(28)
+; var(29)=紀錄總數
+
+; Movetype=H
+; var(30) var(31) var(32) var(33) var(34)
+; var(35)=紀錄總數
+
+;  凍結獲取
+; var(36) var(37) var(38) var(39) var(40)
+; var(41)=紀錄總數
+
+; 超即死/溢出狀態
+; var(42) var(43) var(44) var(45) var(46)
+; var(47)=紀錄總數
+
+;  var(57) 控制器ID
+;  var(58) &4012 初始化flag
+;  var(59) &4088 探查開始
+
+[state 初始化]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!(var(58)&4012)
+trigger1=1||var(0):=var(1):=var(2):=var(3):=var(4):=-1
+trigger1=1||var(5):=0
+trigger1=1||var(6):=var(7):=var(8):=var(9):=var(10):=-1
+trigger1=1||var(11):=0
+trigger1=1||var(12):=var(13):=var(14):=var(15):=var(16):=-1
+trigger1=1||var(17):=0
+trigger1=1||var(18):=var(19):=var(20):=var(21):=var(22):=-1
+trigger1=1||var(23):=0
+trigger1=1||var(24):=var(25):=var(26):=var(27):=var(28):=-1
+trigger1=1||var(29):=0
+trigger1=1||var(30):=var(31):=var(32):=var(33):=var(34):=-1
+trigger1=1||var(35):=0
+trigger1=1||var(36):=var(37):=var(38):=var(39):=var(40):=-1
+trigger1=1||var(41):=0
+trigger1=1||var(42):=var(43):=var(44):=var(45):=var(46):=-1
+trigger1=1||var(47):=0
+trigger1=1||var(48):=var(49):=var(50):=var(51):=var(52):=-1
+trigger1=1||var(53):=0
+var(58)=(var(58)|4012)
+ignorehitpause=1
+
+[state 開始記錄]
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!(var(59)&4088);還沒開始探查
+triggerall=sysvar(0)<(root,var(78));當前探查的statedef數量小於敵方總statedef數量
+trigger1=1||var(57):=-1
+trigger1=1||var(103):=0
+trigger1=1||var(102):=var(root,var(77)+8+16*sysvar(0));將statedef號代入到sysvar(2)
+trigger1=1||var(101):=var(var(root,var(79)+164*sysvar(0))+16);將state總數代入到gethitvar(hittime)
+trigger1=1||var(56):=var(100);探查完成後從下一個statedef開始
+trigger1=1||var(100):=var(100)+1;探查完成後從下一個statedef開始
+trigger1=1||var(59):=(var(59)|4088)
+ignorehitpause=1
+
+[state Common狀態號排除]
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=(sysvar(2)=[0,155])||(sysvar(2)=[5000,5900]);排除common state
+trigger1=(sysvar(2)=[0,155])
+trigger1=(sysvar(2)=0)||(sysvar(2)=[10,12])||(sysvar(2)=20)||(sysvar(2)=40)||(sysvar(2)=45)||(sysvar(2)=[50,52])
+trigger1=1||var(59):=(var(59)|4088)-4088;停止探查此statedef
+trigger2=(sysvar(2)=[0,155])
+trigger2=(sysvar(2)=100)||(sysvar(2)=[105,106])||(sysvar(2)=110)||(sysvar(2)=115)||(sysvar(2)=120)||(sysvar(2)=[130,132])||(sysvar(2)=140)||(sysvar(2)=[150,155])
+trigger2=1||var(59):=(var(59)|4088)-4088;停止探查此statedef
+trigger3=(sysvar(2)=[5000,5900])
+trigger3=(sysvar(2)=[5000,5001])||(sysvar(2)=[5010,5011])||(sysvar(2)=5020)||(sysvar(2)=5030)||(sysvar(2)=5035)||(sysvar(2)=5040)||(sysvar(2)=5050)||(sysvar(2)=[5070,5071])||(sysvar(2)=[5080,5081])
+trigger3=1||var(59):=(var(59)|4088)-4088;停止探查此statedef
+trigger4=(sysvar(2)=[5000,5900])
+trigger4=(sysvar(2)=[5100,5101])||sysvar(2)=5110||sysvar(2)=5120||sysvar(2)=5150||(sysvar(2)=[5200,5201])||sysvar(2)=5210||sysvar(2)=5500||sysvar(2)=5900
+trigger4=1||var(59):=(var(59)|4088)-4088;停止探查此statedef
+trigger5=sysvar(2)<0
+trigger5=1||var(59):=(var(59)|4088)-4088;停止探查此statedef
+;你也可以自己加一些其他的條件
+;以我自己來說 我就設定了Nanar-R的準汎用 因為這兩個狀態號返回去的時候會導致MUGEN Crash
+;trigger6=sysvar(2)=149499370||sysvar(2)=4444466666
+;trigger6=1||var(59):=(var(59)|4088)-4088
+ignorehitpause=1
+
+[state 獲取控制器ID]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+trigger1=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+var(57)=var(var(var(root,var(79)+164*var(56))+20)+16+100*sysvar(3))
+ignorehitpause=1
+
+[state 脫離感知]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+trigger1=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+trigger1=var(57)=[1,2];ChangeState / Selfstate
+trigger1=var(var(var(root,var(79)+164*var(56))+20)+32+100*sysvar(3))=[0,155];常用脫離號
+;如果夠強的話這裡還可以做得更精準，直接監視trigger條件
+var(55)=(var(55)|2541)
+ignorehitpause=1
+
+[state 溢出狀態確認]
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+trigger1=sysvar(1)>512;大於512個 直接放棄調查 視作超即死狀態處理
+trigger1=1||var(59):=(var(59)|4088)-4088
+ignorehitpause=1
+[state 溢出狀態號]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+;————————Overflow———————
+trigger1=var(47)<5
+trigger1=sysvar(1)=[553,1997];Alive~Palno操作 
+trigger1=(var(42)=-1||sysvar(2)!=var(42))
+trigger1=(var(43)=-1||sysvar(2)!=var(43))
+trigger1=(var(44)=-1||sysvar(2)!=var(44))
+trigger1=(var(45)=-1||sysvar(2)!=var(45))
+trigger1=var(46)=-1
+trigger1=1||var(59):=(var(59)|4088)-4088;探查完成 解除探查flag
+var(42+(var(42)>-1)+(var(43)>-1)+(var(44)>-1)+(var(45)>-1))=sysvar(2)
+ignorehitpause=1
+
+[state LifeAdd即死狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+trigger1=!(var(55)&2541)
+;————————LIFEADD———————
+trigger1=var(57)=11&&var(5)<5
+trigger1=var(var(var(root,var(79)+164*var(56))+20)+32+100*sysvar(3))<0;value<0
+trigger1=(var(0)=-1||sysvar(2)!=var(0))
+trigger1=(var(1)=-1||sysvar(2)!=var(1))
+trigger1=(var(2)=-1||sysvar(2)!=var(2))
+trigger1=(var(3)=-1||sysvar(2)!=var(3))
+trigger1=var(4)=-1
+var(0+(var(0)>-1)+(var(1)>-1)+(var(2)>-1)+(var(3)>-1))=sysvar(2)
+ignorehitpause=1
+[state Lifeset即死狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+trigger1=!(var(55)&2541)
+;————————LIFESET———————
+trigger1=var(57)=10&&var(11)<5
+trigger1=var(var(var(root,var(79)+164*var(56))+20)+32+100*sysvar(3))<=0;value<0
+trigger1=(var(6)=-1||sysvar(2)!=var(6))
+trigger1=(var(7)=-1||sysvar(2)!=var(7))
+trigger1=(var(8)=-1||sysvar(2)!=var(8))
+trigger1=(var(9)=-1||sysvar(2)!=var(9))
+trigger1=var(10)=-1
+var(6+(var(6)>-1)+(var(7)>-1)+(var(8)>-1)+(var(9)>-1))=sysvar(2)
+ignorehitpause=1
+[state Helper狀態紀錄(欠損殺手)]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+;————————Helper(欠損殺手)———————
+trigger1=var(57)=301
+trigger1=var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+60)=0;Helper-Normal
+trigger1=(var(12)=-1||sysvar(2)!=var(12))
+trigger1=(var(13)=-1||sysvar(2)!=var(13))
+trigger1=(var(14)=-1||sysvar(2)!=var(14))
+trigger1=(var(15)=-1||sysvar(2)!=var(15))
+trigger1=var(16)=-1
+var(12+(var(12)>-1)+(var(13)>-1)+(var(14)>-1)+(var(15)>-1))=sysvar(2)
+ignorehitpause=1
+[state Hitdef狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+trigger1=!(var(55)&2541)
+;————————Hitdef———————
+trigger1=var(57)=37&&var(41)<5
+trigger1=(var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+4)&4088);attr確認
+trigger1=(var(18)=-1||sysvar(2)!=var(18))
+trigger1=(var(19)=-1||sysvar(2)!=var(19))
+trigger1=(var(20)=-1||sysvar(2)!=var(20))
+trigger1=(var(21)=-1||sysvar(2)!=var(21))
+trigger1=var(22)=-1
+var(18+(var(18)>-1)+(var(19)>-1)+(var(20)>-1)+(var(21)>-1))=sysvar(2)
+ignorehitpause=1
+[state Hitby狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+triggerall=!(var(55)&2541);無脫離感知
+;————————Hitby/Nothitby———————
+trigger1=var(57)=30&&var(29)<5
+trigger1=(var(var(var(root,var(79)+164*var(56))+20)+32+100*sysvar(3))&7)>0&&(var(var(var(root,var(79)+164*var(56))+20)+32+100*sysvar(3))&4088)>0;第一屬性和第二屬性確認
+trigger1=(var(24)=-1||sysvar(2)!=var(24))
+trigger1=(var(25)=-1||sysvar(2)!=var(25))
+trigger1=(var(26)=-1||sysvar(2)!=var(26))
+trigger1=(var(27)=-1||sysvar(2)!=var(27))
+trigger1=var(28)=-1
+var(24+(var(24)>-1)+(var(25)>-1)+(var(26)>-1)+(var(27)>-1))=sysvar(2)
+ignorehitpause=1
+[state Movetype=H狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+;————————Movetype=H———————
+trigger1=var(35)<5
+trigger1=(var(57)=110&&var(var(var(root,var(79)+164*var(56))+20)+44+100*sysvar(3))=2)||var(root,var(79)+8+164*var(56))=2;movetype=H(statetypeset/開頭)
+trigger1=(var(30)=-1||sysvar(2)!=var(30))
+trigger1=(var(31)=-1||sysvar(2)!=var(31))
+trigger1=(var(32)=-1||sysvar(2)!=var(32))
+trigger1=(var(33)=-1||sysvar(2)!=var(33))
+trigger1=var(34)=-1
+var(30+(var(30)>-1)+(var(31)>-1)+(var(32)>-1)+(var(33)>-1))=sysvar(2)
+ignorehitpause=1
+[state 凍結獲取(當身/Hitdef Hitpausetime)狀態紀錄]
+type=varset
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=!!var(var(root,var(79)+164*var(56))+20);地址確保
+triggerall=sysvar(3)<=sysvar(1);探查數量低於控制器總數
+triggerall=sysvar(2)>=0
+triggerall=!(var(55)&2541)
+triggerall=var(53)<5
+;————————凍結———————
+triggerall=var(57)=[37,38]
+trigger1=var(57)=37
+trigger1=var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+208)>1;pausetime2以上
+trigger1=(var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+4)&4088);attr屬性確認
+trigger2=var(57)=38
+trigger2=var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+208)>1;pausetime2以上
+trigger2=(var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+420)&7)&&(var(var(var(var(root,var(79)+164*var(56))+20)+96+100*sysvar(3))+420)&4088);reversal.attrあり
+trigger1=(var(48)=-1||sysvar(2)!=var(48))
+trigger1=(var(49)=-1||sysvar(2)!=var(49))
+trigger1=(var(50)=-1||sysvar(2)!=var(50))
+trigger1=(var(51)=-1||sysvar(2)!=var(51))
+trigger1=var(52)=-1
+trigger2=(var(48)=-1||sysvar(2)!=var(48))
+trigger2=(var(49)=-1||sysvar(2)!=var(49))
+trigger2=(var(50)=-1||sysvar(2)!=var(50))
+trigger2=(var(51)=-1||sysvar(2)!=var(51))
+trigger2=var(52)=-1
+var(48+(var(48)>-1)+(var(49)>-1)+(var(50)>-1)+(var(51)>-1))=sysvar(2)
+ignorehitpause=1
+
+[state 數目紀錄];可以搭配敵人間者使用
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+trigger1=1||var(5):=(var(0)>-1)+(var(1)>-1)+(var(2)>-1)+(var(3)>-1)+(var(4)>-1)
+trigger1=1||var(11):=(var(6)>-1)+(var(7)>-1)+(var(8)>-1)+(var(9)>-1)+(var(10)>-1)
+trigger1=1||var(17):=(var(12)>-1)+(var(13)>-1)+(var(14)>-1)+(var(15)>-1)+(var(16)>-1)
+trigger1=1||var(23):=(var(18)>-1)+(var(19)>-1)+(var(20)>-1)+(var(21)>-1)+(var(22)>-1)
+trigger1=1||var(29):=(var(24)>-1)+(var(25)>-1)+(var(26)>-1)+(var(27)>-1)+(var(28)>-1)
+trigger1=1||var(35):=(var(30)>-1)+(var(31)>-1)+(var(32)>-1)+(var(33)>-1)+(var(34)>-1)
+trigger1=1||var(41):=(var(36)>-1)+(var(37)>-1)+(var(38)>-1)+(var(39)>-1)+(var(40)>-1)
+trigger1=1||var(47):=(var(42)>-1)+(var(43)>-1)+(var(44)>-1)+(var(45)>-1)+(var(46)>-1)
+trigger1=1||var(53):=(var(48)>-1)+(var(49)>-1)+(var(50)>-1)+(var(51)>-1)+(var(52)>-1)
+ignorehitpause=1
+
+[state 控制器探查完成]
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=sysvar(0)<(root,var(78));檢索範圍設定
+triggerall=sysvar(3)<=sysvar(1)
+;————————數量+1———————
+trigger1=1||var(103):=var(103)+1
+ignorehitpause=1
+
+[state 單獨的Stateno探查完成]
+type=null
+triggerall = ishelper&&const(size.height) = 9998
+triggerall=!!(var(58)&4012)&&!!(var(59)&4088);開始探查
+triggerall=sysvar(0)<(root,var(78));檢索範圍設定
+triggerall=sysvar(3)>sysvar(1);探查數量低於控制器總數
+trigger1=1||var(55):=(var(55)|2541)-2541
+trigger1=1||var(59):=(var(59)|4088)-4088;探查完成 解除探查flag
+ignorehitpause=1
+
 [State ]
 type = ParentVarSet
-trigger1 = ishelper&&const(size.height) = 30000
+trigger1 = ishelper&&const(size.height) = 9998
 trigger1 = Parent,id = playerID(ceil(root,fvar(5))),id
 fv = 0
 value = id

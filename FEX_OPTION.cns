@@ -308,7 +308,10 @@ trigger1 = 0 && var(363):= var(var(360)+3048)
 trigger2 = abs(var(361)) > 262144&&!var(364) 
 trigger2 = 0 && var(364):= var(var(361)+3048)
 trigger3 = abs(var(362)) > 262144&&!var(365) 
-trigger3 = var(365):= var(var(362)+3048)
+trigger3 = 0 && var(365):= var(var(362)+3048)
+trigger4 = 0 && var(366):= var(var(var(364))+24)
+trigger5 = 0 && var(367):= var(var(var(364))+8)
+trigger6 = var(368):= var(var(var(364))+20)
 IgnoreHitPause = 1
 
 [State -2 ,Finaltly_Death_Claw]
@@ -3030,8 +3033,8 @@ ignorehitpause = 1
 [State 0, AppendToClipboard]
 type = AppendToClipboard
 trigger1 =!ishelper;任何时候
-text = "cns=%d st=%d"
-params = var(357),var(359)
+text = "cns=%d st=%d %d %d est=%d"
+params = var(357),var(359),var(365),var(366),var(367)
 ignorehitpause = 1
 
 ;-[分隔线]--------------------------------------------------------------------

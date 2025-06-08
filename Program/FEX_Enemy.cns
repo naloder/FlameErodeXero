@@ -7010,7 +7010,7 @@ trigger2 = roundstate = 2
 trigger2 =!(enemy,var(4)&32)
 trigger2 = (ceil(enemy,fvar(1))%5000 = [0,199]) || (ceil(enemy,fvar(0))%200 = [600,799])*!random%3
 v = 23
-value = playerID(ceil(enemy,fvar(5))),var(Random%(playerID(ceil(enemy,fvar(5))),var(40)&15))
+value = playerID(ceil(enemy,fvar(6))),var(6+Random%(playerID(ceil(enemy,fvar(6))),var(11)))
 ignorehitpause = 1
 
 [State , 超即死返]
@@ -7025,7 +7025,7 @@ trigger2 = roundstate = 2
 trigger2 =!(enemy,var(4)&32)
 trigger2 = ceil(enemy,fvar(1))%5000 = [0,199]
 v = 23
-value = playerID(ceil(enemy,fvar(5))),var(10+Random%((playerID(ceil(enemy,fvar(5))),var(40)&127)/16))
+value = playerID(ceil(enemy,fvar(6))),var(42+Random%((playerID(ceil(enemy,fvar(6))),var(47))))
 ignorehitpause = 1
 
 [State , 各種殺手]
@@ -7103,7 +7103,7 @@ trigger2 = roundstate = 2
 trigger2 =!(enemy,var(4)&32)
 trigger2 = ceil(enemy,fvar(1))%5000 = [1200,1399]
 v = 23
-value = playerID(ceil(enemy,fvar(5))),var(25+(Random%(playerID(ceil(enemy,fvar(5))),var(40)&32767)/2048))
+value = playerID(ceil(enemy,fvar(5))),var(25+(Random%((playerID(ceil(enemy,fvar(5))),var(40)&32767)/2048)))
 ignorehitpause = 1
 
 [State , sysvar弄]
